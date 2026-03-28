@@ -51,7 +51,8 @@ function scopeBadge(scope) {
 }
 
 function renderCard(item) {
-  return '<div class="item-card">' +
+  const clickAttr = item.clickId ? ' onclick="showSkillDetail(\'' + item.clickId + '\')" style="cursor:pointer;"' : '';
+  return '<div class="item-card"' + clickAttr + '>' +
     '<div class="flex items-center justify-between">' +
       '<h3>' + item.title + '</h3>' +
       item.badge +
@@ -103,6 +104,7 @@ function renderItems(tab) {
       meta: 'Source: ' + s.source,
       desc: s.description,
       badge: usageBadge(s.name),
+      clickId: s.name,
     }));
     return;
   }
@@ -211,6 +213,64 @@ function renderProjects() {
     '</div>';
   }).join('');
 }
+
+// Simple markdown to HTML (headers, bold, code blocks, lists, paragraphs)
+function md(text) {
+  if (!text) return '';
+  return text
+    .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+    .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')
+    .replace(/^### (.+)$/gm, '<h4>$1</h4>')
+    .replace(/^## (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>')
+    .replace(/<\/li><br><li>/g, '</li><li>')
+    .replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
+    .replace(/<\/ul><ul>/g, '');
+}
+
+window.showSkillDetail = function(skillName) {
+  const skill = appData.skills.find(s => s.name === skillName);
+  if (!skill) return;
+
+  const container = document.getElementById('tabContent');
+  const zhName = skill.zh?.name || skill.name;
+  const zhDesc = skill.zh?.description || '';
+  const zhContent = skill.zh?.content || '';
+  const enContent = skill.content || '';
+
+  container.className = 'space-y-6';
+  container.innerHTML =
+    '<div class="detail-page">' +
+      '<button class="back-btn" onclick="renderItems(\'skills\')">&larr; 返回 Skills</button>' +
+      '<div class="detail-header">' +
+        '<h2 class="detail-title">' + skill.name + '</h2>' +
+        '<div class="detail-badges">' +
+          scopeBadge(skill.scope) +
+          ' <span class="detail-source">Source: ' + skill.source + '</span>' +
+        '</div>' +
+      '</div>' +
+
+      // 中文版
+      '<div class="detail-section">' +
+        '<div class="detail-lang-label">中文</div>' +
+        '<h3 class="detail-zh-name">' + zhName + '</h3>' +
+        (zhDesc ? '<p class="detail-zh-desc">' + zhDesc + '</p>' : '') +
+        (zhContent ? '<div class="detail-content">' + md(zhContent) + '</div>' : '') +
+      '</div>' +
+
+      // 英文版
+      '<div class="detail-section">' +
+        '<div class="detail-lang-label">English</div>' +
+        (skill.description ? '<p class="detail-en-desc">' + skill.description + '</p>' : '') +
+        (enContent ? '<div class="detail-content">' + md(enContent) + '</div>' : '') +
+      '</div>' +
+    '</div>';
+};
 
 function setupTabs() {
   const buttons = document.querySelectorAll('.tab-btn');

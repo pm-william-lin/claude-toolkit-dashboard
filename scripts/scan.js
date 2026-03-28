@@ -111,22 +111,26 @@ async function scanSkillsDir(dir, source, scope) {
     if (!await fileExists(skillFile)) continue;
     const content = await readFile(skillFile, 'utf-8');
     const fm = parseFrontmatter(content);
+    // Extract body content (after frontmatter)
+    const bodyMatch = content.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
+    const body = bodyMatch ? bodyMatch[1].trim() : '';
     skills.push({
       name: fm.name || entry,
       source,
       scope,
       description: fm.description || '',
+      content: body,
     });
   }
   return skills;
 }
 
 const BUNDLED_SKILLS = [
-  { name: 'batch', source: 'bundled', scope: 'bundled', description: 'Orchestrate large-scale changes across a codebase in parallel' },
-  { name: 'claude-api', source: 'bundled', scope: 'bundled', description: "Load Claude API reference material for your project's language" },
-  { name: 'debug', source: 'bundled', scope: 'bundled', description: 'Enable debug logging and troubleshoot issues' },
-  { name: 'loop', source: 'bundled', scope: 'bundled', description: 'Run a prompt repeatedly on an interval' },
-  { name: 'simplify', source: 'bundled', scope: 'bundled', description: 'Review changed code for reuse, quality, and efficiency' },
+  { name: 'batch', source: 'bundled', scope: 'bundled', description: 'Orchestrate large-scale changes across a codebase in parallel', content: 'Usage: `/batch <instruction>`\n\nResearches the codebase, decomposes the work into 5 to 30 independent units, and presents a plan. Once approved, spawns one background agent per unit in an isolated git worktree. Each agent implements its unit, runs tests, and opens a pull request.\n\nRequires a git repository.\n\nExample: `/batch migrate src/ from Solid to React`' },
+  { name: 'claude-api', source: 'bundled', scope: 'bundled', description: "Load Claude API reference material for your project's language", content: 'Usage: `/claude-api`\n\nLoad Claude API reference material for your project\'s language (Python, TypeScript, Java, Go, Ruby, C#, PHP, or cURL) and Agent SDK reference for Python and TypeScript. Covers tool use, streaming, batches, structured outputs, and common pitfalls.\n\nAlso activates automatically when your code imports `anthropic`, `@anthropic-ai/sdk`, or `claude_agent_sdk`.' },
+  { name: 'debug', source: 'bundled', scope: 'bundled', description: 'Enable debug logging and troubleshoot issues', content: 'Usage: `/debug [description]`\n\nEnable debug logging for the current session and troubleshoot issues by reading the session debug log. Debug logging is off by default unless you started with `claude --debug`, so running `/debug` mid-session starts capturing logs from that point forward.\n\nOptionally describe the issue to focus the analysis.' },
+  { name: 'loop', source: 'bundled', scope: 'bundled', description: 'Run a prompt repeatedly on an interval', content: 'Usage: `/loop [interval] <prompt>`\n\nRun a prompt repeatedly on an interval while the session stays open. Useful for polling a deployment, babysitting a PR, or periodically re-running another skill.\n\nDefault interval: 10 minutes.\n\nExample: `/loop 5m check if the deploy finished`' },
+  { name: 'simplify', source: 'bundled', scope: 'bundled', description: 'Review changed code for reuse, quality, and efficiency', content: 'Usage: `/simplify [focus]`\n\nReview your recently changed files for code reuse, quality, and efficiency issues, then fix them. Spawns three review agents in parallel, aggregates their findings, and applies fixes.\n\nPass text to focus on specific concerns.\n\nExample: `/simplify focus on memory efficiency`' },
 ];
 
 async function scanSkills() {
@@ -272,6 +276,22 @@ async function main() {
 
   const usagePath = join(import.meta.dirname, '..', 'usage.json');
   const usage = await readJson(usagePath) || { lastUpdated: null, tools: {} };
+
+  // Merge translations
+  const transPath = join(import.meta.dirname, '..', 'translations.json');
+  const translations = await readJson(transPath) || { skills: {} };
+
+  // Attach translations to skills
+  for (const skill of skills) {
+    const t = translations.skills?.[skill.name];
+    if (t) {
+      skill.zh = {
+        name: t.name || '',
+        description: t.description || '',
+        content: t.content || '',
+      };
+    }
+  }
 
   const data = {
     generatedAt: new Date().toISOString(),

@@ -1,0 +1,104 @@
+{
+  "skills": {
+    "batch": {
+      "name": "批次處理",
+      "description": "在整個程式碼庫中平行執行大規模變更",
+      "content": "用法：`/batch <指令>`\n\n研究程式碼庫，將工作分解為 5 到 30 個獨立單元，並呈現計畫。核准後，為每個單元在隔離的 git worktree 中啟動一個背景代理。每個代理實作其單元、執行測試並建立 pull request。\n\n需要 git 儲存庫。\n\n範例：`/batch migrate src/ from Solid to React`"
+    },
+    "claude-api": {
+      "name": "Claude API 參考",
+      "description": "載入你專案語言的 Claude API 參考文件",
+      "content": "用法：`/claude-api`\n\n載入你專案語言（Python、TypeScript、Java、Go、Ruby、C#、PHP 或 cURL）的 Claude API 參考文件，以及 Python 和 TypeScript 的 Agent SDK 參考。涵蓋工具使用、串流、批次處理、結構化輸出和常見陷阱。\n\n當程式碼匯入 `anthropic`、`@anthropic-ai/sdk` 或 `claude_agent_sdk` 時也會自動啟動。"
+    },
+    "debug": {
+      "name": "除錯",
+      "description": "啟用除錯日誌並排除問題",
+      "content": "用法：`/debug [描述]`\n\n為當前 session 啟用除錯日誌，並透過讀取 session 除錯日誌來排除問題。除非以 `claude --debug` 啟動，否則除錯日誌預設關閉，因此在 session 中途執行 `/debug` 會從該時間點開始擷取日誌。\n\n可選擇性地描述問題以聚焦分析。"
+    },
+    "loop": {
+      "name": "定時循環",
+      "description": "以固定間隔重複執行提示",
+      "content": "用法：`/loop [間隔] <提示>`\n\n在 session 開啟期間，以固定間隔重複執行提示。適合輪詢部署狀態、監控 PR，或定期重新執行另一個 skill。\n\n預設間隔：10 分鐘。\n\n範例：`/loop 5m check if the deploy finished`"
+    },
+    "simplify": {
+      "name": "簡化程式碼",
+      "description": "檢查變更的程式碼是否有重用、品質和效率問題",
+      "content": "用法：`/simplify [焦點]`\n\n檢查你最近變更的檔案，找出程式碼重用、品質和效率問題，然後修復。同時啟動三個檢查代理，彙整發現並套用修復。\n\n可傳入文字聚焦於特定面向。\n\n範例：`/simplify focus on memory efficiency`"
+    },
+    "brainstorming": {
+      "name": "腦力激盪",
+      "description": "在任何創意工作之前必須使用——建立功能、構建元件、新增功能或修改行為。在實作前探索使用者意圖、需求和設計。",
+      "content": "## 概述\n\n將想法轉化為完整的設計和規格，透過自然的協作對話進行。\n\n先了解當前專案背景，然後逐一提問以精煉想法。當你了解要建構的東西後，呈現設計並取得使用者核准。\n\n## 流程\n1. 探索專案背景\n2. 逐一提出釐清問題（優先使用選擇題）\n3. 提出 2-3 種方案及優缺點\n4. 分段呈現設計\n5. 撰寫設計文件\n6. Spec review 循環\n7. 使用者確認後轉入實作規劃"
+    },
+    "dispatching-parallel-agents": {
+      "name": "派遣平行代理",
+      "description": "面對 2 個以上可獨立處理、無共享狀態或順序依賴的任務時使用",
+      "content": "當面對 2 個以上獨立任務時使用。將工作分配給多個平行代理同時執行，每個代理獨立完成各自的任務後回報結果。"
+    },
+    "executing-plans": {
+      "name": "執行計畫",
+      "description": "有撰寫好的實作計畫時，在獨立 session 中逐步執行並設有檢查點",
+      "content": "依據既有的實作計畫，在獨立的 session 中逐步執行。包含 review checkpoint，確保每個步驟的實作品質。"
+    },
+    "finishing-a-development-branch": {
+      "name": "完成開發分支",
+      "description": "實作完成、所有測試通過後，決定如何整合工作——引導完成開發工作，提供合併、PR 或清理等結構化選項",
+      "content": "當實作完成且所有測試通過後使用。提供結構化選項：\n- 合併到主分支\n- 建立 Pull Request\n- 清理和收尾\n\n引導你完成開發分支的最後步驟。"
+    },
+    "receiving-code-review": {
+      "name": "接收程式碼審查",
+      "description": "接收到程式碼審查回饋、在實作建議之前使用，特別是當回饋不明確或技術上有疑慮時——需要技術嚴謹和驗證，而非盲目同意或實作",
+      "content": "接收到 code review 回饋時使用。要求技術嚴謹和驗證：\n- 不盲目同意審查者的建議\n- 驗證建議的技術正確性\n- 如有疑慮，提出討論\n- 確保修改不會引入新問題"
+    },
+    "requesting-code-review": {
+      "name": "請求程式碼審查",
+      "description": "完成任務、實作主要功能或合併前，用來驗證工作是否符合需求",
+      "content": "完成任務或實作主要功能後使用。派遣 code-reviewer 代理來審查：\n- 計畫對齊分析\n- 程式碼品質評估\n- 架構審查\n- 文件驗證"
+    },
+    "subagent-driven-development": {
+      "name": "子代理驅動開發",
+      "description": "在當前 session 中使用子代理逐項執行實作計畫中的獨立任務",
+      "content": "透過子代理逐一執行計畫中的任務：\n1. 為每個任務派遣新的實作代理\n2. 實作完成後進行 spec compliance review\n3. 通過後進行 code quality review\n4. 全部通過才進入下一個任務\n\n每個代理都有隔離的 context，確保不會互相干擾。"
+    },
+    "systematic-debugging": {
+      "name": "系統化除錯",
+      "description": "遇到任何 bug、測試失敗或非預期行為時，在提出修復方案之前使用",
+      "content": "遇到 bug 或非預期行為時的系統化除錯流程：\n1. 重現問題\n2. 收集證據（錯誤訊息、日誌、堆疊追蹤）\n3. 形成假設\n4. 驗證假設\n5. 找到根本原因後才提出修復\n\n禁止猜測性修復，必須基於證據。"
+    },
+    "test-driven-development": {
+      "name": "測試驅動開發",
+      "description": "在撰寫實作程式碼之前，用於實作任何功能或修復 bug",
+      "content": "TDD 紅綠重構循環：\n1. 寫失敗的測試（紅色）\n2. 執行測試確認失敗\n3. 寫最小實作讓測試通過（綠色）\n4. 執行測試確認通過\n5. 重構（如有需要）\n6. 提交"
+    },
+    "using-git-worktrees": {
+      "name": "使用 Git Worktree",
+      "description": "開始需要與當前工作區隔離的功能開發，或在執行實作計畫之前使用——建立隔離的 git worktree，具有智慧目錄選擇和安全驗證",
+      "content": "在開始功能開發前建立隔離的 git worktree：\n- 自動選擇適合的目錄\n- 安全驗證（確保不會覆蓋現有工作）\n- 完成後可輕鬆清理"
+    },
+    "using-superpowers": {
+      "name": "使用 Superpowers",
+      "description": "開始任何對話時使用——建立如何找到和使用 skill 的流程，要求在任何回應（包括澄清問題）之前先呼叫 Skill 工具",
+      "content": "啟動時的技能檢查流程：\n- 收到使用者訊息後，先檢查是否有適用的 skill\n- 即使只有 1% 的可能性，也必須呼叫 skill\n- 在做任何回應之前先檢查 skill\n- 不要合理化跳過 skill 檢查"
+    },
+    "verification-before-completion": {
+      "name": "完成前驗證",
+      "description": "在聲稱工作完成、已修復或通過之前，在提交或建立 PR 之前使用——需要執行驗證命令並確認輸出後才能做任何成功宣告",
+      "content": "在宣稱工作完成之前：\n1. 執行相關的驗證命令（測試、lint、build）\n2. 確認輸出結果\n3. 確保沒有新的錯誤或警告\n4. 只有在證據支持下才能宣告成功\n\n證據優先於斷言。"
+    },
+    "writing-plans": {
+      "name": "撰寫計畫",
+      "description": "有規格或需求的多步驟任務，在動手寫程式碼之前使用",
+      "content": "撰寫詳細的實作計畫：\n- 假設工程師對程式碼庫完全沒有背景\n- 每個步驟都是一個動作（2-5 分鐘）\n- 包含精確的檔案路徑和完整的程式碼\n- 遵循 TDD、DRY、YAGNI 原則\n- 頻繁提交"
+    },
+    "writing-skills": {
+      "name": "撰寫技能",
+      "description": "建立新技能、編輯現有技能，或在部署前驗證技能是否正常運作",
+      "content": "建立或編輯 Claude Code 技能的流程：\n1. 定義技能的目的和觸發條件\n2. 撰寫 SKILL.md 包含 frontmatter 和指令\n3. 測試技能是否正常觸發\n4. 驗證技能的輸出品質"
+    },
+    "app-store-screenshots": {
+      "name": "App Store 截圖產生器",
+      "description": "建構 App Store 截圖頁面、產生可匯出的 iOS App 行銷截圖，或使用 Next.js 建立程式化截圖產生器時使用",
+      "content": "建構一個 Next.js 頁面，將 iOS App Store 截圖渲染為廣告（不是 UI 展示），並透過 html-to-image 以 Apple 要求的解析度匯出。\n\n截圖是 App Store 上最重要的轉換資產。"
+    }
+  }
+}
