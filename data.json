@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T08:56:45.203Z",
+  "generatedAt": "2026-03-28T08:59:07.818Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -141,10 +141,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-03-28T06:38:03.373Z",
-    "tools": {
-      "n8n_create_workflow": 2,
-      "batch_design": 1
-    }
+    "lastUpdated": null,
+    "tools": {}
   }
 }

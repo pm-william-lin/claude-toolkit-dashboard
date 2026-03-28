@@ -1,7 +1,4 @@
 {
-  "lastUpdated": "2026-03-28T06:38:03.373Z",
-  "tools": {
-    "n8n_create_workflow": 2,
-    "batch_design": 1
-  }
+  "lastUpdated": null,
+  "tools": {}
 }
