@@ -233,6 +233,8 @@ function md(text) {
     .replace(/<\/ul><ul>/g, '');
 }
 
+window.renderItems = renderItems;
+
 window.showSkillDetail = function(skillName) {
   const skill = appData.skills.find(s => s.name === skillName);
   if (!skill) return;
