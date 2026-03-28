@@ -49,8 +49,75 @@ function scopeBadge(scope) {
   return '<span class="scope-badge ' + (colors[scope] || '') + '">' + scope + '</span>';
 }
 
+function renderCard(item) {
+  return '<div class="item-card">' +
+    '<div class="flex items-center justify-between">' +
+      '<h3>' + item.title + '</h3>' +
+      item.badge +
+    '</div>' +
+    '<div class="meta">' + item.meta + '</div>' +
+    (item.desc ? '<div class="desc">' + item.desc + '</div>' : '') +
+  '</div>';
+}
+
+function renderGroupedByScope(list, mapFn) {
+  const scopeOrder = ['plugin', 'global', 'project'];
+  const scopeLabels = {
+    plugin: 'Plugin',
+    global: 'Global (User-installed)',
+    project: 'Project',
+  };
+  const grouped = {};
+  list.forEach(item => {
+    const s = item.scope || 'unknown';
+    if (!grouped[s]) grouped[s] = [];
+    grouped[s].push(item);
+  });
+
+  let html = '';
+  for (const scope of scopeOrder) {
+    const items = grouped[scope];
+    if (!items || items.length === 0) continue;
+    html += '<div class="scope-section">' +
+      '<div class="scope-header">' +
+        '<span class="scope-badge ' + ('scope-' + scope) + '">' + scopeLabels[scope] + '</span>' +
+        '<span class="scope-count">' + items.length + '</span>' +
+      '</div>' +
+      '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">' +
+        items.map(mapFn).map(renderCard).join('') +
+      '</div>' +
+    '</div>';
+  }
+  return html;
+}
+
 function renderItems(tab) {
   const container = document.getElementById('tabContent');
+
+  if (tab === 'skills') {
+    container.className = 'space-y-6';
+    container.innerHTML = renderGroupedByScope(appData.skills, s => ({
+      title: s.name,
+      meta: 'Source: ' + s.source,
+      desc: s.description,
+      badge: usageBadge(s.name),
+    }));
+    return;
+  }
+
+  if (tab === 'agents') {
+    container.className = 'space-y-6';
+    container.innerHTML = renderGroupedByScope(appData.agents, a => ({
+      title: a.name,
+      meta: 'Source: ' + a.source + (a.model ? ' \u00b7 Model: ' + a.model : ''),
+      desc: a.description.length > 150 ? a.description.slice(0, 150) + '...' : a.description,
+      badge: usageBadge(a.name),
+    }));
+    return;
+  }
+
+  // Default grid layout for plugins and mcpServers
+  container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4';
   let items = [];
 
   switch (tab) {
@@ -60,22 +127,6 @@ function renderItems(tab) {
         meta: 'v' + p.version + ' \u00b7 ' + p.source,
         desc: p.description,
         badge: usageBadge(p.name),
-      }));
-      break;
-    case 'skills':
-      items = appData.skills.map(s => ({
-        title: s.name,
-        meta: 'Source: ' + s.source,
-        desc: s.description,
-        badge: scopeBadge(s.scope) + ' ' + usageBadge(s.name),
-      }));
-      break;
-    case 'agents':
-      items = appData.agents.map(a => ({
-        title: a.name,
-        meta: 'Source: ' + a.source + (a.model ? ' \u00b7 Model: ' + a.model : ''),
-        desc: a.description.length > 150 ? a.description.slice(0, 150) + '...' : a.description,
-        badge: scopeBadge(a.scope) + ' ' + usageBadge(a.name),
       }));
       break;
     case 'mcpServers':
@@ -88,16 +139,7 @@ function renderItems(tab) {
       break;
   }
 
-  container.innerHTML = items.map(item =>
-    '<div class="item-card">' +
-      '<div class="flex items-center justify-between">' +
-        '<h3>' + item.title + '</h3>' +
-        item.badge +
-      '</div>' +
-      '<div class="meta">' + item.meta + '</div>' +
-      (item.desc ? '<div class="desc">' + item.desc + '</div>' : '') +
-    '</div>'
-  ).join('');
+  container.innerHTML = items.map(renderCard).join('');
 }
 
 function setupTabs() {
