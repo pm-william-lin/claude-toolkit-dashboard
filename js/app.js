@@ -116,6 +116,12 @@ function renderItems(tab) {
     return;
   }
 
+  if (tab === 'projects') {
+    container.className = 'space-y-6';
+    container.innerHTML = renderProjects();
+    return;
+  }
+
   // Default grid layout for plugins and mcpServers
   container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4';
   let items = [];
@@ -140,6 +146,68 @@ function renderItems(tab) {
   }
 
   container.innerHTML = items.map(renderCard).join('');
+}
+
+function renderUsageList(label, obj, cssClass) {
+  const entries = Object.entries(obj || {}).sort((a, b) => b[1] - a[1]);
+  if (entries.length === 0) return '';
+  return '<div class="project-usage-group">' +
+    '<span class="project-usage-label ' + cssClass + '">' + label + '</span>' +
+    '<div class="project-usage-items">' +
+      entries.map(([name, count]) =>
+        '<div class="project-usage-item">' +
+          '<span>' + name + '</span>' +
+          '<span class="project-usage-count">' + count + '</span>' +
+        '</div>'
+      ).join('') +
+    '</div>' +
+  '</div>';
+}
+
+function renderProjects() {
+  const byProject = appData.usage?.byProject || {};
+  const projects = Object.entries(byProject);
+
+  if (projects.length === 0) {
+    return '<div class="text-center py-12" style="color: #9ca3af;">' +
+      'No project usage data yet. Data will accumulate as you use Skills, Agents, and MCP tools across projects.' +
+    '</div>';
+  }
+
+  // Sort by total usage descending
+  projects.sort((a, b) => {
+    const totalA = Object.values(a[1].skills || {}).reduce((s, v) => s + v, 0) +
+                   Object.values(a[1].agents || {}).reduce((s, v) => s + v, 0) +
+                   Object.values(a[1].mcpTools || {}).reduce((s, v) => s + v, 0);
+    const totalB = Object.values(b[1].skills || {}).reduce((s, v) => s + v, 0) +
+                   Object.values(b[1].agents || {}).reduce((s, v) => s + v, 0) +
+                   Object.values(b[1].mcpTools || {}).reduce((s, v) => s + v, 0);
+    return totalB - totalA;
+  });
+
+  return projects.map(([name, data]) => {
+    const totalSkills = Object.values(data.skills || {}).reduce((s, v) => s + v, 0);
+    const totalAgents = Object.values(data.agents || {}).reduce((s, v) => s + v, 0);
+    const totalMcp = Object.values(data.mcpTools || {}).reduce((s, v) => s + v, 0);
+    const total = totalSkills + totalAgents + totalMcp;
+
+    return '<div class="project-card">' +
+      '<div class="project-header">' +
+        '<h3 class="project-name">' + name + '</h3>' +
+        '<span class="project-total">' + total + ' calls</span>' +
+      '</div>' +
+      '<div class="project-stats">' +
+        (totalSkills ? '<span class="project-stat scope-plugin">Skills: ' + totalSkills + '</span>' : '') +
+        (totalAgents ? '<span class="project-stat scope-project">Agents: ' + totalAgents + '</span>' : '') +
+        (totalMcp ? '<span class="project-stat scope-global">MCP: ' + totalMcp + '</span>' : '') +
+      '</div>' +
+      '<div class="project-details">' +
+        renderUsageList('Skills', data.skills, 'scope-plugin') +
+        renderUsageList('Agents', data.agents, 'scope-project') +
+        renderUsageList('MCP Tools', data.mcpTools, 'scope-global') +
+      '</div>' +
+    '</div>';
+  }).join('');
 }
 
 function setupTabs() {

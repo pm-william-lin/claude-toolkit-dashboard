@@ -81,3 +81,62 @@
   font-size: 0.75rem;
   color: #9ca3af;
 }
+
+/* Project card */
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.project-name { font-size: 1.125rem; font-weight: 600; color: #111827; margin: 0; }
+.project-total { font-size: 0.8125rem; color: #9ca3af; }
+.project-stats {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.project-stat {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.625rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+.project-details {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.project-usage-group { flex: 1; min-width: 180px; }
+.project-usage-label {
+  display: inline-block;
+  font-size: 0.6875rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.project-usage-items { display: flex; flex-direction: column; gap: 0.25rem; }
+.project-usage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: #374151;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #f9fafb;
+}
+.project-usage-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #d97706;
+  min-width: 2rem;
+  text-align: right;
+}
