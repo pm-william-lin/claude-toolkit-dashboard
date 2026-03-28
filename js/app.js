@@ -42,8 +42,9 @@ function usageBadge(name) {
 
 function scopeBadge(scope) {
   const colors = {
+    bundled: 'scope-bundled',
     plugin: 'scope-plugin',
-    global: 'scope-global',
+    personal: 'scope-personal',
     project: 'scope-project',
   };
   return '<span class="scope-badge ' + (colors[scope] || '') + '">' + scope + '</span>';
@@ -61,10 +62,11 @@ function renderCard(item) {
 }
 
 function renderGroupedByScope(list, mapFn) {
-  const scopeOrder = ['plugin', 'global', 'project'];
+  const scopeOrder = ['bundled', 'plugin', 'personal', 'project'];
   const scopeLabels = {
+    bundled: 'Bundled',
     plugin: 'Plugin',
-    global: 'Global (User-installed)',
+    personal: 'Personal',
     project: 'Project',
   };
   const grouped = {};
