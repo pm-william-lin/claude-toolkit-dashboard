@@ -121,8 +121,16 @@ async function scanSkillsDir(dir, source, scope) {
   return skills;
 }
 
+const BUNDLED_SKILLS = [
+  { name: 'batch', source: 'bundled', scope: 'bundled', description: 'Orchestrate large-scale changes across a codebase in parallel' },
+  { name: 'claude-api', source: 'bundled', scope: 'bundled', description: "Load Claude API reference material for your project's language" },
+  { name: 'debug', source: 'bundled', scope: 'bundled', description: 'Enable debug logging and troubleshoot issues' },
+  { name: 'loop', source: 'bundled', scope: 'bundled', description: 'Run a prompt repeatedly on an interval' },
+  { name: 'simplify', source: 'bundled', scope: 'bundled', description: 'Review changed code for reuse, quality, and efficiency' },
+];
+
 async function scanSkills() {
-  const skills = [];
+  const skills = [...BUNDLED_SKILLS];
 
   // 1. Plugin skills (from plugins cache)
   if (await fileExists(PLUGINS_CACHE)) {
@@ -147,10 +155,10 @@ async function scanSkills() {
     }
   }
 
-  // 2. Global user-installed skills (~/.claude/skills/)
-  const globalSkillsDir = join(CLAUDE_DIR, 'skills');
-  const globalSkills = await scanSkillsDir(globalSkillsDir, 'user-installed', 'global');
-  skills.push(...globalSkills);
+  // 2. Personal skills (~/.claude/skills/)
+  const personalSkillsDir = join(CLAUDE_DIR, 'skills');
+  const personalSkills = await scanSkillsDir(personalSkillsDir, 'personal', 'personal');
+  skills.push(...personalSkills);
 
   // 3. Project-level skills (.claude/skills/ in cwd)
   const cwdSkillsDir = join(process.cwd(), '.claude', 'skills');
@@ -206,10 +214,10 @@ async function scanAgents() {
     }
   }
 
-  // 2. Global user-installed agents (~/.claude/agents/)
-  const globalAgentsDir = join(CLAUDE_DIR, 'agents');
-  const globalAgents = await scanAgentsDir(globalAgentsDir, 'user-installed', 'global');
-  agents.push(...globalAgents);
+  // 2. Personal agents (~/.claude/agents/)
+  const personalAgentsDir = join(CLAUDE_DIR, 'agents');
+  const personalAgents = await scanAgentsDir(personalAgentsDir, 'personal', 'personal');
+  agents.push(...personalAgents);
 
   // 3. Project-level agents (.claude/agents/ in cwd)
   const cwdAgentsDir = join(process.cwd(), '.claude', 'agents');
