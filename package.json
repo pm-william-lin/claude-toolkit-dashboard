@@ -1,0 +1,11 @@
+{
+  "name": "claude-toolkit-dashboard",
+  "version": "1.0.0",
+  "description": "Static dashboard for Claude Code toolkit overview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scan": "node scripts/scan.js",
+    "track": "node scripts/track-usage.js"
+  }
+}
