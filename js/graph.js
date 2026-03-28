@@ -10,10 +10,10 @@ const SKILL_FLOWS = [
 ];
 
 const NODE_COLORS = {
-  plugin: '#e94560',
-  skill: '#4ecdc4',
-  agent: '#f7dc6f',
-  mcpServer: '#bb8fce',
+  plugin: '#d97706',
+  skill: '#0891b2',
+  agent: '#7c3aed',
+  mcpServer: '#059669',
 };
 
 export function renderGraph(data) {
@@ -68,7 +68,7 @@ export function renderGraph(data) {
     .attr('orient', 'auto')
     .append('path')
     .attr('d', 'M0,-5L10,0L0,5')
-    .attr('fill', '#e94560');
+    .attr('fill', '#d97706');
 
   const simulation = d3.forceSimulation(nodes)
     .force('link', d3.forceLink(links).id(d => d.id).distance(80))
@@ -80,7 +80,7 @@ export function renderGraph(data) {
     .selectAll('line')
     .data(links)
     .join('line')
-    .attr('stroke', d => d.type === 'triggers' ? '#e94560' : '#2a2a4a')
+    .attr('stroke', d => d.type === 'triggers' ? '#d97706' : '#d1d5db')
     .attr('stroke-width', d => d.type === 'triggers' ? 2 : 1)
     .attr('stroke-dasharray', d => d.type === 'triggers' ? '5,3' : 'none')
     .attr('marker-end', d => d.type === 'triggers' ? 'url(#arrowhead)' : '');
@@ -108,7 +108,7 @@ export function renderGraph(data) {
     .text(d => d.label)
     .attr('dx', 16)
     .attr('dy', 4)
-    .attr('fill', '#eaeaea')
+    .attr('fill', '#374151')
     .attr('font-size', '11px');
 
   node.append('title').text(d => d.type + ': ' + d.label);
@@ -119,7 +119,7 @@ export function renderGraph(data) {
     const g = legend.append('g').attr('transform', 'translate(0, ' + (i * 22) + ')');
     g.append('circle').attr('r', 6).attr('fill', color);
     g.append('text').text(type).attr('x', 14).attr('dy', 4)
-      .attr('fill', '#8892a4').attr('font-size', '12px');
+      .attr('fill', '#6b7280').attr('font-size', '12px');
   });
 
   simulation.on('tick', () => {

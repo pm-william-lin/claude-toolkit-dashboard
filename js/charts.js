@@ -17,9 +17,10 @@ export function renderUsageChart(data) {
       datasets: [{
         label: 'Usage Count',
         data: entries.map(e => e[1]),
-        backgroundColor: 'rgba(233, 69, 96, 0.6)',
-        borderColor: 'rgba(233, 69, 96, 1)',
+        backgroundColor: 'rgba(217, 119, 6, 0.25)',
+        borderColor: 'rgba(217, 119, 6, 0.8)',
         borderWidth: 1,
+        borderRadius: 4,
       }],
     },
     options: {
@@ -28,8 +29,8 @@ export function renderUsageChart(data) {
       maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        x: { ticks: { color: '#8892a4' }, grid: { color: '#2a2a4a' } },
-        y: { ticks: { color: '#eaeaea', font: { size: 12 } }, grid: { display: false } },
+        x: { ticks: { color: '#6b7280' }, grid: { color: '#f3f4f6' } },
+        y: { ticks: { color: '#374151', font: { size: 12 } }, grid: { display: false } },
       },
     },
   });
