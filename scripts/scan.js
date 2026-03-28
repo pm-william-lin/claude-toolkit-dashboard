@@ -89,80 +89,133 @@ async function scanPlugins() {
   return plugins;
 }
 
-async function scanSkills() {
+// Helper: scan a skills directory and return skill entries
+async function scanSkillsDir(dir, source, scope) {
   const skills = [];
-  if (!await fileExists(PLUGINS_CACHE)) return skills;
-
-  const publishers = await readdir(PLUGINS_CACHE);
-  for (const publisher of publishers) {
-    const pubDir = join(PLUGINS_CACHE, publisher);
-    const pubStat = await stat(pubDir);
-    if (!pubStat.isDirectory()) continue;
-    const pluginNames = await readdir(pubDir);
-    for (const pluginName of pluginNames) {
-      const pluginDir = join(pubDir, pluginName);
-      const pluginStat = await stat(pluginDir);
-      if (!pluginStat.isDirectory()) continue;
-      const versions = await readdir(pluginDir);
-      for (const version of versions) {
-        const versionDir = join(pluginDir, version);
-        const skillsDir = join(versionDir, 'skills');
-        if (!await fileExists(skillsDir)) continue;
-        const skillDirs = await readdir(skillsDir);
-        for (const skillDir of skillDirs) {
-          const skillPath = join(skillsDir, skillDir);
-          const sStat = await stat(skillPath);
-          if (!sStat.isDirectory()) continue;
-          const skillFile = join(skillPath, 'SKILL.md');
-          if (!await fileExists(skillFile)) continue;
-          const content = await readFile(skillFile, 'utf-8');
-          const fm = parseFrontmatter(content);
-          skills.push({
-            name: fm.name || skillDir,
-            plugin: pluginName,
-            description: fm.description || '',
-          });
-        }
-      }
+  if (!await fileExists(dir)) return skills;
+  const entries = await readdir(dir);
+  for (const entry of entries) {
+    const entryPath = join(dir, entry);
+    const eStat = await stat(entryPath);
+    if (!eStat.isDirectory()) continue;
+    // Check if this is a skill package (has skills/ subdirectory)
+    const nestedSkillsDir = join(entryPath, 'skills');
+    if (await fileExists(nestedSkillsDir)) {
+      // Skill package: scan its skills/ subdirectory
+      const nested = await scanSkillsDir(nestedSkillsDir, entry, scope);
+      skills.push(...nested);
+      continue;
     }
+    // Direct skill directory with SKILL.md
+    const skillFile = join(entryPath, 'SKILL.md');
+    if (!await fileExists(skillFile)) continue;
+    const content = await readFile(skillFile, 'utf-8');
+    const fm = parseFrontmatter(content);
+    skills.push({
+      name: fm.name || entry,
+      source,
+      scope,
+      description: fm.description || '',
+    });
   }
   return skills;
 }
 
-async function scanAgents() {
-  const agents = [];
-  if (!await fileExists(PLUGINS_CACHE)) return agents;
+async function scanSkills() {
+  const skills = [];
 
-  const publishers = await readdir(PLUGINS_CACHE);
-  for (const publisher of publishers) {
-    const pubDir = join(PLUGINS_CACHE, publisher);
-    const pubStat = await stat(pubDir);
-    if (!pubStat.isDirectory()) continue;
-    const pluginNames = await readdir(pubDir);
-    for (const pluginName of pluginNames) {
-      const pluginDir = join(pubDir, pluginName);
-      const pluginStat = await stat(pluginDir);
-      if (!pluginStat.isDirectory()) continue;
-      const versions = await readdir(pluginDir);
-      for (const version of versions) {
-        const versionDir = join(pluginDir, version);
-        const agentsDir = join(versionDir, 'agents');
-        if (!await fileExists(agentsDir)) continue;
-        const agentFiles = await readdir(agentsDir);
-        for (const agentFile of agentFiles) {
-          if (!agentFile.endsWith('.md')) continue;
-          const content = await readFile(join(agentsDir, agentFile), 'utf-8');
-          const fm = parseFrontmatter(content);
-          agents.push({
-            name: fm.name || agentFile.replace('.md', ''),
-            plugin: pluginName,
-            description: fm.description || '',
-            model: fm.model || '',
-          });
+  // 1. Plugin skills (from plugins cache)
+  if (await fileExists(PLUGINS_CACHE)) {
+    const publishers = await readdir(PLUGINS_CACHE);
+    for (const publisher of publishers) {
+      const pubDir = join(PLUGINS_CACHE, publisher);
+      const pubStat = await stat(pubDir);
+      if (!pubStat.isDirectory()) continue;
+      const pluginNames = await readdir(pubDir);
+      for (const pluginName of pluginNames) {
+        const pluginDir = join(pubDir, pluginName);
+        const pluginStat = await stat(pluginDir);
+        if (!pluginStat.isDirectory()) continue;
+        const versions = await readdir(pluginDir);
+        for (const version of versions) {
+          const versionDir = join(pluginDir, version);
+          const skillsDir = join(versionDir, 'skills');
+          const found = await scanSkillsDir(skillsDir, pluginName, 'plugin');
+          skills.push(...found);
         }
       }
     }
   }
+
+  // 2. Global user-installed skills (~/.claude/skills/)
+  const globalSkillsDir = join(CLAUDE_DIR, 'skills');
+  const globalSkills = await scanSkillsDir(globalSkillsDir, 'user-installed', 'global');
+  skills.push(...globalSkills);
+
+  // 3. Project-level skills (.claude/skills/ in cwd)
+  const cwdSkillsDir = join(process.cwd(), '.claude', 'skills');
+  const projectSkills = await scanSkillsDir(cwdSkillsDir, 'project', 'project');
+  skills.push(...projectSkills);
+
+  return skills;
+}
+
+// Helper: scan an agents directory and return agent entries
+async function scanAgentsDir(dir, source, scope) {
+  const agents = [];
+  if (!await fileExists(dir)) return agents;
+  const entries = await readdir(dir);
+  for (const entry of entries) {
+    if (!entry.endsWith('.md')) continue;
+    const content = await readFile(join(dir, entry), 'utf-8');
+    const fm = parseFrontmatter(content);
+    agents.push({
+      name: fm.name || entry.replace('.md', ''),
+      source,
+      scope,
+      description: fm.description || '',
+      model: fm.model || '',
+    });
+  }
+  return agents;
+}
+
+async function scanAgents() {
+  const agents = [];
+
+  // 1. Plugin agents (from plugins cache)
+  if (await fileExists(PLUGINS_CACHE)) {
+    const publishers = await readdir(PLUGINS_CACHE);
+    for (const publisher of publishers) {
+      const pubDir = join(PLUGINS_CACHE, publisher);
+      const pubStat = await stat(pubDir);
+      if (!pubStat.isDirectory()) continue;
+      const pluginNames = await readdir(pubDir);
+      for (const pluginName of pluginNames) {
+        const pluginDir = join(pubDir, pluginName);
+        const pluginStat = await stat(pluginDir);
+        if (!pluginStat.isDirectory()) continue;
+        const versions = await readdir(pluginDir);
+        for (const version of versions) {
+          const versionDir = join(pluginDir, version);
+          const agentsDir = join(versionDir, 'agents');
+          const found = await scanAgentsDir(agentsDir, pluginName, 'plugin');
+          agents.push(...found);
+        }
+      }
+    }
+  }
+
+  // 2. Global user-installed agents (~/.claude/agents/)
+  const globalAgentsDir = join(CLAUDE_DIR, 'agents');
+  const globalAgents = await scanAgentsDir(globalAgentsDir, 'user-installed', 'global');
+  agents.push(...globalAgents);
+
+  // 3. Project-level agents (.claude/agents/ in cwd)
+  const cwdAgentsDir = join(process.cwd(), '.claude', 'agents');
+  const projectAgents = await scanAgentsDir(cwdAgentsDir, 'project', 'project');
+  agents.push(...projectAgents);
+
   return agents;
 }
 

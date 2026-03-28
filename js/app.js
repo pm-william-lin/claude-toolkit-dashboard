@@ -40,6 +40,15 @@ function usageBadge(name) {
   return '<span class="' + cls + '">' + count + ' uses</span>';
 }
 
+function scopeBadge(scope) {
+  const colors = {
+    plugin: 'scope-plugin',
+    global: 'scope-global',
+    project: 'scope-project',
+  };
+  return '<span class="scope-badge ' + (colors[scope] || '') + '">' + scope + '</span>';
+}
+
 function renderItems(tab) {
   const container = document.getElementById('tabContent');
   let items = [];
@@ -56,17 +65,17 @@ function renderItems(tab) {
     case 'skills':
       items = appData.skills.map(s => ({
         title: s.name,
-        meta: 'Plugin: ' + s.plugin,
+        meta: 'Source: ' + s.source,
         desc: s.description,
-        badge: usageBadge(s.name),
+        badge: scopeBadge(s.scope) + ' ' + usageBadge(s.name),
       }));
       break;
     case 'agents':
       items = appData.agents.map(a => ({
         title: a.name,
-        meta: 'Plugin: ' + a.plugin + (a.model ? ' \u00b7 Model: ' + a.model : ''),
+        meta: 'Source: ' + a.source + (a.model ? ' \u00b7 Model: ' + a.model : ''),
         desc: a.description.length > 150 ? a.description.slice(0, 150) + '...' : a.description,
-        badge: usageBadge(a.name),
+        badge: scopeBadge(a.scope) + ' ' + usageBadge(a.name),
       }));
       break;
     case 'mcpServers':

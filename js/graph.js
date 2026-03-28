@@ -35,12 +35,17 @@ export function renderGraph(data) {
 
   data.skills.forEach(s => {
     addNode('skill:' + s.name, 'skill', s.name);
-    links.push({ source: 'plugin:' + s.plugin, target: 'skill:' + s.name, type: 'owns' });
+    // Only link to plugin if scope is 'plugin'
+    if (s.scope === 'plugin' && nodeSet.has('plugin:' + s.source)) {
+      links.push({ source: 'plugin:' + s.source, target: 'skill:' + s.name, type: 'owns' });
+    }
   });
 
   data.agents.forEach(a => {
     addNode('agent:' + a.name, 'agent', a.name);
-    links.push({ source: 'plugin:' + a.plugin, target: 'agent:' + a.name, type: 'owns' });
+    if (a.scope === 'plugin' && nodeSet.has('plugin:' + a.source)) {
+      links.push({ source: 'plugin:' + a.source, target: 'agent:' + a.name, type: 'owns' });
+    }
   });
 
   data.mcpServers.forEach(m => addNode('mcp:' + m.name, 'mcpServer', m.name));

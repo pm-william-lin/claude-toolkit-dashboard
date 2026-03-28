@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T06:36:48.896Z",
+  "generatedAt": "2026-03-28T08:56:45.203Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -19,79 +19,100 @@
   "skills": [
     {
       "name": "brainstorming",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
     },
     {
       "name": "dispatching-parallel-agents",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
     },
     {
       "name": "executing-plans",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
     },
     {
       "name": "finishing-a-development-branch",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup"
     },
     {
       "name": "receiving-code-review",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation"
     },
     {
       "name": "requesting-code-review",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
     },
     {
       "name": "subagent-driven-development",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when executing implementation plans with independent tasks in the current session"
     },
     {
       "name": "systematic-debugging",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
     },
     {
       "name": "test-driven-development",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when implementing any feature or bugfix, before writing implementation code"
     },
     {
       "name": "using-git-worktrees",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification"
     },
     {
       "name": "using-superpowers",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions"
     },
     {
       "name": "verification-before-completion",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always"
     },
     {
       "name": "writing-plans",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when you have a spec or requirements for a multi-step task, before touching code"
     },
     {
       "name": "writing-skills",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
+    },
+    {
+      "name": "app-store-screenshots",
+      "source": "app-store-screenshots",
+      "scope": "global",
+      "description": "Use when building App Store screenshot pages, generating exportable marketing screenshots for iOS apps, or creating programmatic screenshot generators with Next.js. Triggers on app store, screenshots, marketing assets, html-to-image, phone mockup."
     }
   ],
   "agents": [
     {
       "name": "code-reviewer",
-      "plugin": "superpowers",
+      "source": "superpowers",
+      "scope": "plugin",
       "description": "Use this agent when a major project step has been completed and needs to be reviewed against the original plan and coding standards. Examples: <example>Context: The user is creating a code-review agent that should be called after a logical chunk of code is written. user: \"I've finished implementing the user authentication system as outlined in step 3 of our plan\" assistant: \"Great work! Now let me use the code-reviewer agent to review the implementation against our plan and coding standards\" <commentary>Since a major project step has been completed, use the code-reviewer agent to validate the work against the plan and identify any issues.</commentary></example> <example>Context: User has completed a significant feature implementation. user: \"The API endpoints for the task management system are now complete - that covers step 2 from our architecture document\" assistant: \"Excellent! Let me have the code-reviewer agent examine this implementation to ensure it aligns with our plan and follows best practices\" <commentary>A numbered step from the planning document has been completed, so the code-reviewer agent should review the work.</commentary></example>",
       "model": "inherit"
     }
@@ -120,7 +141,10 @@
     }
   ],
   "usage": {
-    "lastUpdated": null,
-    "tools": {}
+    "lastUpdated": "2026-03-28T06:38:03.373Z",
+    "tools": {
+      "n8n_create_workflow": 2,
+      "batch_design": 1
+    }
   }
 }
