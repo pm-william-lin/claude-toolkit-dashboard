@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "start": "npx serve . -p 8080",
     "scan": "node scripts/scan.js",
     "track": "node scripts/track-usage.js"
   }
