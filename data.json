@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T10:02:17.859Z",
+  "generatedAt": "2026-03-29T17:22:54.597Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -256,6 +256,18 @@
         "description": "建構 App Store 截圖頁面、產生可匯出的 iOS App 行銷截圖，或使用 Next.js 建立程式化截圖產生器時使用",
         "content": "建構一個 Next.js 頁面，將 iOS App Store 截圖渲染為廣告（不是 UI 展示），並透過 html-to-image 以 Apple 要求的解析度匯出。\n\n截圖是 App Store 上最重要的轉換資產。"
       }
+    },
+    {
+      "name": "n8n-dev-guide",
+      "source": "personal",
+      "scope": "personal",
+      "description": "n8n workflow development rules, node version compatibility, common pitfalls, and testing checklist. Use when building, modifying, or debugging n8n workflows. Triggers on n8n, workflow, n8n_create_workflow, n8n_update_partial_workflow.",
+      "content": "# n8n Workflow Development Guide\n\n> Instance: `https://pm-williamlin-n8n.zeabur.app` (n8n 2.35.5)\n\n## Node Version Compatibility (MUST follow)\n\n| Node | Version | Notes |\n|------|---------|-------|\n| `scheduleTrigger` | **v1.2** | v1.3 causes \"Cannot read properties of undefined (reading 'execute')\" |\n| `httpRequest` | **v4.2** | v4.4 may be incompatible |\n| `code` | **v2** | |\n| `webhook` | **v2** | |\n| `googleSheets` | **v4.5** | |\n| `if` | **v2.2** | |\n\n## Code Node Rules\n\n### Avoid `}}`\nNever use inline objects that produce `}}`. n8n misinterprets it as expression closing.\n\n```javascript\n// BAD - will break\nreturn [{json: {key: value}}];\n\n// GOOD - use intermediate variable\nconst r = {};\nr.key = value;\nreturn [{json: r}];\n```\n\n### Code Node Limitations\n- Cannot use `fetch()` or `require()` (JS sandbox)\n- Python sandbox cannot import stdlib\n- Code nodes are for pure data transformation only\n- Reference other nodes with `$('Node Name').all()` (must be already executed in same run)\n- Wrap in try/catch when referencing nodes that may not exist\n\n## Webhook Nodes\n\n- **Always** include `webhookId` property at creation: `\"webhookId\": \"my-path-wh\"`\n- Must be in the initial `n8n_create_workflow` call (adding later won't register)\n- After any workflow update: **deactivate → reactivate** to apply changes\n\n## Google Sheets\n\n- Target sheet by name: `\"sheetName\": {\"__rl\": true, \"mode\": \"name\", \"value\": \"SheetName\"}`\n- Never use gid mode (easy to point to wrong tab)\n- OAuth2 credential must be authorized manually in n8n UI\n- Credential reference: `\"credentials\": {\"googleSheetsOAuth2Api\": {\"id\": \"...\", \"name\": \"...\"}}`\n- **OAuth2 Token Expiry**: If Google Cloud OAuth consent screen is in \"Testing\" mode, refresh token expires in 7 days. Fix: go to Google Cloud Console → OAuth consent screen → PUBLISH APP to switch to Production. Sheets-only scope doesn't need Google review.\n\n## IF Node\n\nBoolean \"true\" operator requires `\"singleValue\": true`:\n```json\n{\"operator\": {\"type\": \"boolean\", \"operation\": \"true\", \"singleValue\": true}}\n```\n\n## n8n_update_partial_workflow API\n\n- Use `nodeName` or `nodeId` (NOT `name` or `id`)\n- Wrap changes in `updates` object:\n  ```json\n  {\"type\": \"updateNode\", \"nodeName\": \"My Node\", \"updates\": {\"parameters.jsCode\": \"...\"}}\n  ```\n- Use dot notation for nested updates: `\"parameters.jsCode\": \"...\"`\n- addConnection uses `source` / `target` (NOT `from` / `to`):\n  ```json\n  {\"type\": \"addConnection\", \"source\": \"Trigger\", \"target\": \"Next Node\"}\n  ```\n- Activate/deactivate:\n  ```json\n  {\"type\": \"activateWorkflow\"}\n  {\"type\": \"deactivateWorkflow\"}\n  ```\n\n## Execution Order\n\n- Parallel branches from same trigger execute in connections array order\n- First branch completes entirely before second starts\n- Use `replaceConnections` to control order\n\n## Schedule Trigger Timezone\n\n- Set `\"timezone\": \"Asia/Taipei\"` in workflow settings\n- cron `0 9 * * *` + Asia/Taipei = Taiwan time 09:00\n\n## LINE Message Format\n\n- Clean text preview: `(text || '').replace(/[\\n\\r\\u200b\\u200c\\u200d\\ufeff]/g, ' ').replace(/\\s+/g, ' ').trim()`\n- LINE message text limit: 5000 chars, protect with `.substring(0, 5000)`\n\n## Threads API Notes\n\n- Follower count must use **user insights endpoint**: `GET /me/threads_insights?metric=followers_count`\n- `GET /me?fields=followers_count` will error with \"Tried accessing nonexisting field\"\n- Response format: `{data: [{name: \"followers_count\", total_value: {value: 2838}}]}`\n\n## Reusable Snippets\n\nNode templates at `~/.claude/projects/-Users-william/memory/n8n-snippets/`:\n- `schedule-trigger.json` — cron schedule trigger\n- `webhook-test.json` — manual test webhook\n- `google-sheets-read.json` — read entire sheet\n- `google-sheets-append.json` — append rows to sheet\n- `line-push-message.json` — send LINE message\n- `workflow-settings.json` — standard workflow settings (Asia/Taipei timezone)\n\nLoad and reuse these when building workflows.\n\n## Post-Implementation Testing Checklist\n\nAfter building or modifying a workflow, ALWAYS complete this checklist:\n\n1. **Validate** — `n8n_validate_workflow` to check structure, connections, expressions\n2. **Autofix** — If validate has errors, run `n8n_autofix_workflow`, then re-validate\n3. **Test Execute** — If workflow has webhook/form/chat trigger, use `n8n_test_workflow` to send test data\n4. **Check Execution** — `n8n_executions(action='list', workflowId=..., limit=1)` to confirm latest run is success\n5. **Error Diagnosis** — If failed, `n8n_executions(action='get', id=..., mode='error')` to see error details and fix\n\nIf workflow only has scheduleTrigger (no webhook), skip step 3 but still complete 1-2.\n\n### Report Format\n```\n✅ 測試結果：\n- Validate: passed\n- Test run: success (execution ID: xxx)\n- 無 error / 有 N 個 warning（已處理）\n```\nIf any test fails, fix it first before reporting. Never just report an error and stop.",
+      "zh": {
+        "name": "n8n 開發指南",
+        "description": "n8n workflow 開發規則、節點版本相容性、常見陷阱和測試清單。建立、修改或除錯 n8n workflow 時使用。",
+        "content": "## 節點版本（必須遵守）\n\n| 節點 | 版本 | 備註 |\n|------|------|------|\n| scheduleTrigger | v1.2 | v1.3 會報錯 |\n| httpRequest | v4.2 | v4.4 可能不相容 |\n| code | v2 | |\n| webhook | v2 | |\n| googleSheets | v4.5 | |\n| if | v2.2 | |\n\n## 重點規則\n\n### Code Node\n- 禁止產生 `}}`，改用中間變數模式\n- 不能用 `fetch()` 或 `require()`\n- 引用其他節點：`$('Node Name').all()`\n\n### Webhook\n- 建立時必須包含 `webhookId`\n- 必須在 `n8n_create_workflow` 時就加入\n- 更新後要 deactivate → reactivate\n\n### Google Sheets\n- 用 name mode 指定 sheet\n- OAuth2 需在 n8n UI 手動授權\n- Testing 模式的 token 7 天過期，改 Production 解決\n\n### API 更新\n- 用 `nodeName`/`nodeId`（不是 `name`/`id`）\n- 用 dot notation：`parameters.jsCode`\n- 連線用 `source`/`target`\n\n## 測試清單\n1. Validate → 2. Autofix（如有錯）→ 3. Test Execute → 4. Check Execution → 5. Error Diagnosis"
+      }
     }
   ],
   "agents": [
@@ -291,12 +303,21 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-03-28T09:52:27.604Z",
+    "lastUpdated": "2026-03-28T16:23:13.940Z",
     "tools": {
-      "agent:general-purpose": 1
+      "agent:general-purpose": 2,
+      "agent:Explore": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
+        "skills": {},
+        "agents": {
+          "general-purpose": 1,
+          "Explore": 1
+        },
+        "mcpTools": {}
+      },
+      "~": {
         "skills": {},
         "agents": {
           "general-purpose": 1

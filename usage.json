@@ -1,10 +1,19 @@
 {
-  "lastUpdated": "2026-03-28T09:52:27.604Z",
+  "lastUpdated": "2026-03-28T16:23:13.940Z",
   "tools": {
-    "agent:general-purpose": 1
+    "agent:general-purpose": 2,
+    "agent:Explore": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
+      "skills": {},
+      "agents": {
+        "general-purpose": 1,
+        "Explore": 1
+      },
+      "mcpTools": {}
+    },
+    "~": {
       "skills": {},
       "agents": {
         "general-purpose": 1

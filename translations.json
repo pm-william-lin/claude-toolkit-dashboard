@@ -99,6 +99,11 @@
       "name": "App Store 截圖產生器",
       "description": "建構 App Store 截圖頁面、產生可匯出的 iOS App 行銷截圖，或使用 Next.js 建立程式化截圖產生器時使用",
       "content": "建構一個 Next.js 頁面，將 iOS App Store 截圖渲染為廣告（不是 UI 展示），並透過 html-to-image 以 Apple 要求的解析度匯出。\n\n截圖是 App Store 上最重要的轉換資產。"
+    },
+    "n8n-dev-guide": {
+      "name": "n8n 開發指南",
+      "description": "n8n workflow 開發規則、節點版本相容性、常見陷阱和測試清單。建立、修改或除錯 n8n workflow 時使用。",
+      "content": "## 節點版本（必須遵守）\n\n| 節點 | 版本 | 備註 |\n|------|------|------|\n| scheduleTrigger | v1.2 | v1.3 會報錯 |\n| httpRequest | v4.2 | v4.4 可能不相容 |\n| code | v2 | |\n| webhook | v2 | |\n| googleSheets | v4.5 | |\n| if | v2.2 | |\n\n## 重點規則\n\n### Code Node\n- 禁止產生 `}}`，改用中間變數模式\n- 不能用 `fetch()` 或 `require()`\n- 引用其他節點：`$('Node Name').all()`\n\n### Webhook\n- 建立時必須包含 `webhookId`\n- 必須在 `n8n_create_workflow` 時就加入\n- 更新後要 deactivate → reactivate\n\n### Google Sheets\n- 用 name mode 指定 sheet\n- OAuth2 需在 n8n UI 手動授權\n- Testing 模式的 token 7 天過期，改 Production 解決\n\n### API 更新\n- 用 `nodeName`/`nodeId`（不是 `name`/`id`）\n- 用 dot notation：`parameters.jsCode`\n- 連線用 `source`/`target`\n\n## 測試清單\n1. Validate → 2. Autofix（如有錯）→ 3. Test Execute → 4. Check Execution → 5. Error Diagnosis"
     }
   }
 }
