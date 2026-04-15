@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-15T08:14:46.646Z",
+  "generatedAt": "2026-04-15T14:45:38.452Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -303,12 +303,13 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-10T06:07:14.970Z",
+    "lastUpdated": "2026-04-15T09:04:54.357Z",
     "tools": {
       "agent:general-purpose": 4,
-      "agent:Explore": 1,
-      "skill:superpowers:brainstorming": 1,
-      "skill:superpowers:writing-plans": 1
+      "agent:Explore": 2,
+      "skill:superpowers:brainstorming": 2,
+      "skill:superpowers:writing-plans": 1,
+      "agent:Plan": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -321,10 +322,12 @@
       },
       "~": {
         "skills": {
-          "superpowers:brainstorming": 1
+          "superpowers:brainstorming": 2
         },
         "agents": {
-          "general-purpose": 1
+          "general-purpose": 1,
+          "Explore": 1,
+          "Plan": 1
         },
         "mcpTools": {}
       },
