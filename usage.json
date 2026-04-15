@@ -1,8 +1,10 @@
 {
-  "lastUpdated": "2026-03-28T16:23:13.940Z",
+  "lastUpdated": "2026-04-10T06:07:14.970Z",
   "tools": {
-    "agent:general-purpose": 2,
-    "agent:Explore": 1
+    "agent:general-purpose": 4,
+    "agent:Explore": 1,
+    "skill:superpowers:brainstorming": 1,
+    "skill:superpowers:writing-plans": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -14,9 +16,20 @@
       "mcpTools": {}
     },
     "~": {
-      "skills": {},
+      "skills": {
+        "superpowers:brainstorming": 1
+      },
       "agents": {
         "general-purpose": 1
+      },
+      "mcpTools": {}
+    },
+    "docs": {
+      "skills": {
+        "superpowers:writing-plans": 1
+      },
+      "agents": {
+        "general-purpose": 2
       },
       "mcpTools": {}
     }
