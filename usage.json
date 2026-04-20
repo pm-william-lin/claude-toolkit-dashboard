@@ -1,11 +1,16 @@
 {
-  "lastUpdated": "2026-04-15T09:04:54.357Z",
+  "lastUpdated": "2026-04-20T15:58:18.672Z",
   "tools": {
     "agent:general-purpose": 4,
     "agent:Explore": 2,
     "skill:superpowers:brainstorming": 2,
     "skill:superpowers:writing-plans": 1,
-    "agent:Plan": 1
+    "agent:Plan": 1,
+    "claude_ai_Google_Drive:authenticate": 1,
+    "claude_ai_Google_Drive:read_file_content": 6,
+    "skill:superpowers:writing-skills": 1,
+    "claude_ai_Google_Drive:get_file_metadata": 2,
+    "claude_ai_Google_Drive:download_file_content": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -25,7 +30,10 @@
         "Explore": 1,
         "Plan": 1
       },
-      "mcpTools": {}
+      "mcpTools": {
+        "claude_ai_Google_Drive:authenticate": 1,
+        "claude_ai_Google_Drive:read_file_content": 1
+      }
     },
     "docs": {
       "skills": {
@@ -35,6 +43,17 @@
         "general-purpose": 2
       },
       "mcpTools": {}
+    },
+    "Claude Code": {
+      "skills": {
+        "superpowers:writing-skills": 1
+      },
+      "agents": {},
+      "mcpTools": {
+        "claude_ai_Google_Drive:read_file_content": 5,
+        "claude_ai_Google_Drive:get_file_metadata": 2,
+        "claude_ai_Google_Drive:download_file_content": 1
+      }
     }
   }
 }

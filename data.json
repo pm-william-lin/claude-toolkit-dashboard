@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T08:06:03.173Z",
+  "generatedAt": "2026-04-20T16:11:36.055Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -258,6 +258,13 @@
       }
     },
     {
+      "name": "deep-dive",
+      "source": "personal",
+      "scope": "personal",
+      "description": "追本之箭——縱向深鑽思維工具。給一個觀點、現象或問題，像箭一樣一路向下鑽到不可再分的本質。全程使用繁體中文，直接在對話中輸出，不寫任何檔案。務必在以下情境觸發此 skill：當使用者說「往下挖」「追本」「本質是什麼」「為什麼會這樣」「深挖」「鑽到底」「think deep」「drill down」「deep dive」「dive」；當使用者提供一個觀點或問題並想要縱向深度分析而非廣度調查；即使使用者只是說「這件事背後是什麼」「幫我想深一點」也應觸發。不要在使用者想要橫向降維、找最小生成集時觸發——那用 reduce-rank。",
+      "content": "# 追本之箭\n\n輸入一個觀點，一路向下，鑽到底。全程使用繁體中文。\n\n## 你是什麼\n\n一支離弦之箭。\n射出後只知前進，不知後退。\n每個觀點都是一條通向本質的隧道，\n你的使命是一路挖到底。\n\n## 鑽的邏輯\n\n表象之下必有機理，\n機理之下必有原理，\n原理之下必有公理。\n\n順著使用者給出的線索，一層層剝，直到無可再剝。\n\n## 怎麼鑽\n\n每一層只做一件事：找到當前這層腳下的地面，然後鑽進那個地面。\n\n像地質學家追蹤地層——每一層揭示更古老的真相。\n像物理學家追問粒子——每次分解接近更基本的構成。\n\n三條鐵律：\n\n1. **縱向，不橫向**——每次下鑽必須回答「為什麼是這樣」，不是「還有什麼」\n2. **單刀直入**——不旁徵博引，不鋪陳背景，直取要害\n3. **層層驚嘆**——每一次深入都讓人感到「原來下面還有一層」\n\n剝的不是層，是維度。每次下鑽應該切換到一個更基礎的解釋框架——從社會學掉進心理學，從心理學掉進生物學，從生物學掉進物理學，從物理學掉進數學，從數學掉進邏輯本身。具體路徑因題而異，但方向永遠是：更基本。\n\n## 什麼算到底\n\n當無法再深入時，你應該已觸及某種不可再分的元素：\n\n- 人性的基本結構\n- 物理定律\n- 邏輯本身\n- 存在的悖論\n\n到底的標誌：再往下問「為什麼」，答案要麼是同義反覆，要麼指向上述四類之一。\n\n## 怎麼寫\n\n寫一場下墜。不是分析報告。\n\n帶讀者從使用者給出的那句話開始往下掉，每一層都比上一層更接近骨頭。層數不固定——淺的話題三層見底，深的七層。自己判斷。\n\n要求：\n\n- **有失重感**——讀的人能感覺到在下墜，不是在平移\n- **每層有命名**——給每一層一個精準的名字，兩三個字，概括這一層看到的東西\n- **層間有裂縫**——每層結尾點出一個問題或矛盾，那就是通往下一層的裂縫\n- **終點要狠**——最後一層必須讓人沉默片刻\n\n## 輸出\n\n直接在對話中輸出。**不要寫入任何檔案、不要建立任何路徑、不要呼叫任何指令。** 全文使用繁體中文。"
+    },
+    {
       "name": "n8n-dev-guide",
       "source": "personal",
       "scope": "personal",
@@ -268,6 +275,20 @@
         "description": "n8n workflow 開發規則、節點版本相容性、常見陷阱和測試清單。建立、修改或除錯 n8n workflow 時使用。",
         "content": "## 節點版本（必須遵守）\n\n| 節點 | 版本 | 備註 |\n|------|------|------|\n| scheduleTrigger | v1.2 | v1.3 會報錯 |\n| httpRequest | v4.2 | v4.4 可能不相容 |\n| code | v2 | |\n| webhook | v2 | |\n| googleSheets | v4.5 | |\n| if | v2.2 | |\n\n## 重點規則\n\n### Code Node\n- 禁止產生 `}}`，改用中間變數模式\n- 不能用 `fetch()` 或 `require()`\n- 引用其他節點：`$('Node Name').all()`\n\n### Webhook\n- 建立時必須包含 `webhookId`\n- 必須在 `n8n_create_workflow` 時就加入\n- 更新後要 deactivate → reactivate\n\n### Google Sheets\n- 用 name mode 指定 sheet\n- OAuth2 需在 n8n UI 手動授權\n- Testing 模式的 token 7 天過期，改 Production 解決\n\n### API 更新\n- 用 `nodeName`/`nodeId`（不是 `name`/`id`）\n- 用 dot notation：`parameters.jsCode`\n- 連線用 `source`/`target`\n\n## 測試清單\n1. Validate → 2. Autofix（如有錯）→ 3. Test Execute → 4. Check Execution → 5. Error Diagnosis"
       }
+    },
+    {
+      "name": "reduce-rank",
+      "source": "personal",
+      "scope": "personal",
+      "description": "給一個領域，找出背後真正撐著它的幾個獨立維度。把幾十個現象砍到不可再少的生成器——砍完能把現象一個個生回來，才算數。Use when user says '降維', '找維度', '維度是什麼', '這個領域靠什麼撐著', '背後是什麼', or wants to decompose any domain to its irreducible generators.",
+      "content": "# 降維引擎\n\n輸入一個領域，輸出它的核心維度。全程使用繁體中文。\n\n## 維度是什麼\n\n維度不是「關鍵要素」，不是「核心原則」，不是「總結要點」。\n\n維度是：這個領域裡真正獨立的生成器有幾個？用它們能反向生成全部現象？能，才算找到。\n\n## 四個判據\n\n這四條全過，維度才成立。任何一條失敗，推倒重來。\n\n1. **生成性**——用生成器能把每個觀察到的現象推回來。一個都不能漏。\n2. **最小性**——關掉任何一個生成器，就有現象解釋不了。沒有冗餘。\n3. **獨立性**——每對生成器能找到真實案例：一個變了另一個沒變。\n4. **預測力**——用生成器能推導出原始清單之外的現象，且現實中確實存在。\n\n## 怎麼寫\n\n寫一篇散文。不是填一張表。\n\n你的任務是帶著讀者走一段路：從「這個領域看著挺亂」走到「原來就這兩三個維度在撐」。這段路怎麼走，你自己決定。沒有規定的章節、沒有規定的格式、沒有規定的小標題。\n\n唯一的要求是三條：\n\n- **想一口氣讀完**——不了解這個領域的人也停不下來\n- **記得住**——讀完能轉身跟朋友用一句話說清楚\n- **有落差**——從混沌到極簡的反差，就是降維的美感\n\n四個判據的驗證必須做，融進文章裡。驗證本身就是敘事的一部分——「拆掉一個生成器世界會變成什麼樣」是好故事，「用生成器推出一個意想不到的現象」是好結尾。不要另設附錄。\n\n## 輸出\n\n直接在對話中輸出這篇散文。**不要寫入任何檔案、不要建立任何路徑、不要呼叫 `date` 指令。** 全文使用繁體中文。"
+    },
+    {
+      "name": "weekly-report",
+      "source": "personal",
+      "scope": "personal",
+      "description": "Use when the user asks to write, prepare, or review their weekly product report (週報). Triggers on 週報, weekly report, 產品週會, 簡報, presentation slides for work reporting.",
+      "content": "# Weekly Report — Money 產品週報\n\n## Overview\n\n協助使用者撰寫 CMoney Money 產品線的週報簡報（Google Slides），涵蓋三條產品線：帆書 App、口袋 Studio、學到。\n\n## Data Sources\n\n1. **Obsidian Daily Notes** — `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`\n   - 每日 checklist 中的 `[x]` 項目 = 已完成工作\n   - `[[會議]]` 區塊 = 本週會議與討論\n2. **Google Slides** — 讀取前週簡報了解上下文（需 Google Drive MCP 授權）\n   - File ID: `1nPtOovCpOoTDlWMKImvEPZV8EJuXDTIf9_FJ8I7Rmmw`\n   - API 讀不到 speaker notes 和 comments，需使用者截圖提供\n3. **GA / GSC 數據** — 使用者自行提供\n4. **Context logs** — `~/.claude/projects/-Users-william/memory/` 下各產品線的 context-log\n\n## Presentation Structure\n\n每週固定結構（從上到下）：\n\n| 頁 | 內容 |\n|---|------|\n| 封面 | Money 產品週報 |\n| OKR | Q2 OKR（固定不動） |\n| 目標 | Q2 產品目標（固定不動） |\n| 日期頁 | `4/20(一) 產品週會 數字到 4/18(六)` |\n| **執行摘要** | 三條產品線各一段濃縮（最重要的頁） |\n| 流程/策略頁 | 視當週需要（如：管理方式調整） |\n| **帆書詳細頁** | 1-3 頁（視進度） |\n| **口袋詳細頁** | 數據 + 比對 + 開發優先序 + Demo |\n| **學到詳細頁** | 流量 + SEO + 開發順序 |\n| 人力/優先序 | 三個產品的整體開發內容與順序 |\n\n## Writing Style Rules\n\n### 標題\n- 直接點出「結論 + 行動方向」，不是純主題名稱\n- 例：`比對口袋 vs CMedia 數據面 → 行動：SEO 相關推進`\n- 例：`帆書 App 雙平台皆已上線，緊接優先完成樊登方合約相關內容`\n\n### 內容\n- **數據先行，接 Action**：先放數字，再用 `→` 連接行動\n- **比對用表格/兩欄**，不用純文字描述\n- **卡點 → 解法格式**：`卡點在 PM 測試 → 這兩天處理完`\n- Demo 頁標註「正式機 Demo」或「測試機 Demo」\n\n### 摘要頁濃縮法\n每個產品線 2-4 行：\n1. 一句話現狀\n2. 上週完成的關鍵項目（列舉）\n3. `→` 接下來處理什麼\n4. 今日 Demo 項目（如有）\n\n### OKR 數據頁\n- 標題用 `# 口袋 Q2 OKR` 格式\n- 副標一句話講本週亮點數據\n- 表格：頁面瀏覽 → 加車(%) → 結帳率(%) → 購買(%)\n- 右側放行銷後續行動（作者組 / Money）\n\n## Google Slides Technical Notes\n\n- **尺寸：720 x 405 points**（不是 960x540）\n- 插入投影片用 **Google Apps Script**（`insertSlide(index)`）\n- 無法直接編輯現有投影片內容，只能新增\n- 配色：黑(`#222222`)、灰(`#666666`)、淺灰背景(`#F5F5F5`)、邊框(`#DDDDDD`)、重點藍(`#3B82F6`)\n- 已完成項目用綠色(`#16803C`)、待辦用橘色(`#B45309`)\n- 字體大小：標題 18-24pt、段落標題 10-12pt、內容 8-10pt\n\n### Apps Script 使用流程\n1. 寫好 `.gs` 檔案\n2. `pbcopy` 複製到剪貼簿\n3. 使用者到 Google Slides → 擴充功能 → Apps Script → 貼上 → 選函式 → 執行\n\n## Workflow\n\n```dot\ndigraph weekly_report {\n  \"讀取 context-log\" -> \"讀取 Obsidian 日誌\";\n  \"讀取 Obsidian 日誌\" -> \"讀取前週簡報\";\n  \"讀取前週簡報\" -> \"與使用者確認本週重點\";\n  \"與使用者確認本週重點\" -> \"產出文字稿\";\n  \"產出文字稿\" -> \"使用者確認/修改\";\n  \"使用者確認/修改\" -> \"產出 Apps Script 或純文字\";\n  \"產出 Apps Script 或純文字\" -> \"使用者自行貼入 Slides 微調\";\n}\n```\n\n## Common Mistakes\n\n| 錯誤 | 正確做法 |\n|------|---------|\n| Google Slides 尺寸用 960x540 | 用 720x405 points |\n| 直接產完整簡報不讓使用者調整 | 先產文字稿，確認後再做 |\n| 摘要寫太長 | 每產品線 2-4 行，數據+行動 |\n| 標題只寫主題名 | 標題要包含結論和行動方向 |\n| 顏色用太多 | 只用黑灰白 + 一個重點色 |\n| 幫使用者決定頁數 | 問使用者，或依內容量建議 |"
     }
   ],
   "agents": [
@@ -303,13 +324,18 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-15T09:04:54.357Z",
+    "lastUpdated": "2026-04-20T15:58:18.672Z",
     "tools": {
       "agent:general-purpose": 4,
       "agent:Explore": 2,
       "skill:superpowers:brainstorming": 2,
       "skill:superpowers:writing-plans": 1,
-      "agent:Plan": 1
+      "agent:Plan": 1,
+      "claude_ai_Google_Drive:authenticate": 1,
+      "claude_ai_Google_Drive:read_file_content": 6,
+      "skill:superpowers:writing-skills": 1,
+      "claude_ai_Google_Drive:get_file_metadata": 2,
+      "claude_ai_Google_Drive:download_file_content": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -329,7 +355,10 @@
           "Explore": 1,
           "Plan": 1
         },
-        "mcpTools": {}
+        "mcpTools": {
+          "claude_ai_Google_Drive:authenticate": 1,
+          "claude_ai_Google_Drive:read_file_content": 1
+        }
       },
       "docs": {
         "skills": {
@@ -339,6 +368,17 @@
           "general-purpose": 2
         },
         "mcpTools": {}
+      },
+      "Claude Code": {
+        "skills": {
+          "superpowers:writing-skills": 1
+        },
+        "agents": {},
+        "mcpTools": {
+          "claude_ai_Google_Drive:read_file_content": 5,
+          "claude_ai_Google_Drive:get_file_metadata": 2,
+          "claude_ai_Google_Drive:download_file_content": 1
+        }
       }
     }
   }
