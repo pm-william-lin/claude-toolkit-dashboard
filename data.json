@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-20T16:11:36.055Z",
+  "generatedAt": "2026-04-22T03:17:09.721Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -284,6 +284,13 @@
       "content": "# 降維引擎\n\n輸入一個領域，輸出它的核心維度。全程使用繁體中文。\n\n## 維度是什麼\n\n維度不是「關鍵要素」，不是「核心原則」，不是「總結要點」。\n\n維度是：這個領域裡真正獨立的生成器有幾個？用它們能反向生成全部現象？能，才算找到。\n\n## 四個判據\n\n這四條全過，維度才成立。任何一條失敗，推倒重來。\n\n1. **生成性**——用生成器能把每個觀察到的現象推回來。一個都不能漏。\n2. **最小性**——關掉任何一個生成器，就有現象解釋不了。沒有冗餘。\n3. **獨立性**——每對生成器能找到真實案例：一個變了另一個沒變。\n4. **預測力**——用生成器能推導出原始清單之外的現象，且現實中確實存在。\n\n## 怎麼寫\n\n寫一篇散文。不是填一張表。\n\n你的任務是帶著讀者走一段路：從「這個領域看著挺亂」走到「原來就這兩三個維度在撐」。這段路怎麼走，你自己決定。沒有規定的章節、沒有規定的格式、沒有規定的小標題。\n\n唯一的要求是三條：\n\n- **想一口氣讀完**——不了解這個領域的人也停不下來\n- **記得住**——讀完能轉身跟朋友用一句話說清楚\n- **有落差**——從混沌到極簡的反差，就是降維的美感\n\n四個判據的驗證必須做，融進文章裡。驗證本身就是敘事的一部分——「拆掉一個生成器世界會變成什麼樣」是好故事，「用生成器推出一個意想不到的現象」是好結尾。不要另設附錄。\n\n## 輸出\n\n直接在對話中輸出這篇散文。**不要寫入任何檔案、不要建立任何路徑、不要呼叫 `date` 指令。** 全文使用繁體中文。"
     },
     {
+      "name": "seo-meta",
+      "source": "personal",
+      "scope": "personal",
+      "description": "網頁 SEO meta 標籤檢查與設定工具。處理 OG (Open Graph)、description、title、robots、structured data (JSON-LD) 等。在建立新頁面、上線前檢查、或使用者提到 SEO/OG/meta/分享預覽/Schema 時觸發。",
+      "content": "# SEO Meta 檢查與設定\n\n處理網頁的 meta 標籤、OG 社交分享標籤、結構化資料等 SEO 相關設定。\n\n## 使用時機\n\n- 建立新網頁或 Landing Page\n- 修改頁面標題、描述\n- 上線前 SEO 檢查\n- 設定社交分享預覽（LINE / Facebook / Threads）\n- 新增 Schema / JSON-LD 結構化資料\n\n## 檢查清單\n\n每個頁面應確認以下項目：\n\n### 基本 Meta\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `<title>` | 必要 | 50-60 字元，格式：`頁面名稱 - 品牌名` |\n| `meta description` | 必要 | 120-160 字元，含關鍵字，吸引點擊 |\n| `meta robots` | 視需求 | 公開頁不設（預設可索引）；內部頁面設 `noindex, nofollow` |\n| `link canonical` | 建議 | 避免重複內容，指向正式 URL |\n| `html lang` | 必要 | 繁體中文用 `zh-Hant` |\n\n### Open Graph（社交分享）\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `og:title` | 必要 | 通常與 `<title>` 相同 |\n| `og:description` | 必要 | 通常與 `meta description` 相同 |\n| `og:image` | 必要 | **1200×630px**（1.91:1），檔案 < 5MB，用絕對 URL |\n| `og:url` | 必要 | 頁面的正式 URL（canonical URL） |\n| `og:type` | 必要 | 首頁用 `website`，文章用 `article`，產品用 `product` |\n| `og:locale` | 建議 | 繁體中文用 `zh_TW` |\n| `og:site_name` | 建議 | 品牌名稱 |\n\n### Twitter Card（選用）\n\n| 標籤 | 說明 |\n|------|------|\n| `twitter:card` | `summary_large_image`（大圖）或 `summary`（小圖） |\n| `twitter:title` | 同 og:title |\n| `twitter:description` | 同 og:description |\n| `twitter:image` | 同 og:image |\n\n### 結構化資料 JSON-LD（選用，持續擴充）\n\n根據頁面類型選擇適合的 Schema：\n\n| 頁面類型 | Schema Type | 適用場景 |\n|----------|-------------|----------|\n| 首頁 | `Organization` / `WebSite` | 品牌官網 |\n| 文章 | `Article` / `BlogPosting` | 部落格、新聞 |\n| 產品 | `Product` | 商品頁 |\n| FAQ | `FAQPage` | 常見問題 |\n| 活動 | `Event` | 活動頁 |\n| 麵包屑 | `BreadcrumbList` | 多層級網站 |\n\n## 實作方式\n\n### Nuxt 專案\n\n**全域設定**（`nuxt.config.js` → `app.head.meta`）：\n- 所有頁面共用的 title、description、OG 標籤\n- og:image 用絕對 URL（含 domain）\n\n**頁面覆蓋**（`useHead()` 或 `useSeoMeta()`）：\n- 個別頁面覆蓋 title、og:title、og:url\n- 設定 robots（如 noindex）\n- 清除不需要的繼承值（設為空字串）\n\n**注意事項**：\n- `og:image` 必須用**絕對 URL**（含 https://domain）\n- 測試機在內網時，Facebook Debugger 抓不到，改用 `curl` 檢查 HTML source\n- 新增圖片記得放到 `public/` 目錄\n\n### 一般 HTML 專案\n\n直接在 `<head>` 內加入 meta 標籤。\n\n## 參考規格\n\n### Open Graph\n當需要查詢完整的 OG 標籤清單、可用的 og:type 值、或進階屬性（如 og:video、og:audio、profile、music、book 等）時，用 WebFetch 查閱 Open Graph 官方規格：https://ogp.me/\n特別是在以下情境：\n- 使用者問「還有哪些 OG 可以加」\n- 頁面類型不是常見的 website/article（如影片、音樂、書籍、個人檔案）\n- 需要確認某個 OG 屬性的正確寫法\n\n### 結構化資料 (Schema / JSON-LD)\n需要新增或建議結構化資料時，依序查閱：\n1. **先看 Google 搜尋文件**：https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=zh-tw\n   - 確認 Google 實際支援哪些 Schema 類型（不是所有 Schema 都會產生搜尋結果特殊呈現）\n   - 查看各類型的必要/建議屬性、範例程式碼\n2. **再看 Schema.org**：https://schema.org/\n   - 查完整的屬性定義、繼承關係、進階用法\n   - Google 文件沒涵蓋的類型或屬性在這裡找\n\n特別是在以下情境：\n- 使用者想提升搜尋結果呈現（如星星評分、FAQ 展開、活動資訊）\n- 建立新類型頁面（產品、文章、活動、FAQ、課程等）\n- 使用者提到 Schema、JSON-LD、結構化資料、rich results\n\n## 驗證工具\n\n| 工具 | 用途 | URL |\n|------|------|-----|\n| Facebook Sharing Debugger | 驗證 OG 預覽 | https://developers.facebook.com/tools/debug/ |\n| Twitter Card Validator | 驗證 Twitter 預覽 | https://cards-dev.twitter.com/validator |\n| Google Rich Results Test | 驗證結構化資料 | https://search.google.com/test/rich-results |\n| Schema.org Validator | 驗證 JSON-LD | https://validator.schema.org/ |\n| LINE URL Preview Test | 確認 LINE 分享預覽 | 直接在 LINE 聊天貼連結 |\n\n## og:image 規格速查\n\n| 平台 | 建議尺寸 | 比例 | 檔案限制 |\n|------|---------|------|---------|\n| Facebook | 1200×630 | 1.91:1 | < 8MB |\n| LINE | 1200×630 | 1.91:1 | < 5MB |\n| Twitter | 1200×628 | ~1.91:1 | < 5MB |\n| Threads | 1200×630 | 1.91:1 | — |\n\n**通用建議**：準備一張 **1200×630 的 PNG/JPG**，全平台通用。"
+    },
+    {
       "name": "weekly-report",
       "source": "personal",
       "scope": "personal",
@@ -324,7 +331,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-20T15:58:18.672Z",
+    "lastUpdated": "2026-04-21T07:46:38.051Z",
     "tools": {
       "agent:general-purpose": 4,
       "agent:Explore": 2,
@@ -332,7 +339,7 @@
       "skill:superpowers:writing-plans": 1,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 6,
+      "claude_ai_Google_Drive:read_file_content": 7,
       "skill:superpowers:writing-skills": 1,
       "claude_ai_Google_Drive:get_file_metadata": 2,
       "claude_ai_Google_Drive:download_file_content": 1
@@ -378,6 +385,13 @@
           "claude_ai_Google_Drive:read_file_content": 5,
           "claude_ai_Google_Drive:get_file_metadata": 2,
           "claude_ai_Google_Drive:download_file_content": 1
+        }
+      },
+      "fandeng": {
+        "skills": {},
+        "agents": {},
+        "mcpTools": {
+          "claude_ai_Google_Drive:read_file_content": 1
         }
       }
     }
