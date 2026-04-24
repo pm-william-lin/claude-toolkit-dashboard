@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-22T14:49:12.454Z",
+  "generatedAt": "2026-04-24T06:56:07.477Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -331,7 +331,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-22T03:20:59.216Z",
+    "lastUpdated": "2026-04-22T15:18:05.216Z",
     "tools": {
       "agent:general-purpose": 4,
       "agent:Explore": 2,
@@ -342,7 +342,14 @@
       "claude_ai_Google_Drive:read_file_content": 7,
       "skill:superpowers:writing-skills": 1,
       "claude_ai_Google_Drive:get_file_metadata": 2,
-      "claude_ai_Google_Drive:download_file_content": 1
+      "claude_ai_Google_Drive:download_file_content": 1,
+      "n8n-mcp:n8n_get_workflow": 5,
+      "n8n-mcp:n8n_update_partial_workflow": 22,
+      "n8n-mcp:n8n_create_workflow": 3,
+      "n8n-mcp:n8n_test_workflow": 2,
+      "n8n-mcp:n8n_executions": 24,
+      "n8n-mcp:n8n_delete_workflow": 2,
+      "n8n-mcp:n8n_validate_workflow": 3
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -364,7 +371,14 @@
         },
         "mcpTools": {
           "claude_ai_Google_Drive:authenticate": 1,
-          "claude_ai_Google_Drive:read_file_content": 1
+          "claude_ai_Google_Drive:read_file_content": 1,
+          "n8n-mcp:n8n_get_workflow": 5,
+          "n8n-mcp:n8n_update_partial_workflow": 22,
+          "n8n-mcp:n8n_create_workflow": 3,
+          "n8n-mcp:n8n_test_workflow": 2,
+          "n8n-mcp:n8n_executions": 24,
+          "n8n-mcp:n8n_delete_workflow": 2,
+          "n8n-mcp:n8n_validate_workflow": 3
         }
       },
       "docs": {
