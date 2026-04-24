@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-22T15:18:05.216Z",
+  "lastUpdated": "2026-04-24T08:11:29.153Z",
   "tools": {
     "agent:general-purpose": 4,
     "agent:Explore": 2,
@@ -7,7 +7,7 @@
     "skill:superpowers:writing-plans": 1,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
-    "claude_ai_Google_Drive:read_file_content": 7,
+    "claude_ai_Google_Drive:read_file_content": 8,
     "skill:superpowers:writing-skills": 1,
     "claude_ai_Google_Drive:get_file_metadata": 2,
     "claude_ai_Google_Drive:download_file_content": 1,
@@ -17,7 +17,10 @@
     "n8n-mcp:n8n_test_workflow": 2,
     "n8n-mcp:n8n_executions": 24,
     "n8n-mcp:n8n_delete_workflow": 2,
-    "n8n-mcp:n8n_validate_workflow": 3
+    "n8n-mcp:n8n_validate_workflow": 3,
+    "mixpanel:Get-Projects": 1,
+    "mixpanel:List-Dashboards": 1,
+    "mixpanel:Get-Dashboard": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -39,14 +42,17 @@
       },
       "mcpTools": {
         "claude_ai_Google_Drive:authenticate": 1,
-        "claude_ai_Google_Drive:read_file_content": 1,
+        "claude_ai_Google_Drive:read_file_content": 2,
         "n8n-mcp:n8n_get_workflow": 5,
         "n8n-mcp:n8n_update_partial_workflow": 22,
         "n8n-mcp:n8n_create_workflow": 3,
         "n8n-mcp:n8n_test_workflow": 2,
         "n8n-mcp:n8n_executions": 24,
         "n8n-mcp:n8n_delete_workflow": 2,
-        "n8n-mcp:n8n_validate_workflow": 3
+        "n8n-mcp:n8n_validate_workflow": 3,
+        "mixpanel:Get-Projects": 1,
+        "mixpanel:List-Dashboards": 1,
+        "mixpanel:Get-Dashboard": 1
       }
     },
     "docs": {
