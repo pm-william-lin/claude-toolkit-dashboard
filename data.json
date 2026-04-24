@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T08:14:05.100Z",
+  "generatedAt": "2026-04-24T14:11:02.392Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -331,11 +331,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-24T08:11:29.153Z",
+    "lastUpdated": "2026-04-24T10:22:01.172Z",
     "tools": {
-      "agent:general-purpose": 4,
+      "agent:general-purpose": 5,
       "agent:Explore": 2,
-      "skill:superpowers:brainstorming": 3,
+      "skill:superpowers:brainstorming": 4,
       "skill:superpowers:writing-plans": 1,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -352,7 +352,14 @@
       "n8n-mcp:n8n_validate_workflow": 3,
       "mixpanel:Get-Projects": 1,
       "mixpanel:List-Dashboards": 1,
-      "mixpanel:Get-Dashboard": 1
+      "mixpanel:Get-Dashboard": 2,
+      "mixpanel:Get-Properties": 3,
+      "mixpanel:Get-Events": 3,
+      "mixpanel:Get-Query-Schema": 3,
+      "mixpanel:Run-Query": 20,
+      "mixpanel:Create-Dashboard": 1,
+      "mixpanel:Update-Dashboard": 13,
+      "mixpanel:Get-Property-Values": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -384,7 +391,14 @@
           "n8n-mcp:n8n_validate_workflow": 3,
           "mixpanel:Get-Projects": 1,
           "mixpanel:List-Dashboards": 1,
-          "mixpanel:Get-Dashboard": 1
+          "mixpanel:Get-Dashboard": 2,
+          "mixpanel:Get-Properties": 3,
+          "mixpanel:Get-Events": 3,
+          "mixpanel:Get-Query-Schema": 3,
+          "mixpanel:Run-Query": 20,
+          "mixpanel:Create-Dashboard": 1,
+          "mixpanel:Update-Dashboard": 13,
+          "mixpanel:Get-Property-Values": 1
         }
       },
       "docs": {
@@ -408,8 +422,12 @@
         }
       },
       "fandeng": {
-        "skills": {},
-        "agents": {},
+        "skills": {
+          "superpowers:brainstorming": 1
+        },
+        "agents": {
+          "general-purpose": 1
+        },
         "mcpTools": {
           "claude_ai_Google_Drive:read_file_content": 1
         }
