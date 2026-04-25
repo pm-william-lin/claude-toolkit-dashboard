@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-24T10:22:01.172Z",
+  "lastUpdated": "2026-04-24T14:11:35.447Z",
   "tools": {
     "agent:general-purpose": 5,
     "agent:Explore": 2,
-    "skill:superpowers:brainstorming": 4,
+    "skill:superpowers:brainstorming": 5,
     "skill:superpowers:writing-plans": 1,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
@@ -40,7 +40,7 @@
     },
     "~": {
       "skills": {
-        "superpowers:brainstorming": 3
+        "superpowers:brainstorming": 4
       },
       "agents": {
         "general-purpose": 1,

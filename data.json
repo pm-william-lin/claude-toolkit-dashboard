@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T14:11:02.392Z",
+  "generatedAt": "2026-04-25T05:58:14.714Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -291,6 +291,13 @@
       "content": "# SEO Meta 檢查與設定\n\n處理網頁的 meta 標籤、OG 社交分享標籤、結構化資料等 SEO 相關設定。\n\n## 使用時機\n\n- 建立新網頁或 Landing Page\n- 修改頁面標題、描述\n- 上線前 SEO 檢查\n- 設定社交分享預覽（LINE / Facebook / Threads）\n- 新增 Schema / JSON-LD 結構化資料\n\n## 檢查清單\n\n每個頁面應確認以下項目：\n\n### 基本 Meta\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `<title>` | 必要 | 50-60 字元，格式：`頁面名稱 - 品牌名` |\n| `meta description` | 必要 | 120-160 字元，含關鍵字，吸引點擊 |\n| `meta robots` | 視需求 | 公開頁不設（預設可索引）；內部頁面設 `noindex, nofollow` |\n| `link canonical` | 建議 | 避免重複內容，指向正式 URL |\n| `html lang` | 必要 | 繁體中文用 `zh-Hant` |\n\n### Open Graph（社交分享）\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `og:title` | 必要 | 通常與 `<title>` 相同 |\n| `og:description` | 必要 | 通常與 `meta description` 相同 |\n| `og:image` | 必要 | **1200×630px**（1.91:1），檔案 < 5MB，用絕對 URL |\n| `og:url` | 必要 | 頁面的正式 URL（canonical URL） |\n| `og:type` | 必要 | 首頁用 `website`，文章用 `article`，產品用 `product` |\n| `og:locale` | 建議 | 繁體中文用 `zh_TW` |\n| `og:site_name` | 建議 | 品牌名稱 |\n\n### Twitter Card（選用）\n\n| 標籤 | 說明 |\n|------|------|\n| `twitter:card` | `summary_large_image`（大圖）或 `summary`（小圖） |\n| `twitter:title` | 同 og:title |\n| `twitter:description` | 同 og:description |\n| `twitter:image` | 同 og:image |\n\n### 結構化資料 JSON-LD（選用，持續擴充）\n\n根據頁面類型選擇適合的 Schema：\n\n| 頁面類型 | Schema Type | 適用場景 |\n|----------|-------------|----------|\n| 首頁 | `Organization` / `WebSite` | 品牌官網 |\n| 文章 | `Article` / `BlogPosting` | 部落格、新聞 |\n| 產品 | `Product` | 商品頁 |\n| FAQ | `FAQPage` | 常見問題 |\n| 活動 | `Event` | 活動頁 |\n| 麵包屑 | `BreadcrumbList` | 多層級網站 |\n\n## 實作方式\n\n### Nuxt 專案\n\n**全域設定**（`nuxt.config.js` → `app.head.meta`）：\n- 所有頁面共用的 title、description、OG 標籤\n- og:image 用絕對 URL（含 domain）\n\n**頁面覆蓋**（`useHead()` 或 `useSeoMeta()`）：\n- 個別頁面覆蓋 title、og:title、og:url\n- 設定 robots（如 noindex）\n- 清除不需要的繼承值（設為空字串）\n\n**注意事項**：\n- `og:image` 必須用**絕對 URL**（含 https://domain）\n- 測試機在內網時，Facebook Debugger 抓不到，改用 `curl` 檢查 HTML source\n- 新增圖片記得放到 `public/` 目錄\n\n### 一般 HTML 專案\n\n直接在 `<head>` 內加入 meta 標籤。\n\n## 參考規格\n\n### Open Graph\n當需要查詢完整的 OG 標籤清單、可用的 og:type 值、或進階屬性（如 og:video、og:audio、profile、music、book 等）時，用 WebFetch 查閱 Open Graph 官方規格：https://ogp.me/\n特別是在以下情境：\n- 使用者問「還有哪些 OG 可以加」\n- 頁面類型不是常見的 website/article（如影片、音樂、書籍、個人檔案）\n- 需要確認某個 OG 屬性的正確寫法\n\n### 結構化資料 (Schema / JSON-LD)\n需要新增或建議結構化資料時，依序查閱：\n1. **先看 Google 搜尋文件**：https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=zh-tw\n   - 確認 Google 實際支援哪些 Schema 類型（不是所有 Schema 都會產生搜尋結果特殊呈現）\n   - 查看各類型的必要/建議屬性、範例程式碼\n2. **再看 Schema.org**：https://schema.org/\n   - 查完整的屬性定義、繼承關係、進階用法\n   - Google 文件沒涵蓋的類型或屬性在這裡找\n\n特別是在以下情境：\n- 使用者想提升搜尋結果呈現（如星星評分、FAQ 展開、活動資訊）\n- 建立新類型頁面（產品、文章、活動、FAQ、課程等）\n- 使用者提到 Schema、JSON-LD、結構化資料、rich results\n\n## 驗證工具\n\n| 工具 | 用途 | URL |\n|------|------|-----|\n| Facebook Sharing Debugger | 驗證 OG 預覽 | https://developers.facebook.com/tools/debug/ |\n| Twitter Card Validator | 驗證 Twitter 預覽 | https://cards-dev.twitter.com/validator |\n| Google Rich Results Test | 驗證結構化資料 | https://search.google.com/test/rich-results |\n| Schema.org Validator | 驗證 JSON-LD | https://validator.schema.org/ |\n| LINE URL Preview Test | 確認 LINE 分享預覽 | 直接在 LINE 聊天貼連結 |\n\n## og:image 規格速查\n\n| 平台 | 建議尺寸 | 比例 | 檔案限制 |\n|------|---------|------|---------|\n| Facebook | 1200×630 | 1.91:1 | < 8MB |\n| LINE | 1200×630 | 1.91:1 | < 5MB |\n| Twitter | 1200×628 | ~1.91:1 | < 5MB |\n| Threads | 1200×630 | 1.91:1 | — |\n\n**通用建議**：準備一張 **1200×630 的 PNG/JPG**，全平台通用。"
     },
     {
+      "name": "ui-dom-verify",
+      "source": "personal",
+      "scope": "personal",
+      "description": "用 playwright headless 實際跑網頁流程、量 DOM、比對 computed style，替代靠截圖猜測。觸發於：部署後驗收、UI bug 除錯、判斷樣式/位置/寬度是否正確、CSS 轉場異常、SPA nav 問題、使用者截圖顯示跑版且需客觀驗證時。",
+      "content": "# UI DOM 驗證流程\n\n**核心原則**：靠截圖猜 CSS bug 會一直猜錯。量實際 DOM computed style 最快。\n\n## 什麼時候必用\n\n- ✅ `git push` / deploy 上測試機 / 正式機後，宣告「修好了」之前\n- ✅ 使用者回報「跑版 / 位置錯 / 寬度不對」且改了多次還在出錯\n- ✅ 懷疑 SPA navigation 造成 DOM reuse（class 殘留）\n- ✅ CSS 計算結果與預期不符，肉眼分辨不出寬度 5px vs 500px\n- ❌ 單純文字 / 顏色更改不用\n\n## 三步驟\n\n### 1. 裝 playwright（一次）\n\n```bash\nmkdir -p /tmp/ui-verify && cd /tmp/ui-verify\nnpm init -y > /dev/null\nnpm install playwright --silent\nnpx playwright install chromium\n```\n\n（~92MB Chromium 下載，裝一次就好）\n\n### 2. 寫量測腳本\n\n模板在 `scripts/verify-template.js`，核心結構：\n\n```js\nimport { chromium } from 'playwright'\n\nconst browser = await chromium.launch({ headless: true })\nconst context = await browser.newContext({\n  ignoreHTTPSErrors: true,\n  viewport: { width: 1440, height: 900 },\n})\nconst page = await context.newPage()\n\n// 1. 走到目標頁（可含 click、等待 redirect）\nawait page.goto('<URL>', { waitUntil: 'networkidle' })\n\n// 2. 量關鍵 element\nconst data = await page.evaluate(() => {\n  const el = document.querySelector('<SELECTOR>')\n  const rect = el.getBoundingClientRect()\n  const style = window.getComputedStyle(el)\n  return {\n    viewport: { width: window.innerWidth },\n    rect: { width: rect.width, left: rect.left, right: rect.right, centerX: (rect.left+rect.right)/2 },\n    computed: { width: style.width, maxWidth: style.maxWidth },\n    parentClass: el.parentElement?.className,  // ← 這個超常見關鍵，檢查 DOM reuse\n  }\n})\nconsole.log(JSON.stringify(data, null, 2))\n\n// 3. 截圖附證\nawait page.screenshot({ path: '/tmp/ui-verify/result.png' })\nawait browser.close()\n```\n\n### 3. 判讀輸出\n\n**對症下藥的關鍵欄位**：\n\n| 症狀 | 看哪裡 |\n|------|-------|\n| 卡片偏左偏右 | `rect.centerX` 是否等於 `viewport.width / 2` |\n| 卡片寬度怪 | `rect.width` 對照 `computed.width` 與 `computed.maxWidth` |\n| 轉場後 class 錯 | `parentClass` 是否為目前頁面的，不是上一頁殘留 |\n| 位置不對 | `rect.top`、`rect.left` 的絕對值 |\n\n## 報告給使用者的格式\n\n不要：「部署完了，請測試」\n\n要：\n```\n✅ 驗證通過（viewport 1440px）\n- Card width: 384px ✓ (預期 max-w-sm)\n- Card centerX: 720px ✓ (視窗正中)\n- Parent class: \"flex items-center...\" ✓ (本頁 class，無殘留)\n截圖: /tmp/ui-verify/result.png\n```\n\n或：\n```\n❌ 發現問題\n- Card centerX: 352px（預期 720px）\n- Parent class: \"max-w-6xl mx-auto...\"（這是上一頁的 class，確認 DOM reuse bug）\n→ 修正方向：...\n```\n\n## 常見陷阱\n\n- **測試 CSS 快取**：HTML 可能是舊的，加 `?t=${Date.now()}` 繞過\n- **HTTPS 自簽**：一定要 `ignoreHTTPSErrors: true`\n- **SPA nav 非同步**：click 後要 `waitForLoadState('networkidle')` 或 `waitForURL(/\\/login/)`\n- **Chrome 與 headless 可能略有差異**：位置差 1-2px 是正常的；差一倍以上才是問題\n\n## 模板腳本\n\n見 `scripts/verify-template.js` — 複製後改 URL 和 selector 即可。"
+    },
+    {
       "name": "weekly-report",
       "source": "personal",
       "scope": "personal",
@@ -331,11 +338,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-24T10:22:01.172Z",
+    "lastUpdated": "2026-04-24T14:11:35.447Z",
     "tools": {
       "agent:general-purpose": 5,
       "agent:Explore": 2,
-      "skill:superpowers:brainstorming": 4,
+      "skill:superpowers:brainstorming": 5,
       "skill:superpowers:writing-plans": 1,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -372,7 +379,7 @@
       },
       "~": {
         "skills": {
-          "superpowers:brainstorming": 3
+          "superpowers:brainstorming": 4
         },
         "agents": {
           "general-purpose": 1,
