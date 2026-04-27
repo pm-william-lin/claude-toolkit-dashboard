@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T03:27:33.326Z",
+  "generatedAt": "2026-04-27T08:24:54.179Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -345,7 +345,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-25T11:19:48.511Z",
+    "lastUpdated": "2026-04-27T03:28:08.176Z",
     "tools": {
       "agent:general-purpose": 5,
       "agent:Explore": 2,
@@ -374,7 +374,7 @@
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 13,
       "mixpanel:Get-Property-Values": 1,
-      "skill:weekly-report": 1,
+      "skill:weekly-report": 2,
       "claude_ai_Gmail:authenticate": 1,
       "claude_ai_Gmail:search_threads": 3,
       "claude_ai_Gmail:get_thread": 2,
@@ -392,7 +392,7 @@
       "~": {
         "skills": {
           "superpowers:brainstorming": 4,
-          "weekly-report": 1,
+          "weekly-report": 2,
           "superpowers:writing-skills": 1
         },
         "agents": {
