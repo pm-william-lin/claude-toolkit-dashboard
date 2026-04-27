@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T10:41:45.417Z",
+  "generatedAt": "2026-04-27T03:27:33.326Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -291,6 +291,13 @@
       "content": "# SEO Meta 檢查與設定\n\n處理網頁的 meta 標籤、OG 社交分享標籤、結構化資料等 SEO 相關設定。\n\n## 使用時機\n\n- 建立新網頁或 Landing Page\n- 修改頁面標題、描述\n- 上線前 SEO 檢查\n- 設定社交分享預覽（LINE / Facebook / Threads）\n- 新增 Schema / JSON-LD 結構化資料\n\n## 檢查清單\n\n每個頁面應確認以下項目：\n\n### 基本 Meta\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `<title>` | 必要 | 50-60 字元，格式：`頁面名稱 - 品牌名` |\n| `meta description` | 必要 | 120-160 字元，含關鍵字，吸引點擊 |\n| `meta robots` | 視需求 | 公開頁不設（預設可索引）；內部頁面設 `noindex, nofollow` |\n| `link canonical` | 建議 | 避免重複內容，指向正式 URL |\n| `html lang` | 必要 | 繁體中文用 `zh-Hant` |\n\n### Open Graph（社交分享）\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `og:title` | 必要 | 通常與 `<title>` 相同 |\n| `og:description` | 必要 | 通常與 `meta description` 相同 |\n| `og:image` | 必要 | **1200×630px**（1.91:1），檔案 < 5MB，用絕對 URL |\n| `og:url` | 必要 | 頁面的正式 URL（canonical URL） |\n| `og:type` | 必要 | 首頁用 `website`，文章用 `article`，產品用 `product` |\n| `og:locale` | 建議 | 繁體中文用 `zh_TW` |\n| `og:site_name` | 建議 | 品牌名稱 |\n\n### Twitter Card（選用）\n\n| 標籤 | 說明 |\n|------|------|\n| `twitter:card` | `summary_large_image`（大圖）或 `summary`（小圖） |\n| `twitter:title` | 同 og:title |\n| `twitter:description` | 同 og:description |\n| `twitter:image` | 同 og:image |\n\n### 結構化資料 JSON-LD（選用，持續擴充）\n\n根據頁面類型選擇適合的 Schema：\n\n| 頁面類型 | Schema Type | 適用場景 |\n|----------|-------------|----------|\n| 首頁 | `Organization` / `WebSite` | 品牌官網 |\n| 文章 | `Article` / `BlogPosting` | 部落格、新聞 |\n| 產品 | `Product` | 商品頁 |\n| FAQ | `FAQPage` | 常見問題 |\n| 活動 | `Event` | 活動頁 |\n| 麵包屑 | `BreadcrumbList` | 多層級網站 |\n\n## 實作方式\n\n### Nuxt 專案\n\n**全域設定**（`nuxt.config.js` → `app.head.meta`）：\n- 所有頁面共用的 title、description、OG 標籤\n- og:image 用絕對 URL（含 domain）\n\n**頁面覆蓋**（`useHead()` 或 `useSeoMeta()`）：\n- 個別頁面覆蓋 title、og:title、og:url\n- 設定 robots（如 noindex）\n- 清除不需要的繼承值（設為空字串）\n\n**注意事項**：\n- `og:image` 必須用**絕對 URL**（含 https://domain）\n- 測試機在內網時，Facebook Debugger 抓不到，改用 `curl` 檢查 HTML source\n- 新增圖片記得放到 `public/` 目錄\n\n### 一般 HTML 專案\n\n直接在 `<head>` 內加入 meta 標籤。\n\n## 參考規格\n\n### Open Graph\n當需要查詢完整的 OG 標籤清單、可用的 og:type 值、或進階屬性（如 og:video、og:audio、profile、music、book 等）時，用 WebFetch 查閱 Open Graph 官方規格：https://ogp.me/\n特別是在以下情境：\n- 使用者問「還有哪些 OG 可以加」\n- 頁面類型不是常見的 website/article（如影片、音樂、書籍、個人檔案）\n- 需要確認某個 OG 屬性的正確寫法\n\n### 結構化資料 (Schema / JSON-LD)\n需要新增或建議結構化資料時，依序查閱：\n1. **先看 Google 搜尋文件**：https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=zh-tw\n   - 確認 Google 實際支援哪些 Schema 類型（不是所有 Schema 都會產生搜尋結果特殊呈現）\n   - 查看各類型的必要/建議屬性、範例程式碼\n2. **再看 Schema.org**：https://schema.org/\n   - 查完整的屬性定義、繼承關係、進階用法\n   - Google 文件沒涵蓋的類型或屬性在這裡找\n\n特別是在以下情境：\n- 使用者想提升搜尋結果呈現（如星星評分、FAQ 展開、活動資訊）\n- 建立新類型頁面（產品、文章、活動、FAQ、課程等）\n- 使用者提到 Schema、JSON-LD、結構化資料、rich results\n\n## 驗證工具\n\n| 工具 | 用途 | URL |\n|------|------|-----|\n| Facebook Sharing Debugger | 驗證 OG 預覽 | https://developers.facebook.com/tools/debug/ |\n| Twitter Card Validator | 驗證 Twitter 預覽 | https://cards-dev.twitter.com/validator |\n| Google Rich Results Test | 驗證結構化資料 | https://search.google.com/test/rich-results |\n| Schema.org Validator | 驗證 JSON-LD | https://validator.schema.org/ |\n| LINE URL Preview Test | 確認 LINE 分享預覽 | 直接在 LINE 聊天貼連結 |\n\n## og:image 規格速查\n\n| 平台 | 建議尺寸 | 比例 | 檔案限制 |\n|------|---------|------|---------|\n| Facebook | 1200×630 | 1.91:1 | < 8MB |\n| LINE | 1200×630 | 1.91:1 | < 5MB |\n| Twitter | 1200×628 | ~1.91:1 | < 5MB |\n| Threads | 1200×630 | 1.91:1 | — |\n\n**通用建議**：準備一張 **1200×630 的 PNG/JPG**，全平台通用。"
     },
     {
+      "name": "top-5",
+      "source": "personal",
+      "scope": "personal",
+      "description": "Use when 使用者要寫每週 Top 5 email 給主管 Kerwin。觸發於：「Top 5」「Weekly Top 5」「週重點 email」「給主管的週報信」「寫信給 Kerwin」。注意：這是純文字 email 格式，跟 weekly-report skill（Money 產品週報簡報）不同。",
+      "content": "# Top 5 — Weekly Email to Kerwin\n\n## Overview\n\n每週給**產品部門主管** 温宏鈞 (kerwin@cmoney.com.tw) 的 Top 5 工作回顧 email。\n純文字、口語、感性三段式（進展 / 挑戰 / 需要的回饋）。\n跟 `weekly-report` skill 是不同產出 —— 那個是產品週會簡報，這個是個人寫給主管的信。\n\n### 同步目的（決定信怎麼寫）\n1. **讓主管提供解法** — 第三段要明確帶出你卡住、想要他輸入的點，不要只是 status update\n2. **讓主管了解事業推進狀況** — 第一、二段提供決策需要的事實面（進展、依賴、風險）\n\n寫之前先想：這封信要拿到什麼解法？這就是第三段的核心。\n\n## Email Header\n\n| 欄位 | 內容 |\n|------|------|\n| To | `kerwin@cmoney.com.tw` |\n| From | `williamlin1150@gmail.com`（個人 Gmail） |\n| Subject | `Weekly Top 5_William (M/D~M/D)` |\n\nSubject 細節：`William` 跟括號之間有空格，月日無前導零。例：`Weekly Top 5_William (4/20~4/25)`\n\n## Three-Section Structure\n\n### 1.有進展/開心的事情\n- 一句話講主成果，再補一句感受或「為什麼是 milestone」\n- 量化或具體：「4 小時搞定」「雙平台都上線」「從去年跑到現在」\n- 給連結直接貼 raw URL，不另起 link 文字\n- 1–3 個項目，不要塞滿\n\n### 2.遇到挑戰/ 不如預期的事情\n- 直接點問題 + 加當前處置或預期解\n- 講依賴關係：誰卡誰、為什麼\n- 出現協作者人名（小草 / Ken / Hubert / Benson / 潔安 ...）讓主管知道脈絡\n- 平實寫，不誇大也不淡化\n\n### 3.對我的回饋/需要幫忙地方\n- **核心：要拿到主管的解法。** 明確帶出卡點、選型、優先序、合作態度等想要他輸入的點\n- 可以兼帶 status update + 自己的初步判斷，但**不能只有 status update** — 那違背同步目的\n- 把問題寫得具體可回應：「CRM 換哪個」「口袋優先序怎麼排」「樊登方長期合作怎麼看」\n- 結尾常用「其他應該就球來就打」這類輕收口（只用在沒有第二個 ask 的時候）\n- 簽名只寫 `William`，**不寫 `BR,`** 或「敬上」\n\n## Style Rules\n\n### 段落格式\n- 段落標題**不加粗、不加 `*` 包裹**（最新偏好）\n  - ✅ `1.有進展/開心的事情`\n  - ❌ `*1.有進展/開心的事情*`\n- 段落之間空兩行（明顯分段）\n- 同一段內，每個項目之間空一行\n- 同一項目內，多行短句直接換行不空行\n\n### 句子\n- 短句、口語、像跟人講話\n- 講不完就換行，不堆長句\n- 語氣詞少量 OK：「囉」「哈」「滿開心的」「應該就」\n- 用「我自己」「我蠻看好的」「想聽你方向」這類第一人稱\n\n### 不要寫\n- 不寫「BR,」「敬上」「謝謝您」等正式收尾\n- 不寫項目符號 `-` 或 `1.` 編號（除了三段大標 1/2/3）\n- 不寫「本期工項 / 下期工項 / (其他)」這種太結構化的標頭\n- 過度英文 buzzword（milestone, deliverable, sync — 少量 OK，別整段都是）\n\n## Quick Template\n\n```\n1.有進展/開心的事情\n\n[一句話講主成果]\n[補一句感受 / 為什麼是 milestone]\n\n[第二件事 + 量化]\n[相關連結 raw URL]\n\n[第三件事 + 鋪陳下一步]\n\n\n2.遇到挑戰/ 不如預期的事情\n\n[卡點一]\n[當前處置 / 預期何時收掉]\n\n[卡點二]\n[誰跟誰的依賴 / 解法]\n\n\n3.對我的回饋/需要幫忙地方\n\n[請求或 status update]\n[補上自己的判斷或下一步]\n\n其他應該就球來就打\n\nWilliam\n```\n\n## Workflow\n\n1. **讀本週 Obsidian 日誌**：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`，抓 `[x]` 已勾選項目\n2. **讀相關 context-log**：依產品線抓細節（帆書/口袋/學到/Money 等）\n3. **先在對話裡給文字稿**，使用者改寫 → 確認後再下一步\n4. **用 `mcp__claude_ai_Gmail__create_draft` 建草稿**，不直接寄出\n5. **提示使用者**去 Gmail 草稿匣修改後寄出\n\n## Past Examples (snippets)\n\n**2025/7/11（工項導向，流量組時期）**\n分「本期工項 / 下期工項 / (其他)」，粗體小標、附 Jira/Figma 連結，結尾 `BR, William`。\n→ 已不是現在偏好的格式，但有特定情境（季初 OKR 對齊週）可考慮。\n\n**2026/3/1（感性三段式，換組過渡期）**\n標題用 `*1.有進展/開心的事情*` 粗體包裹。短句、口語、有點碎念。\n\n**2026/4/25（感性三段式，Money 產品線）**\n標題不加粗（`1.有進展/開心的事情`）。具體到人名（小草/Ken/Hubert/Benson/潔安）與依賴關係。連結直接貼 URL。結尾只 `William`。\n\n## Iteration Log\n\n每次使用者回饋後，把學到的偏好變化記錄在這裡（保留時間戳）。\n\n- **2026-04-25**：段落標題去除 `*` 粗體；段落間空兩行；結尾只寫 `William`（無 `BR,`）；連結直接貼 raw URL；第二三段要寫協作者人名讓主管知道脈絡；「其他應該就球來就打」是慣用收口\n- **2026-04-25 (補)**：Kerwin 不再是 BU Head，是**產品部門主管**。同步目的明確化：(1) 讓主管提供解法 (2) 讓主管了解事業推進狀況。**修正之前的偏見**：第三段不能只是 status update + 自己判斷 — 必須帶出想要主管輸入的點（解法、選型、優先序），否則違背同步目的"
+    },
+    {
       "name": "ui-dom-verify",
       "source": "personal",
       "scope": "personal",
@@ -338,7 +345,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-24T14:11:35.447Z",
+    "lastUpdated": "2026-04-25T11:19:48.511Z",
     "tools": {
       "agent:general-purpose": 5,
       "agent:Explore": 2,
@@ -347,7 +354,7 @@
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
       "claude_ai_Google_Drive:read_file_content": 8,
-      "skill:superpowers:writing-skills": 1,
+      "skill:superpowers:writing-skills": 2,
       "claude_ai_Google_Drive:get_file_metadata": 2,
       "claude_ai_Google_Drive:download_file_content": 1,
       "n8n-mcp:n8n_get_workflow": 5,
@@ -366,7 +373,12 @@
       "mixpanel:Run-Query": 20,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 13,
-      "mixpanel:Get-Property-Values": 1
+      "mixpanel:Get-Property-Values": 1,
+      "skill:weekly-report": 1,
+      "claude_ai_Gmail:authenticate": 1,
+      "claude_ai_Gmail:search_threads": 3,
+      "claude_ai_Gmail:get_thread": 2,
+      "claude_ai_Gmail:create_draft": 3
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -379,7 +391,9 @@
       },
       "~": {
         "skills": {
-          "superpowers:brainstorming": 4
+          "superpowers:brainstorming": 4,
+          "weekly-report": 1,
+          "superpowers:writing-skills": 1
         },
         "agents": {
           "general-purpose": 1,
@@ -405,7 +419,11 @@
           "mixpanel:Run-Query": 20,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 13,
-          "mixpanel:Get-Property-Values": 1
+          "mixpanel:Get-Property-Values": 1,
+          "claude_ai_Gmail:authenticate": 1,
+          "claude_ai_Gmail:search_threads": 3,
+          "claude_ai_Gmail:get_thread": 2,
+          "claude_ai_Gmail:create_draft": 3
         }
       },
       "docs": {

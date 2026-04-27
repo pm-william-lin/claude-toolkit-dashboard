@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-24T14:11:35.447Z",
+  "lastUpdated": "2026-04-25T11:19:48.511Z",
   "tools": {
     "agent:general-purpose": 5,
     "agent:Explore": 2,
@@ -8,7 +8,7 @@
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
     "claude_ai_Google_Drive:read_file_content": 8,
-    "skill:superpowers:writing-skills": 1,
+    "skill:superpowers:writing-skills": 2,
     "claude_ai_Google_Drive:get_file_metadata": 2,
     "claude_ai_Google_Drive:download_file_content": 1,
     "n8n-mcp:n8n_get_workflow": 5,
@@ -27,7 +27,12 @@
     "mixpanel:Run-Query": 20,
     "mixpanel:Create-Dashboard": 1,
     "mixpanel:Update-Dashboard": 13,
-    "mixpanel:Get-Property-Values": 1
+    "mixpanel:Get-Property-Values": 1,
+    "skill:weekly-report": 1,
+    "claude_ai_Gmail:authenticate": 1,
+    "claude_ai_Gmail:search_threads": 3,
+    "claude_ai_Gmail:get_thread": 2,
+    "claude_ai_Gmail:create_draft": 3
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -40,7 +45,9 @@
     },
     "~": {
       "skills": {
-        "superpowers:brainstorming": 4
+        "superpowers:brainstorming": 4,
+        "weekly-report": 1,
+        "superpowers:writing-skills": 1
       },
       "agents": {
         "general-purpose": 1,
@@ -66,7 +73,11 @@
         "mixpanel:Run-Query": 20,
         "mixpanel:Create-Dashboard": 1,
         "mixpanel:Update-Dashboard": 13,
-        "mixpanel:Get-Property-Values": 1
+        "mixpanel:Get-Property-Values": 1,
+        "claude_ai_Gmail:authenticate": 1,
+        "claude_ai_Gmail:search_threads": 3,
+        "claude_ai_Gmail:get_thread": 2,
+        "claude_ai_Gmail:create_draft": 3
       }
     },
     "docs": {
