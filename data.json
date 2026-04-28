@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T08:24:54.179Z",
+  "generatedAt": "2026-04-28T09:44:05.830Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -345,7 +345,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-04-27T03:28:08.176Z",
+    "lastUpdated": "2026-04-27T08:28:20.465Z",
     "tools": {
       "agent:general-purpose": 5,
       "agent:Explore": 2,
@@ -364,13 +364,13 @@
       "n8n-mcp:n8n_executions": 24,
       "n8n-mcp:n8n_delete_workflow": 2,
       "n8n-mcp:n8n_validate_workflow": 3,
-      "mixpanel:Get-Projects": 1,
+      "mixpanel:Get-Projects": 2,
       "mixpanel:List-Dashboards": 1,
       "mixpanel:Get-Dashboard": 2,
       "mixpanel:Get-Properties": 3,
-      "mixpanel:Get-Events": 3,
-      "mixpanel:Get-Query-Schema": 3,
-      "mixpanel:Run-Query": 20,
+      "mixpanel:Get-Events": 5,
+      "mixpanel:Get-Query-Schema": 5,
+      "mixpanel:Run-Query": 23,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 13,
       "mixpanel:Get-Property-Values": 1,
@@ -410,13 +410,13 @@
           "n8n-mcp:n8n_executions": 24,
           "n8n-mcp:n8n_delete_workflow": 2,
           "n8n-mcp:n8n_validate_workflow": 3,
-          "mixpanel:Get-Projects": 1,
+          "mixpanel:Get-Projects": 2,
           "mixpanel:List-Dashboards": 1,
           "mixpanel:Get-Dashboard": 2,
           "mixpanel:Get-Properties": 3,
-          "mixpanel:Get-Events": 3,
-          "mixpanel:Get-Query-Schema": 3,
-          "mixpanel:Run-Query": 20,
+          "mixpanel:Get-Events": 5,
+          "mixpanel:Get-Query-Schema": 5,
+          "mixpanel:Run-Query": 23,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 13,
           "mixpanel:Get-Property-Values": 1,
