@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-27T08:28:20.465Z",
+  "lastUpdated": "2026-04-29T09:19:54.283Z",
   "tools": {
-    "agent:general-purpose": 5,
+    "agent:general-purpose": 6,
     "agent:Explore": 2,
-    "skill:superpowers:brainstorming": 5,
+    "skill:superpowers:brainstorming": 6,
     "skill:superpowers:writing-plans": 1,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
@@ -45,7 +45,7 @@
     },
     "~": {
       "skills": {
-        "superpowers:brainstorming": 4,
+        "superpowers:brainstorming": 5,
         "weekly-report": 2,
         "superpowers:writing-skills": 1
       },
@@ -105,7 +105,7 @@
         "superpowers:brainstorming": 1
       },
       "agents": {
-        "general-purpose": 1
+        "general-purpose": 2
       },
       "mcpTools": {
         "claude_ai_Google_Drive:read_file_content": 1
