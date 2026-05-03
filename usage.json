@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-30T07:38:21.805Z",
+  "lastUpdated": "2026-05-02T09:18:27.599Z",
   "tools": {
     "agent:general-purpose": 6,
     "agent:Explore": 2,
@@ -33,7 +33,8 @@
     "claude_ai_Gmail:search_threads": 3,
     "claude_ai_Gmail:get_thread": 2,
     "claude_ai_Gmail:create_draft": 3,
-    "mixpanel:Get-Report": 15
+    "mixpanel:Get-Report": 15,
+    "claude_ai_Google_Drive:search_files": 2
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -79,7 +80,8 @@
         "claude_ai_Gmail:search_threads": 3,
         "claude_ai_Gmail:get_thread": 2,
         "claude_ai_Gmail:create_draft": 3,
-        "mixpanel:Get-Report": 15
+        "mixpanel:Get-Report": 15,
+        "claude_ai_Google_Drive:search_files": 2
       }
     },
     "docs": {
