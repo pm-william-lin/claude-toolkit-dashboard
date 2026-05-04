@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-03T07:50:14.412Z",
+  "generatedAt": "2026-05-04T02:42:44.644Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -295,7 +295,7 @@
       "source": "personal",
       "scope": "personal",
       "description": "Use when 使用者要寫每週 Top 5 email 給主管 Kerwin。觸發於：「Top 5」「Weekly Top 5」「週重點 email」「給主管的週報信」「寫信給 Kerwin」。注意：這是純文字 email 格式，跟 weekly-report skill（Money 產品週報簡報）不同。",
-      "content": "# Top 5 — Weekly Email to Kerwin\n\n## Overview\n\n每週給**產品部門主管** 温宏鈞 (kerwin@cmoney.com.tw) 的 Top 5 工作回顧 email。\n純文字、口語、感性三段式（進展 / 挑戰 / 需要的回饋）。\n跟 `weekly-report` skill 是不同產出 —— 那個是產品週會簡報，這個是個人寫給主管的信。\n\n### 同步目的（決定信怎麼寫）\n1. **讓主管提供解法** — 第三段要明確帶出你卡住、想要他輸入的點，不要只是 status update\n2. **讓主管了解事業推進狀況** — 第一、二段提供決策需要的事實面（進展、依賴、風險）\n\n寫之前先想：這封信要拿到什麼解法？這就是第三段的核心。\n\n## Email Header\n\n| 欄位 | 內容 |\n|------|------|\n| To | `kerwin@cmoney.com.tw` |\n| From | `williamlin1150@gmail.com`（個人 Gmail） |\n| Subject | `Weekly Top 5_William (M/D~M/D)` |\n\nSubject 細節：`William` 跟括號之間有空格，月日無前導零。例：`Weekly Top 5_William (4/20~4/25)`\n\n## Three-Section Structure\n\n### 1.有進展/開心的事情\n- 一句話講主成果，再補一句感受或「為什麼是 milestone」\n- 量化或具體：「4 小時搞定」「雙平台都上線」「從去年跑到現在」\n- 給連結直接貼 raw URL，不另起 link 文字\n- 1–3 個項目，不要塞滿\n\n### 2.遇到挑戰/ 不如預期的事情\n- 直接點問題 + 加當前處置或預期解\n- 講依賴關係：誰卡誰、為什麼\n- 出現協作者人名（小草 / Ken / Hubert / Benson / 潔安 ...）讓主管知道脈絡\n- 平實寫，不誇大也不淡化\n\n### 3.對我的回饋/需要幫忙地方\n- **核心：要拿到主管的解法。** 明確帶出卡點、選型、優先序、合作態度等想要他輸入的點\n- 可以兼帶 status update + 自己的初步判斷，但**不能只有 status update** — 那違背同步目的\n- 把問題寫得具體可回應：「CRM 換哪個」「口袋優先序怎麼排」「樊登方長期合作怎麼看」\n- 結尾常用「其他應該就球來就打」這類輕收口（只用在沒有第二個 ask 的時候）\n- 簽名只寫 `William`，**不寫 `BR,`** 或「敬上」\n\n## Style Rules\n\n### 段落格式\n- 段落標題**不加粗、不加 `*` 包裹**（最新偏好）\n  - ✅ `1.有進展/開心的事情`\n  - ❌ `*1.有進展/開心的事情*`\n- 段落之間空兩行（明顯分段）\n- 同一段內，每個項目之間空一行\n- 同一項目內，多行短句直接換行不空行\n\n### 句子\n- 短句、口語、像跟人講話\n- 講不完就換行，不堆長句\n- 語氣詞少量 OK：「囉」「哈」「滿開心的」「應該就」\n- 用「我自己」「我蠻看好的」「想聽你方向」這類第一人稱\n\n### 不要寫\n- 不寫「BR,」「敬上」「謝謝您」等正式收尾\n- 不寫項目符號 `-` 或 `1.` 編號（除了三段大標 1/2/3）\n- 不寫「本期工項 / 下期工項 / (其他)」這種太結構化的標頭\n- 過度英文 buzzword（milestone, deliverable, sync — 少量 OK，別整段都是）\n\n## Quick Template\n\n```\n1.有進展/開心的事情\n\n[一句話講主成果]\n[補一句感受 / 為什麼是 milestone]\n\n[第二件事 + 量化]\n[相關連結 raw URL]\n\n[第三件事 + 鋪陳下一步]\n\n\n2.遇到挑戰/ 不如預期的事情\n\n[卡點一]\n[當前處置 / 預期何時收掉]\n\n[卡點二]\n[誰跟誰的依賴 / 解法]\n\n\n3.對我的回饋/需要幫忙地方\n\n[請求或 status update]\n[補上自己的判斷或下一步]\n\n其他應該就球來就打\n\nWilliam\n```\n\n## Workflow\n\n1. **讀本週 Obsidian 日誌**：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`，抓 `[x]` 已勾選項目\n2. **讀相關 context-log**：依產品線抓細節（帆書/口袋/學到/Money 等）\n3. **先在對話裡給文字稿**，使用者改寫 → 確認後再下一步\n4. **用 `mcp__claude_ai_Gmail__create_draft` 建草稿**，不直接寄出\n5. **提示使用者**去 Gmail 草稿匣修改後寄出\n\n## Past Examples (snippets)\n\n**2025/7/11（工項導向，流量組時期）**\n分「本期工項 / 下期工項 / (其他)」，粗體小標、附 Jira/Figma 連結，結尾 `BR, William`。\n→ 已不是現在偏好的格式，但有特定情境（季初 OKR 對齊週）可考慮。\n\n**2026/3/1（感性三段式，換組過渡期）**\n標題用 `*1.有進展/開心的事情*` 粗體包裹。短句、口語、有點碎念。\n\n**2026/4/25（感性三段式，Money 產品線）**\n標題不加粗（`1.有進展/開心的事情`）。具體到人名（小草/Ken/Hubert/Benson/潔安）與依賴關係。連結直接貼 URL。結尾只 `William`。\n\n## Iteration Log\n\n每次使用者回饋後，把學到的偏好變化記錄在這裡（保留時間戳）。\n\n- **2026-04-25**：段落標題去除 `*` 粗體；段落間空兩行；結尾只寫 `William`（無 `BR,`）；連結直接貼 raw URL；第二三段要寫協作者人名讓主管知道脈絡；「其他應該就球來就打」是慣用收口\n- **2026-04-25 (補)**：Kerwin 不再是 BU Head，是**產品部門主管**。同步目的明確化：(1) 讓主管提供解法 (2) 讓主管了解事業推進狀況。**修正之前的偏見**：第三段不能只是 status update + 自己判斷 — 必須帶出想要主管輸入的點（解法、選型、優先序），否則違背同步目的"
+      "content": "# Top 5 — Weekly Email to Kerwin\n\n## Overview\n\n每週給**產品部門主管** 温宏鈞 (kerwin@cmoney.com.tw) 的 Top 5 工作回顧 email。\n純文字、口語、感性三段式（進展 / 挑戰 / 需要的回饋）。\n跟 `weekly-report` skill 是不同產出 —— 那個是產品週會簡報，這個是個人寫給主管的信。\n\n### 同步目的（決定信怎麼寫）\n1. **讓主管提供解法** — 第三段要明確帶出你卡住、想要他輸入的點，不要只是 status update\n2. **讓主管了解事業推進狀況** — 第一、二段提供決策需要的事實面（進展、依賴、風險）\n\n寫之前先想：這封信要拿到什麼解法？這就是第三段的核心。\n\n## Email Header\n\n| 欄位 | 內容 |\n|------|------|\n| To | `kerwin@cmoney.com.tw` |\n| From | `williamlin1150@gmail.com`（個人 Gmail） |\n| Subject | `Weekly Top 5_William (M/D~M/D)` |\n\nSubject 細節：`William` 跟括號之間有空格，月日無前導零。例：`Weekly Top 5_William (4/20~4/25)`\n\n## Three-Section Structure\n\n### 1.有進展/開心的事情\n- 一句話講主成果，再補一句感受或「為什麼是 milestone」\n- 量化或具體：「4 小時搞定」「雙平台都上線」「從去年跑到現在」\n- 給連結直接貼 raw URL，不另起 link 文字\n- 1–3 個項目，不要塞滿\n\n### 2.遇到挑戰/ 不如預期的事情\n- 直接點問題 + 加當前處置或預期解\n- 講依賴關係：誰卡誰、為什麼\n- 出現協作者人名（小草 / Ken / Hubert / Benson / 潔安 ...）讓主管知道脈絡\n- 平實寫，不誇大也不淡化\n\n### 3.對我的回饋/需要幫忙地方\n- **核心：要拿到主管的解法。** 明確帶出卡點、選型、優先序、合作態度等想要他輸入的點\n- 可以兼帶 status update + 自己的初步判斷，但**不能只有 status update** — 那違背同步目的\n- 把問題寫得具體可回應：「CRM 換哪個」「口袋優先序怎麼排」「樊登方長期合作怎麼看」\n- 結尾常用「其他應該就球來就打」這類輕收口（只用在沒有第二個 ask 的時候）\n- 簽名只寫 `William`，**不寫 `BR,`** 或「敬上」\n\n## Style Rules\n\n### 段落格式\n- 段落標題**不加粗、不加 `*` 包裹**（最新偏好）\n  - ✅ `1.有進展/開心的事情`\n  - ❌ `*1.有進展/開心的事情*`\n- 段落之間空兩行（明顯分段）\n- 同一段內，每個項目之間空一行\n- 同一項目內，多行短句直接換行不空行\n\n### 句子\n- 短句、口語、像跟人講話\n- 講不完就換行，不堆長句\n- 語氣詞少量 OK：「囉」「哈」「滿開心的」「應該就」\n- 用「我自己」「我蠻看好的」「想聽你方向」這類第一人稱\n\n### 不要寫\n- 不寫「BR,」「敬上」「謝謝您」等正式收尾\n- 不寫項目符號 `-` 或 `1.` 編號（除了三段大標 1/2/3）\n- 不寫「本期工項 / 下期工項 / (其他)」這種太結構化的標頭\n- 過度英文 buzzword（milestone, deliverable, sync — 少量 OK，別整段都是）\n\n## Quick Template\n\n```\n1.有進展/開心的事情\n\n[一句話講主成果]\n[補一句感受 / 為什麼是 milestone]\n\n[第二件事 + 量化]\n[相關連結 raw URL]\n\n[第三件事 + 鋪陳下一步]\n\n\n2.遇到挑戰/ 不如預期的事情\n\n[卡點一]\n[當前處置 / 預期何時收掉]\n\n[卡點二]\n[誰跟誰的依賴 / 解法]\n\n\n3.對我的回饋/需要幫忙地方\n\n[請求或 status update]\n[補上自己的判斷或下一步]\n\n其他應該就球來就打\n\nWilliam\n```\n\n## Workflow\n\n1. **讀本週 Obsidian 日誌**：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`，抓 `[x]` 已勾選項目\n2. **讀相關 context-log**：依產品線抓細節（帆書/口袋/學到/Money 等）\n3. **先在對話裡給文字稿**，使用者改寫 → 確認後再下一步\n4. **用 `mcp__claude_ai_Gmail__create_draft` 建草稿**，不直接寄出\n5. **提示使用者**去 Gmail 草稿匣修改後寄出\n\n## Past Examples (snippets)\n\n**2025/7/11（工項導向，流量組時期）**\n分「本期工項 / 下期工項 / (其他)」，粗體小標、附 Jira/Figma 連結，結尾 `BR, William`。\n→ 已不是現在偏好的格式，但有特定情境（季初 OKR 對齊週）可考慮。\n\n**2026/3/1（感性三段式，換組過渡期）**\n標題用 `*1.有進展/開心的事情*` 粗體包裹。短句、口語、有點碎念。\n\n**2026/4/25（感性三段式，Money 產品線）**\n標題不加粗（`1.有進展/開心的事情`）。具體到人名（小草/Ken/Hubert/Benson/潔安）與依賴關係。連結直接貼 URL。結尾只 `William`。\n\n## Iteration Log\n\n每次使用者回饋後，把學到的偏好變化記錄在這裡（保留時間戳）。\n\n- **2026-04-25**：段落標題去除 `*` 粗體；段落間空兩行；結尾只寫 `William`（無 `BR,`）；連結直接貼 raw URL；第二三段要寫協作者人名讓主管知道脈絡；「其他應該就球來就打」是慣用收口\n- **2026-04-25 (補)**：Kerwin 不再是 BU Head，是**產品部門主管**。同步目的明確化：(1) 讓主管提供解法 (2) 讓主管了解事業推進狀況。**修正之前的偏見**：第三段不能只是 status update + 自己判斷 — 必須帶出想要主管輸入的點（解法、選型、優先序），否則違背同步目的\n- **2026-05-03**：使用者大改我給的草稿，學到幾個關鍵偏好變化：\n  - **段落標題可加 `▌` 前綴**（U+2590 right half block）：`▌1.有進展/開心的事情`。是新採用的視覺裝飾，不再純無修飾\n  - **第一段內可分子類別小標**（不加標號的 inline 標題行），例：「後端發起」「新需求，預計下週完成」「開發流程」「另外」「發起新的挑戰」。不限於 1–3 大項排比\n  - **第二段同一產品線下多個卡點可用 `1.` `2.` 編號**（先寫產品線名「帆書」當小標，下面 `1.` `2.` 列卡點）。修正之前「不寫項目符號或編號」的規則 — 那只適用於跨類事項，同類多點時編號清晰\n  - **第三段可以只有 1 個 ask**：這次使用者只留「想要專職的人控品質」一個。不要硬塞三個 ask 來填版面，少而精準更好。「其他應該就球來就打」這次也沒用 — 不是必要收口\n  - **語氣要更操作性、less 主觀感受詞**：使用者刪掉了我寫的「我自己蠻看好」「我自己覺得」這類修飾，換成更直接的「退回部門」「改A壞B」「收集足夠多證據」「下週持續推進」。Top 5 是工作回顧不是日記，事實面 + 下一步動作 > 自我評論\n  - **「發起新的挑戰」是放在第一段的進展型 sub-section**：主動承擔更難的工作（PM 自己做後端 spec、自己做設計）算成果，不是挑戰。第二段才是「真的卡住」的東西"
     },
     {
       "name": "ui-dom-verify",
@@ -309,7 +309,7 @@
       "source": "personal",
       "scope": "personal",
       "description": "Use when the user asks to write, prepare, or review their weekly product report (週報). Triggers on 週報, weekly report, 產品週會, 簡報, presentation slides for work reporting.",
-      "content": "# Weekly Report — Money 產品週報\n\n## Overview\n\n協助使用者撰寫 CMoney Money 產品線的週報簡報（Google Slides），涵蓋三條產品線：帆書 App、口袋 Studio、學到。\n\n## Data Sources\n\n1. **Obsidian Daily Notes** — `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`\n   - 每日 checklist 中的 `[x]` 項目 = 已完成工作\n   - `[[會議]]` 區塊 = 本週會議與討論\n2. **Google Slides** — 讀取前週簡報了解上下文（需 Google Drive MCP 授權）\n   - File ID: `1nPtOovCpOoTDlWMKImvEPZV8EJuXDTIf9_FJ8I7Rmmw`\n   - API 讀不到 speaker notes 和 comments，需使用者截圖提供\n3. **GA / GSC 數據** — 使用者自行提供\n4. **Context logs** — `~/.claude/projects/-Users-william/memory/` 下各產品線的 context-log\n\n## Presentation Structure\n\n每週固定結構（從上到下）：\n\n| 頁 | 內容 |\n|---|------|\n| 封面 | Money 產品週報 |\n| OKR | Q2 OKR（固定不動） |\n| 目標 | Q2 產品目標（固定不動） |\n| 日期頁 | `4/20(一) 產品週會 數字到 4/18(六)` |\n| **執行摘要** | 三條產品線各一段濃縮（最重要的頁） |\n| 流程/策略頁 | 視當週需要（如：管理方式調整） |\n| **帆書詳細頁** | 1-3 頁（視進度） |\n| **口袋詳細頁** | 數據 + 比對 + 開發優先序 + Demo |\n| **學到詳細頁** | 流量 + SEO + 開發順序 |\n| 人力/優先序 | 三個產品的整體開發內容與順序 |\n\n## Writing Style Rules\n\n### 標題\n- 直接點出「結論 + 行動方向」，不是純主題名稱\n- 例：`比對口袋 vs CMedia 數據面 → 行動：SEO 相關推進`\n- 例：`帆書 App 雙平台皆已上線，緊接優先完成樊登方合約相關內容`\n\n### 內容\n- **數據先行，接 Action**：先放數字，再用 `→` 連接行動\n- **比對用表格/兩欄**，不用純文字描述\n- **卡點 → 解法格式**：`卡點在 PM 測試 → 這兩天處理完`\n- Demo 頁標註「正式機 Demo」或「測試機 Demo」\n\n### 摘要頁濃縮法\n每個產品線 2-4 行：\n1. 一句話現狀\n2. 上週完成的關鍵項目（列舉）\n3. `→` 接下來處理什麼\n4. 今日 Demo 項目（如有）\n\n### OKR 數據頁\n- 標題用 `# 口袋 Q2 OKR` 格式\n- 副標一句話講本週亮點數據\n- 表格：頁面瀏覽 → 加車(%) → 結帳率(%) → 購買(%)\n- 右側放行銷後續行動（作者組 / Money）\n\n## Google Slides Technical Notes\n\n- **尺寸：720 x 405 points**（不是 960x540）\n- 插入投影片用 **Google Apps Script**（`insertSlide(index)`）\n- 無法直接編輯現有投影片內容，只能新增\n- 配色：黑(`#222222`)、灰(`#666666`)、淺灰背景(`#F5F5F5`)、邊框(`#DDDDDD`)、重點藍(`#3B82F6`)\n- 已完成項目用綠色(`#16803C`)、待辦用橘色(`#B45309`)\n- 字體大小：標題 18-24pt、段落標題 10-12pt、內容 8-10pt\n\n### Apps Script 使用流程\n1. 寫好 `.gs` 檔案\n2. `pbcopy` 複製到剪貼簿\n3. 使用者到 Google Slides → 擴充功能 → Apps Script → 貼上 → 選函式 → 執行\n\n## Workflow\n\n```dot\ndigraph weekly_report {\n  \"讀取 context-log\" -> \"讀取 Obsidian 日誌\";\n  \"讀取 Obsidian 日誌\" -> \"讀取前週簡報\";\n  \"讀取前週簡報\" -> \"與使用者確認本週重點\";\n  \"與使用者確認本週重點\" -> \"產出文字稿\";\n  \"產出文字稿\" -> \"使用者確認/修改\";\n  \"使用者確認/修改\" -> \"產出 Apps Script 或純文字\";\n  \"產出 Apps Script 或純文字\" -> \"使用者自行貼入 Slides 微調\";\n}\n```\n\n## Common Mistakes\n\n| 錯誤 | 正確做法 |\n|------|---------|\n| Google Slides 尺寸用 960x540 | 用 720x405 points |\n| 直接產完整簡報不讓使用者調整 | 先產文字稿，確認後再做 |\n| 摘要寫太長 | 每產品線 2-4 行，數據+行動 |\n| 標題只寫主題名 | 標題要包含結論和行動方向 |\n| 顏色用太多 | 只用黑灰白 + 一個重點色 |\n| 幫使用者決定頁數 | 問使用者，或依內容量建議 |"
+      "content": "# Weekly Report — Money 產品週報\n\n## Overview\n\n協助使用者撰寫 CMoney Money 產品線的週報簡報（Google Slides），涵蓋三條產品線：帆書 App、口袋 Studio、學到。\n\n## Data Sources\n\n1. **Obsidian Daily Notes** — `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`\n   - 每日 checklist 中的 `[x]` 項目 = 已完成工作\n   - `[[會議]]` 區塊 = 本週會議與討論\n2. **Google Slides** — 讀取前週簡報了解上下文（需 Google Drive MCP 授權）\n   - File ID: `1nPtOovCpOoTDlWMKImvEPZV8EJuXDTIf9_FJ8I7Rmmw`\n   - API 讀不到 speaker notes 和 comments，需使用者截圖提供\n3. **GA / GSC 數據** — 使用者自行提供\n4. **Context logs** — `~/.claude/projects/-Users-william/memory/` 下各產品線的 context-log\n\n## Presentation Structure\n\n每週固定結構（從上到下）：\n\n| 頁 | 內容 |\n|---|------|\n| 封面 | Money 產品週報 |\n| OKR | Q2 OKR（固定不動） |\n| 目標 | Q2 產品目標（固定不動） |\n| 日期頁 | `4/20(一) 產品週會 數字到 4/18(六)` |\n| **執行摘要** | 三條產品線各一段濃縮（最重要的頁） |\n| 流程/策略頁 | 視當週需要（如：管理方式調整） |\n| **帆書詳細頁** | 1-3 頁（視進度） |\n| **口袋詳細頁** | 數據 + 比對 + 開發優先序 + Demo |\n| **學到詳細頁** | 流量 + SEO + 開發順序 |\n| 人力/優先序 | 三個產品的整體開發內容與順序 |\n\n## Writing Style Rules\n\n### 標題\n- 直接點出「結論 + 行動方向」，不是純主題名稱\n- 例：`比對口袋 vs CMedia 數據面 → 行動：SEO 相關推進`\n- 例：`帆書 App 雙平台皆已上線，緊接優先完成樊登方合約相關內容`\n\n### 內容\n- **數據先行，接 Action**：先放數字，再用 `→` 連接行動\n- **比對用表格/兩欄**，不用純文字描述\n- **卡點 → 解法格式**：`卡點在 PM 測試 → 這兩天處理完`\n- Demo 頁標註「正式機 Demo」或「測試機 Demo」\n\n### 摘要頁濃縮法\n每個產品線 2-4 行：\n1. 一句話現狀\n2. 上週完成的關鍵項目（列舉）\n3. `→` 接下來處理什麼\n4. 今日 Demo 項目（如有）\n\n### OKR 數據頁\n- 標題用 `# 口袋 Q2 OKR` 格式\n- 副標一句話講本週亮點數據\n- 表格：頁面瀏覽 → 加車(%) → 結帳率(%) → 購買(%)\n- 右側放行銷後續行動（作者組 / Money）\n\n## Google Slides Technical Notes\n\n- **尺寸：720 x 405 points**（不是 960x540）\n- 插入投影片用 **Google Apps Script**（`insertSlide(index)`）\n- 無法直接編輯現有投影片內容，只能新增\n- 配色：黑(`#222222`)、灰(`#666666`)、淺灰背景(`#F5F5F5`)、邊框(`#DDDDDD`)、重點藍(`#3B82F6`)\n- **紅綠語意（Money 金融脈絡，紅漲綠跌）**：\n  - **紅色 `#DC2626` = 好 / 達標 / 贏 / 漲**\n  - **綠色 `#16803C` = 差 / 未達標 / 輸 / 跌**\n  - 跟一般軟體 UI（綠 = success, 紅 = error）相反，這是 Money 金融語境的硬規則，不要忘\n  - 中性 / 持平用灰 `#666666`；待辦或進行中用橘 `#B45309`\n- 字體大小：標題 18-24pt、段落標題 10-12pt、內容 8-10pt\n\n### Apps Script 使用流程\n1. 寫好 `.gs` 檔案\n2. `pbcopy` 複製到剪貼簿\n3. 使用者到 Google Slides → 擴充功能 → Apps Script → 貼上 → 選函式 → 執行\n\n## Workflow\n\n```dot\ndigraph weekly_report {\n  \"讀取 context-log\" -> \"讀取 Obsidian 日誌\";\n  \"讀取 Obsidian 日誌\" -> \"讀取前週簡報\";\n  \"讀取前週簡報\" -> \"與使用者確認本週重點\";\n  \"與使用者確認本週重點\" -> \"產出文字稿\";\n  \"產出文字稿\" -> \"使用者確認/修改\";\n  \"使用者確認/修改\" -> \"產出 Apps Script 或純文字\";\n  \"產出 Apps Script 或純文字\" -> \"使用者自行貼入 Slides 微調\";\n}\n```\n\n## Common Mistakes\n\n| 錯誤 | 正確做法 |\n|------|---------|\n| Google Slides 尺寸用 960x540 | 用 720x405 points |\n| 直接產完整簡報不讓使用者調整 | 先產文字稿，確認後再做 |\n| 摘要寫太長 | 每產品線 2-4 行，數據+行動 |\n| 標題只寫主題名 | 標題要包含結論和行動方向 |\n| 顏色用太多 | 只用黑灰白 + 一個重點色 |\n| 幫使用者決定頁數 | 問使用者，或依內容量建議 |"
     }
   ],
   "agents": [
@@ -345,7 +345,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-02T09:18:27.599Z",
+    "lastUpdated": "2026-05-03T12:07:35.189Z",
     "tools": {
       "agent:general-purpose": 6,
       "agent:Explore": 2,
@@ -353,7 +353,7 @@
       "skill:superpowers:writing-plans": 1,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 9,
+      "claude_ai_Google_Drive:read_file_content": 11,
       "skill:superpowers:writing-skills": 2,
       "claude_ai_Google_Drive:get_file_metadata": 2,
       "claude_ai_Google_Drive:download_file_content": 1,
@@ -366,21 +366,22 @@
       "n8n-mcp:n8n_validate_workflow": 3,
       "mixpanel:Get-Projects": 3,
       "mixpanel:List-Dashboards": 2,
-      "mixpanel:Get-Dashboard": 5,
-      "mixpanel:Get-Properties": 5,
+      "mixpanel:Get-Dashboard": 8,
+      "mixpanel:Get-Properties": 12,
       "mixpanel:Get-Events": 7,
-      "mixpanel:Get-Query-Schema": 6,
-      "mixpanel:Run-Query": 55,
+      "mixpanel:Get-Query-Schema": 8,
+      "mixpanel:Run-Query": 69,
       "mixpanel:Create-Dashboard": 1,
-      "mixpanel:Update-Dashboard": 23,
-      "mixpanel:Get-Property-Values": 8,
-      "skill:weekly-report": 2,
+      "mixpanel:Update-Dashboard": 24,
+      "mixpanel:Get-Property-Values": 10,
+      "skill:weekly-report": 3,
       "claude_ai_Gmail:authenticate": 1,
       "claude_ai_Gmail:search_threads": 3,
       "claude_ai_Gmail:get_thread": 2,
-      "claude_ai_Gmail:create_draft": 3,
-      "mixpanel:Get-Report": 15,
-      "claude_ai_Google_Drive:search_files": 2
+      "claude_ai_Gmail:create_draft": 5,
+      "mixpanel:Get-Report": 21,
+      "claude_ai_Google_Drive:search_files": 2,
+      "skill:top-5": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -394,8 +395,9 @@
       "~": {
         "skills": {
           "superpowers:brainstorming": 5,
-          "weekly-report": 2,
-          "superpowers:writing-skills": 1
+          "weekly-report": 3,
+          "superpowers:writing-skills": 1,
+          "top-5": 1
         },
         "agents": {
           "general-purpose": 1,
@@ -404,7 +406,7 @@
         },
         "mcpTools": {
           "claude_ai_Google_Drive:authenticate": 1,
-          "claude_ai_Google_Drive:read_file_content": 3,
+          "claude_ai_Google_Drive:read_file_content": 5,
           "n8n-mcp:n8n_get_workflow": 5,
           "n8n-mcp:n8n_update_partial_workflow": 22,
           "n8n-mcp:n8n_create_workflow": 3,
@@ -414,19 +416,19 @@
           "n8n-mcp:n8n_validate_workflow": 3,
           "mixpanel:Get-Projects": 3,
           "mixpanel:List-Dashboards": 2,
-          "mixpanel:Get-Dashboard": 5,
-          "mixpanel:Get-Properties": 5,
+          "mixpanel:Get-Dashboard": 8,
+          "mixpanel:Get-Properties": 12,
           "mixpanel:Get-Events": 7,
-          "mixpanel:Get-Query-Schema": 6,
-          "mixpanel:Run-Query": 55,
+          "mixpanel:Get-Query-Schema": 8,
+          "mixpanel:Run-Query": 69,
           "mixpanel:Create-Dashboard": 1,
-          "mixpanel:Update-Dashboard": 23,
-          "mixpanel:Get-Property-Values": 8,
+          "mixpanel:Update-Dashboard": 24,
+          "mixpanel:Get-Property-Values": 10,
           "claude_ai_Gmail:authenticate": 1,
           "claude_ai_Gmail:search_threads": 3,
           "claude_ai_Gmail:get_thread": 2,
-          "claude_ai_Gmail:create_draft": 3,
-          "mixpanel:Get-Report": 15,
+          "claude_ai_Gmail:create_draft": 5,
+          "mixpanel:Get-Report": 21,
           "claude_ai_Google_Drive:search_files": 2
         }
       },

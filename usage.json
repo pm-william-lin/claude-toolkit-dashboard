@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-02T09:18:27.599Z",
+  "lastUpdated": "2026-05-03T12:07:35.189Z",
   "tools": {
     "agent:general-purpose": 6,
     "agent:Explore": 2,
@@ -7,7 +7,7 @@
     "skill:superpowers:writing-plans": 1,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
-    "claude_ai_Google_Drive:read_file_content": 9,
+    "claude_ai_Google_Drive:read_file_content": 11,
     "skill:superpowers:writing-skills": 2,
     "claude_ai_Google_Drive:get_file_metadata": 2,
     "claude_ai_Google_Drive:download_file_content": 1,
@@ -20,21 +20,22 @@
     "n8n-mcp:n8n_validate_workflow": 3,
     "mixpanel:Get-Projects": 3,
     "mixpanel:List-Dashboards": 2,
-    "mixpanel:Get-Dashboard": 5,
-    "mixpanel:Get-Properties": 5,
+    "mixpanel:Get-Dashboard": 8,
+    "mixpanel:Get-Properties": 12,
     "mixpanel:Get-Events": 7,
-    "mixpanel:Get-Query-Schema": 6,
-    "mixpanel:Run-Query": 55,
+    "mixpanel:Get-Query-Schema": 8,
+    "mixpanel:Run-Query": 69,
     "mixpanel:Create-Dashboard": 1,
-    "mixpanel:Update-Dashboard": 23,
-    "mixpanel:Get-Property-Values": 8,
-    "skill:weekly-report": 2,
+    "mixpanel:Update-Dashboard": 24,
+    "mixpanel:Get-Property-Values": 10,
+    "skill:weekly-report": 3,
     "claude_ai_Gmail:authenticate": 1,
     "claude_ai_Gmail:search_threads": 3,
     "claude_ai_Gmail:get_thread": 2,
-    "claude_ai_Gmail:create_draft": 3,
-    "mixpanel:Get-Report": 15,
-    "claude_ai_Google_Drive:search_files": 2
+    "claude_ai_Gmail:create_draft": 5,
+    "mixpanel:Get-Report": 21,
+    "claude_ai_Google_Drive:search_files": 2,
+    "skill:top-5": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -48,8 +49,9 @@
     "~": {
       "skills": {
         "superpowers:brainstorming": 5,
-        "weekly-report": 2,
-        "superpowers:writing-skills": 1
+        "weekly-report": 3,
+        "superpowers:writing-skills": 1,
+        "top-5": 1
       },
       "agents": {
         "general-purpose": 1,
@@ -58,7 +60,7 @@
       },
       "mcpTools": {
         "claude_ai_Google_Drive:authenticate": 1,
-        "claude_ai_Google_Drive:read_file_content": 3,
+        "claude_ai_Google_Drive:read_file_content": 5,
         "n8n-mcp:n8n_get_workflow": 5,
         "n8n-mcp:n8n_update_partial_workflow": 22,
         "n8n-mcp:n8n_create_workflow": 3,
@@ -68,19 +70,19 @@
         "n8n-mcp:n8n_validate_workflow": 3,
         "mixpanel:Get-Projects": 3,
         "mixpanel:List-Dashboards": 2,
-        "mixpanel:Get-Dashboard": 5,
-        "mixpanel:Get-Properties": 5,
+        "mixpanel:Get-Dashboard": 8,
+        "mixpanel:Get-Properties": 12,
         "mixpanel:Get-Events": 7,
-        "mixpanel:Get-Query-Schema": 6,
-        "mixpanel:Run-Query": 55,
+        "mixpanel:Get-Query-Schema": 8,
+        "mixpanel:Run-Query": 69,
         "mixpanel:Create-Dashboard": 1,
-        "mixpanel:Update-Dashboard": 23,
-        "mixpanel:Get-Property-Values": 8,
+        "mixpanel:Update-Dashboard": 24,
+        "mixpanel:Get-Property-Values": 10,
         "claude_ai_Gmail:authenticate": 1,
         "claude_ai_Gmail:search_threads": 3,
         "claude_ai_Gmail:get_thread": 2,
-        "claude_ai_Gmail:create_draft": 3,
-        "mixpanel:Get-Report": 15,
+        "claude_ai_Gmail:create_draft": 5,
+        "mixpanel:Get-Report": 21,
         "claude_ai_Google_Drive:search_files": 2
       }
     },
