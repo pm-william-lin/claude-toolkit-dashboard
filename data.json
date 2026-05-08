@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T09:57:48.820Z",
+  "generatedAt": "2026-05-08T03:25:03.516Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -7,6 +7,13 @@
       "source": "claude-hud",
       "description": "Real-time statusline HUD for Claude Code - context health, tool activity, agent tracking, and todo progress",
       "author": "Jarrod Watts"
+    },
+    {
+      "name": "feature-dev",
+      "version": "61c0597779bd",
+      "source": "claude-plugins-official",
+      "description": "Comprehensive feature development workflow with specialized agents for codebase exploration, architecture design, and quality review",
+      "author": ""
     },
     {
       "name": "superpowers",
@@ -314,6 +321,27 @@
   ],
   "agents": [
     {
+      "name": "code-architect",
+      "source": "feature-dev",
+      "scope": "plugin",
+      "description": "Designs feature architectures by analyzing existing codebase patterns and conventions, then providing comprehensive implementation blueprints with specific files to create/modify, component designs, data flows, and build sequences",
+      "model": "sonnet"
+    },
+    {
+      "name": "code-explorer",
+      "source": "feature-dev",
+      "scope": "plugin",
+      "description": "Deeply analyzes existing codebase features by tracing execution paths, mapping architecture layers, understanding patterns and abstractions, and documenting dependencies to inform new development",
+      "model": "sonnet"
+    },
+    {
+      "name": "code-reviewer",
+      "source": "feature-dev",
+      "scope": "plugin",
+      "description": "Reviews code for bugs, logic errors, security vulnerabilities, code quality issues, and adherence to project conventions, using confidence-based filtering to report only high-priority issues that truly matter",
+      "model": "sonnet"
+    },
+    {
       "name": "code-reviewer",
       "source": "superpowers",
       "scope": "plugin",
@@ -345,10 +373,10 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-07T09:21:12.324Z",
+    "lastUpdated": "2026-05-07T14:56:56.969Z",
     "tools": {
-      "agent:general-purpose": 6,
-      "agent:Explore": 2,
+      "agent:general-purpose": 12,
+      "agent:Explore": 3,
       "skill:superpowers:brainstorming": 6,
       "skill:superpowers:writing-plans": 1,
       "agent:Plan": 1,
@@ -457,11 +485,19 @@
           "superpowers:brainstorming": 1
         },
         "agents": {
-          "general-purpose": 2
+          "general-purpose": 7,
+          "Explore": 1
         },
         "mcpTools": {
           "claude_ai_Google_Drive:read_file_content": 1
         }
+      },
+      "fanbook-api": {
+        "skills": {},
+        "agents": {
+          "general-purpose": 1
+        },
+        "mcpTools": {}
       }
     }
   }
