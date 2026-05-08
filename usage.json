@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-08T03:27:10.108Z",
+  "lastUpdated": "2026-05-08T10:24:40.426Z",
   "tools": {
-    "agent:general-purpose": 12,
+    "agent:general-purpose": 13,
     "agent:Explore": 4,
     "skill:superpowers:brainstorming": 6,
     "skill:superpowers:writing-plans": 1,
@@ -35,7 +35,8 @@
     "claude_ai_Gmail:create_draft": 5,
     "mixpanel:Get-Report": 23,
     "claude_ai_Google_Drive:search_files": 2,
-    "skill:top-5": 1
+    "skill:top-5": 1,
+    "agent:superpowers:code-reviewer": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -111,8 +112,9 @@
         "superpowers:brainstorming": 1
       },
       "agents": {
-        "general-purpose": 7,
-        "Explore": 1
+        "general-purpose": 8,
+        "Explore": 1,
+        "superpowers:code-reviewer": 1
       },
       "mcpTools": {
         "claude_ai_Google_Drive:read_file_content": 1
