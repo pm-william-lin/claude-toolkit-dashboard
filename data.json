@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T10:34:22.419Z",
+  "generatedAt": "2026-05-11T15:05:54.247Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -302,7 +302,7 @@
       "source": "personal",
       "scope": "personal",
       "description": "Use when 使用者要寫每週 Top 5 email 給主管 Kerwin。觸發於：「Top 5」「Weekly Top 5」「週重點 email」「給主管的週報信」「寫信給 Kerwin」。注意：這是純文字 email 格式，跟 weekly-report skill（Money 產品週報簡報）不同。",
-      "content": "# Top 5 — Weekly Email to Kerwin\n\n## Overview\n\n每週給**產品部門主管** 温宏鈞 (kerwin@cmoney.com.tw) 的 Top 5 工作回顧 email。\n純文字、口語、感性三段式（進展 / 挑戰 / 需要的回饋）。\n跟 `weekly-report` skill 是不同產出 —— 那個是產品週會簡報，這個是個人寫給主管的信。\n\n### 同步目的（決定信怎麼寫）\n1. **讓主管提供解法** — 第三段要明確帶出你卡住、想要他輸入的點，不要只是 status update\n2. **讓主管了解事業推進狀況** — 第一、二段提供決策需要的事實面（進展、依賴、風險）\n\n寫之前先想：這封信要拿到什麼解法？這就是第三段的核心。\n\n## Email Header\n\n| 欄位 | 內容 |\n|------|------|\n| To | `kerwin@cmoney.com.tw` |\n| From | `williamlin1150@gmail.com`（個人 Gmail） |\n| Subject | `Weekly Top 5_William (M/D~M/D)` |\n\nSubject 細節：`William` 跟括號之間有空格，月日無前導零。例：`Weekly Top 5_William (4/20~4/25)`\n\n## Three-Section Structure\n\n### 1.有進展/開心的事情\n- 一句話講主成果，再補一句感受或「為什麼是 milestone」\n- 量化或具體：「4 小時搞定」「雙平台都上線」「從去年跑到現在」\n- 給連結直接貼 raw URL，不另起 link 文字\n- 1–3 個項目，不要塞滿\n\n### 2.遇到挑戰/ 不如預期的事情\n- 直接點問題 + 加當前處置或預期解\n- 講依賴關係：誰卡誰、為什麼\n- 出現協作者人名（小草 / Ken / Hubert / Benson / 潔安 ...）讓主管知道脈絡\n- 平實寫，不誇大也不淡化\n\n### 3.對我的回饋/需要幫忙地方\n- **核心：要拿到主管的解法。** 明確帶出卡點、選型、優先序、合作態度等想要他輸入的點\n- 可以兼帶 status update + 自己的初步判斷，但**不能只有 status update** — 那違背同步目的\n- 把問題寫得具體可回應：「CRM 換哪個」「口袋優先序怎麼排」「樊登方長期合作怎麼看」\n- 結尾常用「其他應該就球來就打」這類輕收口（只用在沒有第二個 ask 的時候）\n- 簽名只寫 `William`，**不寫 `BR,`** 或「敬上」\n\n## Style Rules\n\n### 段落格式\n- 段落標題**不加粗、不加 `*` 包裹**（最新偏好）\n  - ✅ `1.有進展/開心的事情`\n  - ❌ `*1.有進展/開心的事情*`\n- 段落之間空兩行（明顯分段）\n- 同一段內，每個項目之間空一行\n- 同一項目內，多行短句直接換行不空行\n\n### 句子\n- 短句、口語、像跟人講話\n- 講不完就換行，不堆長句\n- 語氣詞少量 OK：「囉」「哈」「滿開心的」「應該就」\n- 用「我自己」「我蠻看好的」「想聽你方向」這類第一人稱\n\n### 不要寫\n- 不寫「BR,」「敬上」「謝謝您」等正式收尾\n- 不寫項目符號 `-` 或 `1.` 編號（除了三段大標 1/2/3）\n- 不寫「本期工項 / 下期工項 / (其他)」這種太結構化的標頭\n- 過度英文 buzzword（milestone, deliverable, sync — 少量 OK，別整段都是）\n\n## Quick Template\n\n```\n1.有進展/開心的事情\n\n[一句話講主成果]\n[補一句感受 / 為什麼是 milestone]\n\n[第二件事 + 量化]\n[相關連結 raw URL]\n\n[第三件事 + 鋪陳下一步]\n\n\n2.遇到挑戰/ 不如預期的事情\n\n[卡點一]\n[當前處置 / 預期何時收掉]\n\n[卡點二]\n[誰跟誰的依賴 / 解法]\n\n\n3.對我的回饋/需要幫忙地方\n\n[請求或 status update]\n[補上自己的判斷或下一步]\n\n其他應該就球來就打\n\nWilliam\n```\n\n## Workflow\n\n1. **讀本週 Obsidian 日誌**：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`，抓 `[x]` 已勾選項目\n2. **讀相關 context-log**：依產品線抓細節（帆書/口袋/學到/Money 等）\n3. **先在對話裡給文字稿**，使用者改寫 → 確認後再下一步\n4. **用 `mcp__claude_ai_Gmail__create_draft` 建草稿**，不直接寄出\n5. **提示使用者**去 Gmail 草稿匣修改後寄出\n\n## Past Examples (snippets)\n\n**2025/7/11（工項導向，流量組時期）**\n分「本期工項 / 下期工項 / (其他)」，粗體小標、附 Jira/Figma 連結，結尾 `BR, William`。\n→ 已不是現在偏好的格式，但有特定情境（季初 OKR 對齊週）可考慮。\n\n**2026/3/1（感性三段式，換組過渡期）**\n標題用 `*1.有進展/開心的事情*` 粗體包裹。短句、口語、有點碎念。\n\n**2026/4/25（感性三段式，Money 產品線）**\n標題不加粗（`1.有進展/開心的事情`）。具體到人名（小草/Ken/Hubert/Benson/潔安）與依賴關係。連結直接貼 URL。結尾只 `William`。\n\n## Iteration Log\n\n每次使用者回饋後，把學到的偏好變化記錄在這裡（保留時間戳）。\n\n- **2026-04-25**：段落標題去除 `*` 粗體；段落間空兩行；結尾只寫 `William`（無 `BR,`）；連結直接貼 raw URL；第二三段要寫協作者人名讓主管知道脈絡；「其他應該就球來就打」是慣用收口\n- **2026-04-25 (補)**：Kerwin 不再是 BU Head，是**產品部門主管**。同步目的明確化：(1) 讓主管提供解法 (2) 讓主管了解事業推進狀況。**修正之前的偏見**：第三段不能只是 status update + 自己判斷 — 必須帶出想要主管輸入的點（解法、選型、優先序），否則違背同步目的\n- **2026-05-03**：使用者大改我給的草稿，學到幾個關鍵偏好變化：\n  - **段落標題可加 `▌` 前綴**（U+2590 right half block）：`▌1.有進展/開心的事情`。是新採用的視覺裝飾，不再純無修飾\n  - **第一段內可分子類別小標**（不加標號的 inline 標題行），例：「後端發起」「新需求，預計下週完成」「開發流程」「另外」「發起新的挑戰」。不限於 1–3 大項排比\n  - **第二段同一產品線下多個卡點可用 `1.` `2.` 編號**（先寫產品線名「帆書」當小標，下面 `1.` `2.` 列卡點）。修正之前「不寫項目符號或編號」的規則 — 那只適用於跨類事項，同類多點時編號清晰\n  - **第三段可以只有 1 個 ask**：這次使用者只留「想要專職的人控品質」一個。不要硬塞三個 ask 來填版面，少而精準更好。「其他應該就球來就打」這次也沒用 — 不是必要收口\n  - **語氣要更操作性、less 主觀感受詞**：使用者刪掉了我寫的「我自己蠻看好」「我自己覺得」這類修飾，換成更直接的「退回部門」「改A壞B」「收集足夠多證據」「下週持續推進」。Top 5 是工作回顧不是日記，事實面 + 下一步動作 > 自我評論\n  - **「發起新的挑戰」是放在第一段的進展型 sub-section**：主動承擔更難的工作（PM 自己做後端 spec、自己做設計）算成果，不是挑戰。第二段才是「真的卡住」的東西"
+      "content": "# Top 5 — Weekly Email to Kerwin\n\n## Overview\n\n每週給**產品部門主管** 温宏鈞 (kerwin@cmoney.com.tw) 的 Top 5 工作回顧 email。\n純文字、口語、感性三段式（進展 / 挑戰 / 需要的回饋）。\n跟 `weekly-report` skill 是不同產出 —— 那個是產品週會簡報，這個是個人寫給主管的信。\n\n### 同步目的（決定信怎麼寫）\n1. **讓主管提供解法** — 第三段要明確帶出你卡住、想要他輸入的點，不要只是 status update\n2. **讓主管了解事業推進狀況** — 第一、二段提供決策需要的事實面（進展、依賴、風險）\n\n寫之前先想：這封信要拿到什麼解法？這就是第三段的核心。\n\n## Email Header\n\n| 欄位 | 內容 |\n|------|------|\n| To | `kerwin@cmoney.com.tw` |\n| From | `williamlin1150@gmail.com`（個人 Gmail） |\n| Subject | `Weekly Top 5_William (M/D~M/D)` |\n\nSubject 細節：`William` 跟括號之間有空格，月日無前導零。例：`Weekly Top 5_William (4/20~4/25)`\n\n## Three-Section Structure\n\n### 1.有進展/開心的事情\n- 一句話講主成果，再補一句感受或「為什麼是 milestone」\n- 量化或具體：「4 小時搞定」「雙平台都上線」「從去年跑到現在」\n- 給連結直接貼 raw URL，不另起 link 文字\n- 1–3 個項目，不要塞滿\n\n### 2.遇到挑戰/ 不如預期的事情\n- 直接點問題 + 加當前處置或預期解\n- 講依賴關係：誰卡誰、為什麼\n- 出現協作者人名（小草 / Ken / Hubert / Benson / 潔安 ...）讓主管知道脈絡\n- 平實寫，不誇大也不淡化\n\n### 3.對我的回饋/需要幫忙地方\n- **核心：要拿到主管的解法。** 明確帶出卡點、選型、優先序、合作態度等想要他輸入的點\n- 可以兼帶 status update + 自己的初步判斷，但**不能只有 status update** — 那違背同步目的\n- 把問題寫得具體可回應：「CRM 換哪個」「口袋優先序怎麼排」「樊登方長期合作怎麼看」\n- 結尾常用「其他應該就球來就打」這類輕收口（只用在沒有第二個 ask 的時候）\n- 簽名只寫 `William`，**不寫 `BR,`** 或「敬上」\n\n## Style Rules\n\n### 段落格式\n- 段落標題**不加粗、不加 `*` 包裹**（最新偏好）\n  - ✅ `1.有進展/開心的事情`\n  - ❌ `*1.有進展/開心的事情*`\n- 段落之間空兩行（明顯分段）\n- 同一段內，每個項目之間空一行\n- 同一項目內，多行短句直接換行不空行\n\n### 句子\n- 短句、口語、像跟人講話\n- 講不完就換行，不堆長句\n- 語氣詞少量 OK：「囉」「哈」「滿開心的」「應該就」\n- 用「我自己」「我蠻看好的」「想聽你方向」這類第一人稱\n\n### 不要寫\n- 不寫「BR,」「敬上」「謝謝您」等正式收尾\n- 不寫項目符號 `-` 或 `1.` 編號（除了三段大標 1/2/3）\n- 不寫「本期工項 / 下期工項 / (其他)」這種太結構化的標頭\n- 過度英文 buzzword（milestone, deliverable, sync — 少量 OK，別整段都是）\n\n## Quick Template\n\n```\n1.有進展/開心的事情\n\n[一句話講主成果]\n[補一句感受 / 為什麼是 milestone]\n\n[第二件事 + 量化]\n[相關連結 raw URL]\n\n[第三件事 + 鋪陳下一步]\n\n\n2.遇到挑戰/ 不如預期的事情\n\n[卡點一]\n[當前處置 / 預期何時收掉]\n\n[卡點二]\n[誰跟誰的依賴 / 解法]\n\n\n3.對我的回饋/需要幫忙地方\n\n[請求或 status update]\n[補上自己的判斷或下一步]\n\n其他應該就球來就打\n\nWilliam\n```\n\n## Workflow\n\n1. **讀本週 Obsidian 日誌**：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/YYYY-MM-DD(weekday).md`，抓 `[x]` 已勾選項目\n2. **讀相關 context-log**：依產品線抓細節（帆書/口袋/學到/Money 等）\n3. **先在對話裡給文字稿**，使用者改寫 → 確認後再下一步\n4. **用 `mcp__claude_ai_Gmail__create_draft` 建草稿**，不直接寄出\n5. **提示使用者**去 Gmail 草稿匣修改後寄出\n\n## Past Examples (snippets)\n\n**2025/7/11（工項導向，流量組時期）**\n分「本期工項 / 下期工項 / (其他)」，粗體小標、附 Jira/Figma 連結，結尾 `BR, William`。\n→ 已不是現在偏好的格式，但有特定情境（季初 OKR 對齊週）可考慮。\n\n**2026/3/1（感性三段式，換組過渡期）**\n標題用 `*1.有進展/開心的事情*` 粗體包裹。短句、口語、有點碎念。\n\n**2026/4/25（感性三段式，Money 產品線）**\n標題不加粗（`1.有進展/開心的事情`）。具體到人名（小草/Ken/Hubert/Benson/潔安）與依賴關係。連結直接貼 URL。結尾只 `William`。\n\n## Iteration Log\n\n每次使用者回饋後，把學到的偏好變化記錄在這裡（保留時間戳）。\n\n- **2026-04-25**：段落標題去除 `*` 粗體；段落間空兩行；結尾只寫 `William`（無 `BR,`）；連結直接貼 raw URL；第二三段要寫協作者人名讓主管知道脈絡；「其他應該就球來就打」是慣用收口\n- **2026-04-25 (補)**：Kerwin 不再是 BU Head，是**產品部門主管**。同步目的明確化：(1) 讓主管提供解法 (2) 讓主管了解事業推進狀況。**修正之前的偏見**：第三段不能只是 status update + 自己判斷 — 必須帶出想要主管輸入的點（解法、選型、優先序），否則違背同步目的\n- **2026-05-03**：使用者大改我給的草稿，學到幾個關鍵偏好變化：\n  - **段落標題可加 `▌` 前綴**（U+2590 right half block）：`▌1.有進展/開心的事情`。是新採用的視覺裝飾，不再純無修飾\n  - **第一段內可分子類別小標**（不加標號的 inline 標題行），例：「後端發起」「新需求，預計下週完成」「開發流程」「另外」「發起新的挑戰」。不限於 1–3 大項排比\n  - **第二段同一產品線下多個卡點可用 `1.` `2.` 編號**（先寫產品線名「帆書」當小標，下面 `1.` `2.` 列卡點）。修正之前「不寫項目符號或編號」的規則 — 那只適用於跨類事項，同類多點時編號清晰\n  - **第三段可以只有 1 個 ask**：這次使用者只留「想要專職的人控品質」一個。不要硬塞三個 ask 來填版面，少而精準更好。「其他應該就球來就打」這次也沒用 — 不是必要收口\n  - **語氣要更操作性、less 主觀感受詞**：使用者刪掉了我寫的「我自己蠻看好」「我自己覺得」這類修飾，換成更直接的「退回部門」「改A壞B」「收集足夠多證據」「下週持續推進」。Top 5 是工作回顧不是日記，事實面 + 下一步動作 > 自我評論\n  - **「發起新的挑戰」是放在第一段的進展型 sub-section**：主動承擔更難的工作（PM 自己做後端 spec、自己做設計）算成果，不是挑戰。第二段才是「真的卡住」的東西\n- **2026-05-10**：使用者再次大改草稿，第二輪的偏好深化：\n  - **第一段可用「產品線」當主題大標 + 平台子段**：例如「帆書」當主題、底下分「App」「Web」兩塊。比並列大事或單純 sub-section 更乾淨；同一產品線多面向時用這個結構\n  - **第一段要砍細節清單**：我寫了「Money 產品團隊」「得到合作對接」「儀表板新增...」一堆細項被全部刪掉，最後第一段只剩主線（帆書）+「新挑戰的後續」+「有 app 工程師了」幾句。重點是「主線推到哪、為什麼是 milestone」，不是這週做了什麼的羅列。**少 = 主管讀得進去**\n  - **第二段挑戰可以是人事決策**：不限技術卡點，「Ivan 設計產出不行要退回部門」這種團隊組成決定也算挑戰。寫出當前處置（潔安加入後好很多）+ 預期動作（要盡快退）\n  - **第二段可以引外部時點/法規當推動理由**：像《職業安全衛生法》職場霸凌防治專章 2026/7/1 上路 → 給人事決定一個「為什麼是現在」的外部 catalyst，比純內部判斷更有說服力\n  - **第三段可以是純粹的開放問題請教**（再次修正）：不一定要「ask + 自己判斷 + 下一步」三件套。可以就是「在 X 世代，你覺得 Y 最重要的是什麼？我目前想到 A B，你有其他想法嗎？」這種「我有初步答案 + 邀請主管 input」的結構。比硬塞解決方案更請教感，也更容易拿到主管真正的想法\n  - **問題要帶動機**：不是只問「能力最重要是什麼」，要加「我想要用更嚴格的標準來選擇團隊成員」這種背景，讓主管知道為什麼問、要怎麼回答對你才有用\n  - **附圖提醒**：信裡寫「附圖」時，Gmail draft MCP 沒辦法塞附件，要明確提醒使用者寄之前手動 attach"
     },
     {
       "name": "ui-dom-verify",
@@ -373,15 +373,15 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-08T10:24:40.426Z",
+    "lastUpdated": "2026-05-11T15:04:56.075Z",
     "tools": {
-      "agent:general-purpose": 13,
+      "agent:general-purpose": 16,
       "agent:Explore": 4,
       "skill:superpowers:brainstorming": 6,
       "skill:superpowers:writing-plans": 1,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 11,
+      "claude_ai_Google_Drive:read_file_content": 14,
       "skill:superpowers:writing-skills": 2,
       "claude_ai_Google_Drive:get_file_metadata": 2,
       "claude_ai_Google_Drive:download_file_content": 1,
@@ -394,23 +394,26 @@
       "n8n-mcp:n8n_validate_workflow": 3,
       "mixpanel:Get-Projects": 4,
       "mixpanel:List-Dashboards": 2,
-      "mixpanel:Get-Dashboard": 12,
-      "mixpanel:Get-Properties": 14,
-      "mixpanel:Get-Events": 14,
-      "mixpanel:Get-Query-Schema": 10,
-      "mixpanel:Run-Query": 105,
+      "mixpanel:Get-Dashboard": 13,
+      "mixpanel:Get-Properties": 15,
+      "mixpanel:Get-Events": 15,
+      "mixpanel:Get-Query-Schema": 13,
+      "mixpanel:Run-Query": 150,
       "mixpanel:Create-Dashboard": 1,
-      "mixpanel:Update-Dashboard": 33,
-      "mixpanel:Get-Property-Values": 13,
-      "skill:weekly-report": 3,
+      "mixpanel:Update-Dashboard": 36,
+      "mixpanel:Get-Property-Values": 14,
+      "skill:weekly-report": 4,
       "claude_ai_Gmail:authenticate": 1,
       "claude_ai_Gmail:search_threads": 3,
       "claude_ai_Gmail:get_thread": 2,
-      "claude_ai_Gmail:create_draft": 5,
+      "claude_ai_Gmail:create_draft": 6,
       "mixpanel:Get-Report": 23,
       "claude_ai_Google_Drive:search_files": 2,
-      "skill:top-5": 1,
-      "agent:superpowers:code-reviewer": 1
+      "skill:top-5": 2,
+      "agent:superpowers:code-reviewer": 1,
+      "mixpanel:Get-Business-Context": 1,
+      "claude_ai_Ahrefs:management-projects": 1,
+      "skill:ui-dom-verify": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -424,18 +427,19 @@
       "~": {
         "skills": {
           "superpowers:brainstorming": 5,
-          "weekly-report": 3,
+          "weekly-report": 4,
           "superpowers:writing-skills": 1,
-          "top-5": 1
+          "top-5": 2,
+          "ui-dom-verify": 1
         },
         "agents": {
-          "general-purpose": 1,
+          "general-purpose": 4,
           "Explore": 2,
           "Plan": 1
         },
         "mcpTools": {
           "claude_ai_Google_Drive:authenticate": 1,
-          "claude_ai_Google_Drive:read_file_content": 5,
+          "claude_ai_Google_Drive:read_file_content": 8,
           "n8n-mcp:n8n_get_workflow": 5,
           "n8n-mcp:n8n_update_partial_workflow": 22,
           "n8n-mcp:n8n_create_workflow": 3,
@@ -445,20 +449,22 @@
           "n8n-mcp:n8n_validate_workflow": 3,
           "mixpanel:Get-Projects": 4,
           "mixpanel:List-Dashboards": 2,
-          "mixpanel:Get-Dashboard": 12,
-          "mixpanel:Get-Properties": 14,
-          "mixpanel:Get-Events": 14,
-          "mixpanel:Get-Query-Schema": 10,
-          "mixpanel:Run-Query": 105,
+          "mixpanel:Get-Dashboard": 13,
+          "mixpanel:Get-Properties": 15,
+          "mixpanel:Get-Events": 15,
+          "mixpanel:Get-Query-Schema": 13,
+          "mixpanel:Run-Query": 150,
           "mixpanel:Create-Dashboard": 1,
-          "mixpanel:Update-Dashboard": 33,
-          "mixpanel:Get-Property-Values": 13,
+          "mixpanel:Update-Dashboard": 36,
+          "mixpanel:Get-Property-Values": 14,
           "claude_ai_Gmail:authenticate": 1,
           "claude_ai_Gmail:search_threads": 3,
           "claude_ai_Gmail:get_thread": 2,
-          "claude_ai_Gmail:create_draft": 5,
+          "claude_ai_Gmail:create_draft": 6,
           "mixpanel:Get-Report": 23,
-          "claude_ai_Google_Drive:search_files": 2
+          "claude_ai_Google_Drive:search_files": 2,
+          "mixpanel:Get-Business-Context": 1,
+          "claude_ai_Ahrefs:management-projects": 1
         }
       },
       "docs": {
