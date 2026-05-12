@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-05-11T15:04:56.075Z",
+  "lastUpdated": "2026-05-11T16:03:24.329Z",
   "tools": {
     "agent:general-purpose": 16,
     "agent:Explore": 4,
-    "skill:superpowers:brainstorming": 6,
+    "skill:superpowers:brainstorming": 7,
     "skill:superpowers:writing-plans": 1,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
-    "claude_ai_Google_Drive:read_file_content": 14,
+    "claude_ai_Google_Drive:read_file_content": 15,
     "skill:superpowers:writing-skills": 2,
     "claude_ai_Google_Drive:get_file_metadata": 2,
     "claude_ai_Google_Drive:download_file_content": 1,
@@ -52,7 +52,7 @@
     },
     "~": {
       "skills": {
-        "superpowers:brainstorming": 5,
+        "superpowers:brainstorming": 6,
         "weekly-report": 4,
         "superpowers:writing-skills": 1,
         "top-5": 2,
@@ -123,7 +123,7 @@
         "superpowers:code-reviewer": 1
       },
       "mcpTools": {
-        "claude_ai_Google_Drive:read_file_content": 1
+        "claude_ai_Google_Drive:read_file_content": 2
       }
     },
     "fanbook-api": {
