@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-14T07:55:03.911Z",
+  "lastUpdated": "2026-05-14T10:18:43.797Z",
   "tools": {
-    "agent:general-purpose": 41,
+    "agent:general-purpose": 42,
     "agent:Explore": 4,
     "skill:superpowers:brainstorming": 8,
     "skill:superpowers:writing-plans": 2,
@@ -126,7 +126,7 @@
         "fewer-permission-prompts": 1
       },
       "agents": {
-        "general-purpose": 33,
+        "general-purpose": 34,
         "Explore": 1,
         "superpowers:code-reviewer": 9
       },
