@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-12T06:56:52.606Z",
+  "generatedAt": "2026-05-14T07:21:41.056Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -373,18 +373,18 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-12T01:30:33.579Z",
+    "lastUpdated": "2026-05-13T15:27:50.986Z",
     "tools": {
-      "agent:general-purpose": 16,
+      "agent:general-purpose": 41,
       "agent:Explore": 4,
       "skill:superpowers:brainstorming": 8,
-      "skill:superpowers:writing-plans": 1,
+      "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 15,
+      "claude_ai_Google_Drive:read_file_content": 17,
       "skill:superpowers:writing-skills": 2,
       "claude_ai_Google_Drive:get_file_metadata": 2,
-      "claude_ai_Google_Drive:download_file_content": 1,
+      "claude_ai_Google_Drive:download_file_content": 3,
       "n8n-mcp:n8n_get_workflow": 5,
       "n8n-mcp:n8n_update_partial_workflow": 22,
       "n8n-mcp:n8n_create_workflow": 3,
@@ -395,10 +395,10 @@
       "mixpanel:Get-Projects": 4,
       "mixpanel:List-Dashboards": 2,
       "mixpanel:Get-Dashboard": 13,
-      "mixpanel:Get-Properties": 15,
-      "mixpanel:Get-Events": 15,
-      "mixpanel:Get-Query-Schema": 13,
-      "mixpanel:Run-Query": 150,
+      "mixpanel:Get-Properties": 16,
+      "mixpanel:Get-Events": 19,
+      "mixpanel:Get-Query-Schema": 14,
+      "mixpanel:Run-Query": 157,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 36,
       "mixpanel:Get-Property-Values": 14,
@@ -410,10 +410,13 @@
       "mixpanel:Get-Report": 23,
       "claude_ai_Google_Drive:search_files": 2,
       "skill:top-5": 2,
-      "agent:superpowers:code-reviewer": 1,
-      "mixpanel:Get-Business-Context": 1,
+      "agent:superpowers:code-reviewer": 9,
+      "mixpanel:Get-Business-Context": 2,
       "claude_ai_Ahrefs:management-projects": 1,
-      "skill:ui-dom-verify": 1
+      "skill:ui-dom-verify": 1,
+      "mixpanel:authenticate": 1,
+      "skill:superpowers:subagent-driven-development": 1,
+      "skill:fewer-permission-prompts": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -439,7 +442,7 @@
         },
         "mcpTools": {
           "claude_ai_Google_Drive:authenticate": 1,
-          "claude_ai_Google_Drive:read_file_content": 8,
+          "claude_ai_Google_Drive:read_file_content": 10,
           "n8n-mcp:n8n_get_workflow": 5,
           "n8n-mcp:n8n_update_partial_workflow": 22,
           "n8n-mcp:n8n_create_workflow": 3,
@@ -450,10 +453,10 @@
           "mixpanel:Get-Projects": 4,
           "mixpanel:List-Dashboards": 2,
           "mixpanel:Get-Dashboard": 13,
-          "mixpanel:Get-Properties": 15,
-          "mixpanel:Get-Events": 15,
-          "mixpanel:Get-Query-Schema": 13,
-          "mixpanel:Run-Query": 150,
+          "mixpanel:Get-Properties": 16,
+          "mixpanel:Get-Events": 19,
+          "mixpanel:Get-Query-Schema": 14,
+          "mixpanel:Run-Query": 157,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 36,
           "mixpanel:Get-Property-Values": 14,
@@ -463,8 +466,10 @@
           "claude_ai_Gmail:create_draft": 6,
           "mixpanel:Get-Report": 23,
           "claude_ai_Google_Drive:search_files": 2,
-          "mixpanel:Get-Business-Context": 1,
-          "claude_ai_Ahrefs:management-projects": 1
+          "mixpanel:Get-Business-Context": 2,
+          "claude_ai_Ahrefs:management-projects": 1,
+          "claude_ai_Google_Drive:download_file_content": 2,
+          "mixpanel:authenticate": 1
         }
       },
       "docs": {
@@ -489,12 +494,15 @@
       },
       "fandeng": {
         "skills": {
-          "superpowers:brainstorming": 1
+          "superpowers:brainstorming": 1,
+          "superpowers:writing-plans": 1,
+          "superpowers:subagent-driven-development": 1,
+          "fewer-permission-prompts": 1
         },
         "agents": {
-          "general-purpose": 8,
+          "general-purpose": 33,
           "Explore": 1,
-          "superpowers:code-reviewer": 1
+          "superpowers:code-reviewer": 9
         },
         "mcpTools": {
           "claude_ai_Google_Drive:read_file_content": 2
