@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-14T10:18:43.797Z",
+  "lastUpdated": "2026-05-14T14:50:30.321Z",
   "tools": {
     "agent:general-purpose": 42,
     "agent:Explore": 4,
-    "skill:superpowers:brainstorming": 8,
+    "skill:superpowers:brainstorming": 9,
     "skill:superpowers:writing-plans": 2,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
@@ -30,7 +30,7 @@
     "mixpanel:Get-Property-Values": 20,
     "skill:weekly-report": 4,
     "claude_ai_Gmail:authenticate": 1,
-    "claude_ai_Gmail:search_threads": 3,
+    "claude_ai_Gmail:search_threads": 5,
     "claude_ai_Gmail:get_thread": 2,
     "claude_ai_Gmail:create_draft": 6,
     "mixpanel:Get-Report": 23,
@@ -55,7 +55,7 @@
     },
     "~": {
       "skills": {
-        "superpowers:brainstorming": 7,
+        "superpowers:brainstorming": 8,
         "weekly-report": 4,
         "superpowers:writing-skills": 1,
         "top-5": 2,
@@ -87,7 +87,7 @@
         "mixpanel:Update-Dashboard": 37,
         "mixpanel:Get-Property-Values": 20,
         "claude_ai_Gmail:authenticate": 1,
-        "claude_ai_Gmail:search_threads": 3,
+        "claude_ai_Gmail:search_threads": 5,
         "claude_ai_Gmail:get_thread": 2,
         "claude_ai_Gmail:create_draft": 6,
         "mixpanel:Get-Report": 23,
