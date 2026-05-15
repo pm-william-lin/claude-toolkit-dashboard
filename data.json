@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T15:37:46.574Z",
+  "generatedAt": "2026-05-15T09:53:17.078Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -373,7 +373,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-14T14:50:30.321Z",
+    "lastUpdated": "2026-05-15T09:50:03.846Z",
     "tools": {
       "agent:general-purpose": 42,
       "agent:Explore": 4,
@@ -413,7 +413,7 @@
       "agent:superpowers:code-reviewer": 9,
       "mixpanel:Get-Business-Context": 2,
       "claude_ai_Ahrefs:management-projects": 1,
-      "skill:ui-dom-verify": 1,
+      "skill:ui-dom-verify": 2,
       "mixpanel:authenticate": 1,
       "skill:superpowers:subagent-driven-development": 1,
       "skill:fewer-permission-prompts": 1
@@ -497,7 +497,8 @@
           "superpowers:brainstorming": 1,
           "superpowers:writing-plans": 1,
           "superpowers:subagent-driven-development": 1,
-          "fewer-permission-prompts": 1
+          "fewer-permission-prompts": 1,
+          "ui-dom-verify": 1
         },
         "agents": {
           "general-purpose": 34,
