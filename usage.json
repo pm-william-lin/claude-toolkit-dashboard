@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-18T02:39:08.478Z",
+  "lastUpdated": "2026-05-21T04:01:33.538Z",
   "tools": {
     "agent:general-purpose": 42,
     "agent:Explore": 4,
-    "skill:superpowers:brainstorming": 9,
+    "skill:superpowers:brainstorming": 10,
     "skill:superpowers:writing-plans": 2,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
@@ -42,7 +42,15 @@
     "skill:ui-dom-verify": 2,
     "mixpanel:authenticate": 1,
     "skill:superpowers:subagent-driven-development": 1,
-    "skill:fewer-permission-prompts": 1
+    "skill:fewer-permission-prompts": 1,
+    "claude_ai_Atlassian:authenticate": 1,
+    "claude_ai_Atlassian:atlassianUserInfo": 1,
+    "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
+    "claude_ai_Atlassian:getVisibleJiraProjects": 1,
+    "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
+    "claude_ai_Atlassian:createJiraIssue": 1,
+    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 2,
+    "claude_ai_Atlassian:getJiraIssue": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -55,7 +63,7 @@
     },
     "~": {
       "skills": {
-        "superpowers:brainstorming": 8,
+        "superpowers:brainstorming": 9,
         "weekly-report": 5,
         "superpowers:writing-skills": 1,
         "top-5": 2,
@@ -95,7 +103,15 @@
         "mixpanel:Get-Business-Context": 3,
         "claude_ai_Ahrefs:management-projects": 1,
         "claude_ai_Google_Drive:download_file_content": 2,
-        "mixpanel:authenticate": 1
+        "mixpanel:authenticate": 1,
+        "claude_ai_Atlassian:authenticate": 1,
+        "claude_ai_Atlassian:atlassianUserInfo": 1,
+        "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
+        "claude_ai_Atlassian:getVisibleJiraProjects": 1,
+        "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
+        "claude_ai_Atlassian:createJiraIssue": 1,
+        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 2,
+        "claude_ai_Atlassian:getJiraIssue": 1
       }
     },
     "docs": {
