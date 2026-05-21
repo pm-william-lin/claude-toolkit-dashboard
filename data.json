@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T05:53:26.650Z",
+  "generatedAt": "2026-05-21T07:41:47.002Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -373,11 +373,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-21T04:11:46.409Z",
+    "lastUpdated": "2026-05-21T06:51:30.292Z",
     "tools": {
       "agent:general-purpose": 42,
       "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 11,
+      "skill:superpowers:brainstorming": 12,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -417,14 +417,15 @@
       "mixpanel:authenticate": 1,
       "skill:superpowers:subagent-driven-development": 1,
       "skill:fewer-permission-prompts": 1,
-      "claude_ai_Atlassian:authenticate": 1,
+      "claude_ai_Atlassian:authenticate": 2,
       "claude_ai_Atlassian:atlassianUserInfo": 1,
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
       "claude_ai_Atlassian:getVisibleJiraProjects": 1,
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
-      "claude_ai_Atlassian:createJiraIssue": 1,
-      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 2,
-      "claude_ai_Atlassian:getJiraIssue": 1
+      "claude_ai_Atlassian:createJiraIssue": 2,
+      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
+      "claude_ai_Atlassian:getJiraIssue": 1,
+      "claude_ai_Atlassian:createIssueLink": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -510,7 +511,7 @@
       },
       "fandeng": {
         "skills": {
-          "superpowers:brainstorming": 1,
+          "superpowers:brainstorming": 2,
           "superpowers:writing-plans": 1,
           "superpowers:subagent-driven-development": 1,
           "fewer-permission-prompts": 1,
@@ -522,7 +523,11 @@
           "superpowers:code-reviewer": 9
         },
         "mcpTools": {
-          "claude_ai_Google_Drive:read_file_content": 2
+          "claude_ai_Google_Drive:read_file_content": 2,
+          "claude_ai_Atlassian:authenticate": 1,
+          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 1,
+          "claude_ai_Atlassian:createJiraIssue": 1,
+          "claude_ai_Atlassian:createIssueLink": 1
         }
       },
       "fanbook-api": {
