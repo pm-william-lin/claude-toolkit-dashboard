@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-21T06:51:30.292Z",
+  "lastUpdated": "2026-05-21T07:47:29.251Z",
   "tools": {
     "agent:general-purpose": 42,
     "agent:Explore": 4,
@@ -23,11 +23,11 @@
     "mixpanel:Get-Dashboard": 14,
     "mixpanel:Get-Properties": 34,
     "mixpanel:Get-Events": 24,
-    "mixpanel:Get-Query-Schema": 15,
-    "mixpanel:Run-Query": 162,
+    "mixpanel:Get-Query-Schema": 16,
+    "mixpanel:Run-Query": 164,
     "mixpanel:Create-Dashboard": 1,
     "mixpanel:Update-Dashboard": 37,
-    "mixpanel:Get-Property-Values": 22,
+    "mixpanel:Get-Property-Values": 24,
     "skill:weekly-report": 5,
     "claude_ai_Gmail:authenticate": 1,
     "claude_ai_Gmail:search_threads": 5,
@@ -37,10 +37,10 @@
     "claude_ai_Google_Drive:search_files": 2,
     "skill:top-5": 2,
     "agent:superpowers:code-reviewer": 9,
-    "mixpanel:Get-Business-Context": 3,
+    "mixpanel:Get-Business-Context": 4,
     "claude_ai_Ahrefs:management-projects": 1,
     "skill:ui-dom-verify": 2,
-    "mixpanel:authenticate": 1,
+    "mixpanel:authenticate": 3,
     "skill:superpowers:subagent-driven-development": 1,
     "skill:fewer-permission-prompts": 1,
     "claude_ai_Atlassian:authenticate": 2,
@@ -51,7 +51,8 @@
     "claude_ai_Atlassian:createJiraIssue": 2,
     "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
     "claude_ai_Atlassian:getJiraIssue": 1,
-    "claude_ai_Atlassian:createIssueLink": 1
+    "claude_ai_Atlassian:createIssueLink": 1,
+    "mixpanel:List-Properties": 2
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -90,21 +91,21 @@
         "mixpanel:Get-Dashboard": 14,
         "mixpanel:Get-Properties": 34,
         "mixpanel:Get-Events": 24,
-        "mixpanel:Get-Query-Schema": 15,
-        "mixpanel:Run-Query": 162,
+        "mixpanel:Get-Query-Schema": 16,
+        "mixpanel:Run-Query": 164,
         "mixpanel:Create-Dashboard": 1,
         "mixpanel:Update-Dashboard": 37,
-        "mixpanel:Get-Property-Values": 22,
+        "mixpanel:Get-Property-Values": 24,
         "claude_ai_Gmail:authenticate": 1,
         "claude_ai_Gmail:search_threads": 5,
         "claude_ai_Gmail:get_thread": 2,
         "claude_ai_Gmail:create_draft": 6,
         "mixpanel:Get-Report": 23,
         "claude_ai_Google_Drive:search_files": 2,
-        "mixpanel:Get-Business-Context": 3,
+        "mixpanel:Get-Business-Context": 4,
         "claude_ai_Ahrefs:management-projects": 1,
         "claude_ai_Google_Drive:download_file_content": 2,
-        "mixpanel:authenticate": 1,
+        "mixpanel:authenticate": 3,
         "claude_ai_Atlassian:authenticate": 1,
         "claude_ai_Atlassian:atlassianUserInfo": 1,
         "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
@@ -112,7 +113,8 @@
         "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
         "claude_ai_Atlassian:createJiraIssue": 1,
         "claude_ai_Atlassian:searchJiraIssuesUsingJql": 2,
-        "claude_ai_Atlassian:getJiraIssue": 1
+        "claude_ai_Atlassian:getJiraIssue": 1,
+        "mixpanel:List-Properties": 2
       }
     },
     "docs": {
