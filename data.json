@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T04:03:32.021Z",
+  "generatedAt": "2026-05-21T05:53:26.650Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -373,11 +373,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-21T04:01:33.538Z",
+    "lastUpdated": "2026-05-21T04:11:46.409Z",
     "tools": {
       "agent:general-purpose": 42,
       "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 10,
+      "skill:superpowers:brainstorming": 11,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -437,7 +437,7 @@
       },
       "~": {
         "skills": {
-          "superpowers:brainstorming": 9,
+          "superpowers:brainstorming": 10,
           "weekly-report": 5,
           "superpowers:writing-skills": 1,
           "top-5": 2,
