@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-22T09:54:12.866Z",
+  "lastUpdated": "2026-05-23T16:44:57.240Z",
   "tools": {
     "agent:general-purpose": 42,
     "agent:Explore": 4,
@@ -22,9 +22,9 @@
     "mixpanel:List-Dashboards": 2,
     "mixpanel:Get-Dashboard": 14,
     "mixpanel:Get-Properties": 34,
-    "mixpanel:Get-Events": 35,
-    "mixpanel:Get-Query-Schema": 20,
-    "mixpanel:Run-Query": 201,
+    "mixpanel:Get-Events": 38,
+    "mixpanel:Get-Query-Schema": 21,
+    "mixpanel:Run-Query": 204,
     "mixpanel:Create-Dashboard": 1,
     "mixpanel:Update-Dashboard": 37,
     "mixpanel:Get-Property-Values": 30,
@@ -56,7 +56,8 @@
     "mixpanel:List-Organizations": 1,
     "appsflyer:get_apps": 2,
     "appsflyer:get_public_knowledge": 1,
-    "appsflyer:fetch_aggregated_data": 2
+    "appsflyer:fetch_aggregated_data": 2,
+    "skill:superpowers:using-superpowers": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -73,7 +74,8 @@
         "weekly-report": 5,
         "superpowers:writing-skills": 1,
         "top-5": 2,
-        "ui-dom-verify": 1
+        "ui-dom-verify": 1,
+        "superpowers:using-superpowers": 1
       },
       "agents": {
         "general-purpose": 4,
@@ -175,8 +177,9 @@
         "mixpanel:Get-Projects": 1,
         "mixpanel:Get-Business-Context": 1,
         "mixpanel:List-Properties": 1,
-        "mixpanel:Get-Events": 7,
-        "mixpanel:Run-Query": 2
+        "mixpanel:Get-Events": 10,
+        "mixpanel:Run-Query": 5,
+        "mixpanel:Get-Query-Schema": 1
       }
     }
   }
