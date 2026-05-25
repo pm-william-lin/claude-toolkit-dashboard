@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T07:57:11.470Z",
+  "generatedAt": "2026-05-25T03:38:37.141Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -373,7 +373,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-23T16:44:57.240Z",
+    "lastUpdated": "2026-05-25T03:23:09.218Z",
     "tools": {
       "agent:general-purpose": 42,
       "agent:Explore": 4,
@@ -397,8 +397,8 @@
       "mixpanel:Get-Dashboard": 14,
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 38,
-      "mixpanel:Get-Query-Schema": 21,
-      "mixpanel:Run-Query": 204,
+      "mixpanel:Get-Query-Schema": 22,
+      "mixpanel:Run-Query": 250,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 37,
       "mixpanel:Get-Property-Values": 30,
@@ -411,8 +411,8 @@
       "claude_ai_Google_Drive:search_files": 2,
       "skill:top-5": 2,
       "agent:superpowers:code-reviewer": 9,
-      "mixpanel:Get-Business-Context": 9,
-      "claude_ai_Ahrefs:management-projects": 1,
+      "mixpanel:Get-Business-Context": 10,
+      "claude_ai_Ahrefs:management-projects": 2,
       "skill:ui-dom-verify": 2,
       "mixpanel:authenticate": 3,
       "skill:superpowers:subagent-driven-development": 1,
@@ -421,17 +421,19 @@
       "claude_ai_Atlassian:atlassianUserInfo": 1,
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
       "claude_ai_Atlassian:getVisibleJiraProjects": 1,
-      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
-      "claude_ai_Atlassian:createJiraIssue": 2,
-      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
-      "claude_ai_Atlassian:getJiraIssue": 1,
+      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
+      "claude_ai_Atlassian:createJiraIssue": 3,
+      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 4,
+      "claude_ai_Atlassian:getJiraIssue": 2,
       "claude_ai_Atlassian:createIssueLink": 1,
-      "mixpanel:List-Properties": 22,
+      "mixpanel:List-Properties": 25,
       "mixpanel:List-Organizations": 1,
       "appsflyer:get_apps": 2,
       "appsflyer:get_public_knowledge": 1,
       "appsflyer:fetch_aggregated_data": 2,
-      "skill:superpowers:using-superpowers": 1
+      "skill:superpowers:using-superpowers": 1,
+      "skill:seo-meta": 1,
+      "claude_ai_Ahrefs:site-explorer-metrics": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -449,7 +451,8 @@
           "superpowers:writing-skills": 1,
           "top-5": 2,
           "ui-dom-verify": 1,
-          "superpowers:using-superpowers": 1
+          "superpowers:using-superpowers": 1,
+          "seo-meta": 1
         },
         "agents": {
           "general-purpose": 4,
@@ -471,8 +474,8 @@
           "mixpanel:Get-Dashboard": 14,
           "mixpanel:Get-Properties": 34,
           "mixpanel:Get-Events": 28,
-          "mixpanel:Get-Query-Schema": 20,
-          "mixpanel:Run-Query": 199,
+          "mixpanel:Get-Query-Schema": 21,
+          "mixpanel:Run-Query": 224,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 37,
           "mixpanel:Get-Property-Values": 30,
@@ -482,7 +485,7 @@
           "claude_ai_Gmail:create_draft": 6,
           "mixpanel:Get-Report": 23,
           "claude_ai_Google_Drive:search_files": 2,
-          "mixpanel:Get-Business-Context": 8,
+          "mixpanel:Get-Business-Context": 9,
           "claude_ai_Ahrefs:management-projects": 1,
           "claude_ai_Google_Drive:download_file_content": 2,
           "mixpanel:authenticate": 3,
@@ -550,10 +553,22 @@
         "mcpTools": {
           "mixpanel:Get-Projects": 1,
           "mixpanel:Get-Business-Context": 1,
-          "mixpanel:List-Properties": 1,
+          "mixpanel:List-Properties": 4,
           "mixpanel:Get-Events": 10,
-          "mixpanel:Run-Query": 5,
+          "mixpanel:Run-Query": 26,
           "mixpanel:Get-Query-Schema": 1
+        }
+      },
+      "pocketstudio-api": {
+        "skills": {},
+        "agents": {},
+        "mcpTools": {
+          "claude_ai_Ahrefs:management-projects": 1,
+          "claude_ai_Ahrefs:site-explorer-metrics": 1,
+          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 1,
+          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 1,
+          "claude_ai_Atlassian:createJiraIssue": 1,
+          "claude_ai_Atlassian:getJiraIssue": 1
         }
       }
     }
