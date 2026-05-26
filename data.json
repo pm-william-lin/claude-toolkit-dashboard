@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T06:38:45.457Z",
+  "generatedAt": "2026-05-26T06:51:28.734Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -373,11 +373,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-25T05:32:36.418Z",
+    "lastUpdated": "2026-05-26T06:49:16.260Z",
     "tools": {
       "agent:general-purpose": 42,
       "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 13,
+      "skill:superpowers:brainstorming": 14,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -573,6 +573,13 @@
           "claude_ai_Atlassian:createJiraIssue": 1,
           "claude_ai_Atlassian:getJiraIssue": 1
         }
+      },
+      "79762-1779345850": {
+        "skills": {
+          "superpowers:brainstorming": 1
+        },
+        "agents": {},
+        "mcpTools": {}
       }
     }
   }
