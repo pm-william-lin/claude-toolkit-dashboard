@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T06:51:28.734Z",
+  "generatedAt": "2026-05-27T03:00:03.408Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -373,11 +373,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-26T06:49:16.260Z",
+    "lastUpdated": "2026-05-26T10:31:49.893Z",
     "tools": {
-      "agent:general-purpose": 42,
+      "agent:general-purpose": 43,
       "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 14,
+      "skill:superpowers:brainstorming": 15,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -421,8 +421,8 @@
       "claude_ai_Atlassian:atlassianUserInfo": 1,
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
       "claude_ai_Atlassian:getVisibleJiraProjects": 1,
-      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
-      "claude_ai_Atlassian:createJiraIssue": 3,
+      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 4,
+      "claude_ai_Atlassian:createJiraIssue": 4,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 4,
       "claude_ai_Atlassian:getJiraIssue": 2,
       "claude_ai_Atlassian:createIssueLink": 1,
@@ -433,7 +433,8 @@
       "appsflyer:fetch_aggregated_data": 2,
       "skill:superpowers:using-superpowers": 1,
       "skill:seo-meta": 1,
-      "claude_ai_Ahrefs:site-explorer-metrics": 1
+      "claude_ai_Ahrefs:site-explorer-metrics": 1,
+      "claude_ai_Atlassian:addCommentToJiraIssue": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -526,14 +527,14 @@
       },
       "fandeng": {
         "skills": {
-          "superpowers:brainstorming": 2,
+          "superpowers:brainstorming": 3,
           "superpowers:writing-plans": 1,
           "superpowers:subagent-driven-development": 1,
           "fewer-permission-prompts": 1,
           "ui-dom-verify": 1
         },
         "agents": {
-          "general-purpose": 34,
+          "general-purpose": 35,
           "Explore": 1,
           "superpowers:code-reviewer": 9
         },
@@ -541,11 +542,13 @@
           "claude_ai_Google_Drive:read_file_content": 2,
           "claude_ai_Atlassian:authenticate": 1,
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 1,
-          "claude_ai_Atlassian:createJiraIssue": 1,
+          "claude_ai_Atlassian:createJiraIssue": 2,
           "claude_ai_Atlassian:createIssueLink": 1,
           "mixpanel:Run-Query": 3,
           "mixpanel:Get-Property-Values": 1,
-          "mixpanel:List-Properties": 1
+          "mixpanel:List-Properties": 1,
+          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 1,
+          "claude_ai_Atlassian:addCommentToJiraIssue": 1
         }
       },
       "fanbook-api": {
