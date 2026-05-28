@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-26T10:31:49.893Z",
+  "lastUpdated": "2026-05-27T07:55:31.254Z",
   "tools": {
     "agent:general-purpose": 43,
     "agent:Explore": 4,
-    "skill:superpowers:brainstorming": 15,
+    "skill:superpowers:brainstorming": 16,
     "skill:superpowers:writing-plans": 2,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
@@ -47,9 +47,9 @@
     "claude_ai_Atlassian:atlassianUserInfo": 1,
     "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
     "claude_ai_Atlassian:getVisibleJiraProjects": 1,
-    "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 4,
-    "claude_ai_Atlassian:createJiraIssue": 4,
-    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 4,
+    "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 5,
+    "claude_ai_Atlassian:createJiraIssue": 5,
+    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 5,
     "claude_ai_Atlassian:getJiraIssue": 2,
     "claude_ai_Atlassian:createIssueLink": 1,
     "mixpanel:List-Properties": 29,
@@ -73,7 +73,7 @@
     },
     "~": {
       "skills": {
-        "superpowers:brainstorming": 11,
+        "superpowers:brainstorming": 12,
         "weekly-report": 5,
         "superpowers:writing-skills": 1,
         "top-5": 2,
@@ -167,13 +167,13 @@
       "mcpTools": {
         "claude_ai_Google_Drive:read_file_content": 2,
         "claude_ai_Atlassian:authenticate": 1,
-        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 1,
-        "claude_ai_Atlassian:createJiraIssue": 2,
+        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 2,
+        "claude_ai_Atlassian:createJiraIssue": 3,
         "claude_ai_Atlassian:createIssueLink": 1,
         "mixpanel:Run-Query": 3,
         "mixpanel:Get-Property-Values": 1,
         "mixpanel:List-Properties": 1,
-        "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 1,
+        "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
         "claude_ai_Atlassian:addCommentToJiraIssue": 1
       }
     },
