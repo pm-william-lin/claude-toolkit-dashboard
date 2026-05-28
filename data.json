@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T07:38:58.110Z",
+  "generatedAt": "2026-05-28T10:35:32.714Z",
   "plugins": [
     {
       "name": "collab",
@@ -468,11 +468,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-28T07:18:36.045Z",
+    "lastUpdated": "2026-05-28T10:24:38.819Z",
     "tools": {
       "agent:general-purpose": 43,
       "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 16,
+      "skill:superpowers:brainstorming": 17,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -543,7 +543,7 @@
       },
       "~": {
         "skills": {
-          "superpowers:brainstorming": 12,
+          "superpowers:brainstorming": 13,
           "weekly-report": 5,
           "superpowers:writing-skills": 1,
           "top-5": 2,
