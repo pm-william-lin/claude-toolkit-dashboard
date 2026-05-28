@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T05:53:27.488Z",
+  "generatedAt": "2026-05-28T07:25:33.059Z",
   "plugins": [
     {
       "name": "claude-hud",
@@ -360,6 +360,10 @@
   ],
   "marketplaces": [
     {
+      "name": "ai-workflow",
+      "description": ""
+    },
+    {
       "name": "claude-hud",
       "description": "Real-time statusline HUD for Claude Code"
     },
@@ -373,7 +377,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-27T07:55:31.254Z",
+    "lastUpdated": "2026-05-28T07:18:36.045Z",
     "tools": {
       "agent:general-purpose": 43,
       "agent:Explore": 4,
@@ -424,7 +428,7 @@
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 5,
       "claude_ai_Atlassian:createJiraIssue": 5,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 5,
-      "claude_ai_Atlassian:getJiraIssue": 2,
+      "claude_ai_Atlassian:getJiraIssue": 3,
       "claude_ai_Atlassian:createIssueLink": 1,
       "mixpanel:List-Properties": 29,
       "mixpanel:List-Organizations": 1,
@@ -434,7 +438,8 @@
       "skill:superpowers:using-superpowers": 1,
       "skill:seo-meta": 1,
       "claude_ai_Ahrefs:site-explorer-metrics": 1,
-      "claude_ai_Atlassian:addCommentToJiraIssue": 1
+      "claude_ai_Atlassian:addCommentToJiraIssue": 1,
+      "claude_ai_Atlassian:editJiraIssue": 2
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -548,7 +553,9 @@
           "mixpanel:Get-Property-Values": 1,
           "mixpanel:List-Properties": 1,
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
-          "claude_ai_Atlassian:addCommentToJiraIssue": 1
+          "claude_ai_Atlassian:addCommentToJiraIssue": 1,
+          "claude_ai_Atlassian:editJiraIssue": 2,
+          "claude_ai_Atlassian:getJiraIssue": 1
         }
       },
       "fanbook-api": {
