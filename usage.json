@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-28T10:24:38.819Z",
+  "lastUpdated": "2026-05-28T10:40:10.211Z",
   "tools": {
     "agent:general-purpose": 43,
     "agent:Explore": 4,
@@ -61,7 +61,8 @@
     "skill:seo-meta": 1,
     "claude_ai_Ahrefs:site-explorer-metrics": 1,
     "claude_ai_Atlassian:addCommentToJiraIssue": 1,
-    "claude_ai_Atlassian:editJiraIssue": 2
+    "claude_ai_Atlassian:editJiraIssue": 2,
+    "agent:collab:pm": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -85,7 +86,8 @@
       "agents": {
         "general-purpose": 4,
         "Explore": 2,
-        "Plan": 1
+        "Plan": 1,
+        "collab:pm": 1
       },
       "mcpTools": {
         "claude_ai_Google_Drive:authenticate": 1,
