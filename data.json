@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-30T10:35:56.723Z",
+  "generatedAt": "2026-05-31T15:17:36.507Z",
   "plugins": [
     {
       "name": "collab",
@@ -468,7 +468,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-05-28T10:40:10.211Z",
+    "lastUpdated": "2026-05-30T15:35:35.780Z",
     "tools": {
       "agent:general-purpose": 43,
       "agent:Explore": 4,
@@ -503,7 +503,7 @@
       "claude_ai_Gmail:get_thread": 2,
       "claude_ai_Gmail:create_draft": 6,
       "mixpanel:Get-Report": 25,
-      "claude_ai_Google_Drive:search_files": 2,
+      "claude_ai_Google_Drive:search_files": 5,
       "skill:top-5": 2,
       "agent:superpowers:code-reviewer": 9,
       "mixpanel:Get-Business-Context": 11,
@@ -583,7 +583,7 @@
           "claude_ai_Gmail:get_thread": 2,
           "claude_ai_Gmail:create_draft": 6,
           "mixpanel:Get-Report": 25,
-          "claude_ai_Google_Drive:search_files": 2,
+          "claude_ai_Google_Drive:search_files": 5,
           "mixpanel:Get-Business-Context": 10,
           "claude_ai_Ahrefs:management-projects": 1,
           "claude_ai_Google_Drive:download_file_content": 2,
