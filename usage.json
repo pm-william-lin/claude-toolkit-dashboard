@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-30T15:35:35.780Z",
+  "lastUpdated": "2026-05-31T15:22:39.214Z",
   "tools": {
     "agent:general-purpose": 43,
     "agent:Explore": 4,
@@ -38,7 +38,7 @@
     "skill:top-5": 2,
     "agent:superpowers:code-reviewer": 9,
     "mixpanel:Get-Business-Context": 11,
-    "claude_ai_Ahrefs:management-projects": 2,
+    "claude_ai_Ahrefs:management-projects": 3,
     "skill:ui-dom-verify": 2,
     "mixpanel:authenticate": 3,
     "skill:superpowers:subagent-driven-development": 1,
@@ -58,11 +58,17 @@
     "appsflyer:get_public_knowledge": 1,
     "appsflyer:fetch_aggregated_data": 2,
     "skill:superpowers:using-superpowers": 1,
-    "skill:seo-meta": 1,
-    "claude_ai_Ahrefs:site-explorer-metrics": 1,
+    "skill:seo-meta": 2,
+    "claude_ai_Ahrefs:site-explorer-metrics": 2,
     "claude_ai_Atlassian:addCommentToJiraIssue": 1,
     "claude_ai_Atlassian:editJiraIssue": 2,
-    "agent:collab:pm": 1
+    "agent:collab:pm": 1,
+    "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
+    "claude_ai_Ahrefs:site-explorer-backlinks-stats": 1,
+    "claude_ai_Ahrefs:site-explorer-organic-keywords": 1,
+    "claude_ai_Ahrefs:site-explorer-top-pages": 1,
+    "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
+    "claude_ai_Ahrefs:keywords-explorer-overview": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -81,7 +87,7 @@
         "top-5": 2,
         "ui-dom-verify": 1,
         "superpowers:using-superpowers": 1,
-        "seo-meta": 1
+        "seo-meta": 2
       },
       "agents": {
         "general-purpose": 4,
@@ -116,7 +122,7 @@
         "mixpanel:Get-Report": 25,
         "claude_ai_Google_Drive:search_files": 5,
         "mixpanel:Get-Business-Context": 10,
-        "claude_ai_Ahrefs:management-projects": 1,
+        "claude_ai_Ahrefs:management-projects": 2,
         "claude_ai_Google_Drive:download_file_content": 2,
         "mixpanel:authenticate": 3,
         "claude_ai_Atlassian:authenticate": 1,
@@ -131,7 +137,14 @@
         "mixpanel:List-Organizations": 1,
         "appsflyer:get_apps": 2,
         "appsflyer:get_public_knowledge": 1,
-        "appsflyer:fetch_aggregated_data": 2
+        "appsflyer:fetch_aggregated_data": 2,
+        "claude_ai_Ahrefs:site-explorer-metrics": 1,
+        "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
+        "claude_ai_Ahrefs:site-explorer-backlinks-stats": 1,
+        "claude_ai_Ahrefs:site-explorer-organic-keywords": 1,
+        "claude_ai_Ahrefs:site-explorer-top-pages": 1,
+        "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
+        "claude_ai_Ahrefs:keywords-explorer-overview": 1
       }
     },
     "docs": {
