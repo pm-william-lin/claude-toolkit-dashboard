@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-02T05:38:11.691Z",
+  "generatedAt": "2026-06-02T08:58:16.470Z",
   "plugins": [
     {
       "name": "collab",
@@ -468,7 +468,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-01T09:33:46.696Z",
+    "lastUpdated": "2026-06-02T05:44:05.639Z",
     "tools": {
       "agent:general-purpose": 43,
       "agent:Explore": 4,
@@ -517,9 +517,9 @@
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
       "claude_ai_Atlassian:getVisibleJiraProjects": 1,
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 5,
-      "claude_ai_Atlassian:createJiraIssue": 9,
+      "claude_ai_Atlassian:createJiraIssue": 10,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 9,
-      "claude_ai_Atlassian:getJiraIssue": 4,
+      "claude_ai_Atlassian:getJiraIssue": 8,
       "claude_ai_Atlassian:createIssueLink": 1,
       "mixpanel:List-Properties": 43,
       "mixpanel:List-Organizations": 1,
@@ -529,7 +529,7 @@
       "skill:superpowers:using-superpowers": 1,
       "skill:seo-meta": 2,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
-      "claude_ai_Atlassian:addCommentToJiraIssue": 1,
+      "claude_ai_Atlassian:addCommentToJiraIssue": 3,
       "claude_ai_Atlassian:editJiraIssue": 3,
       "agent:collab:pm": 1,
       "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
@@ -537,7 +537,8 @@
       "claude_ai_Ahrefs:site-explorer-organic-keywords": 1,
       "claude_ai_Ahrefs:site-explorer-top-pages": 1,
       "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
-      "claude_ai_Ahrefs:keywords-explorer-overview": 1
+      "claude_ai_Ahrefs:keywords-explorer-overview": 1,
+      "claude_ai_Atlassian:lookupJiraAccountId": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -599,9 +600,9 @@
           "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
           "claude_ai_Atlassian:getVisibleJiraProjects": 1,
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
-          "claude_ai_Atlassian:createJiraIssue": 2,
+          "claude_ai_Atlassian:createJiraIssue": 3,
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
-          "claude_ai_Atlassian:getJiraIssue": 2,
+          "claude_ai_Atlassian:getJiraIssue": 6,
           "mixpanel:List-Properties": 25,
           "mixpanel:List-Organizations": 1,
           "appsflyer:get_apps": 2,
@@ -614,7 +615,9 @@
           "claude_ai_Ahrefs:site-explorer-top-pages": 1,
           "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
           "claude_ai_Ahrefs:keywords-explorer-overview": 1,
-          "claude_ai_Atlassian:editJiraIssue": 1
+          "claude_ai_Atlassian:editJiraIssue": 1,
+          "claude_ai_Atlassian:lookupJiraAccountId": 1,
+          "claude_ai_Atlassian:addCommentToJiraIssue": 2
         }
       },
       "docs": {
