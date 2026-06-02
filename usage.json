@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-01T08:19:29.802Z",
+  "lastUpdated": "2026-06-01T09:33:46.696Z",
   "tools": {
     "agent:general-purpose": 43,
     "agent:Explore": 4,
@@ -48,8 +48,8 @@
     "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
     "claude_ai_Atlassian:getVisibleJiraProjects": 1,
     "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 5,
-    "claude_ai_Atlassian:createJiraIssue": 6,
-    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 6,
+    "claude_ai_Atlassian:createJiraIssue": 9,
+    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 9,
     "claude_ai_Atlassian:getJiraIssue": 4,
     "claude_ai_Atlassian:createIssueLink": 1,
     "mixpanel:List-Properties": 43,
@@ -217,8 +217,8 @@
         "claude_ai_Ahrefs:management-projects": 1,
         "claude_ai_Ahrefs:site-explorer-metrics": 1,
         "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 1,
-        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 1,
-        "claude_ai_Atlassian:createJiraIssue": 1,
+        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 4,
+        "claude_ai_Atlassian:createJiraIssue": 4,
         "claude_ai_Atlassian:getJiraIssue": 1
       }
     },
