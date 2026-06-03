@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T06:49:47.728Z",
+  "generatedAt": "2026-06-03T08:47:06.797Z",
   "plugins": [
     {
       "name": "collab",
@@ -468,7 +468,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-02T15:39:46.179Z",
+    "lastUpdated": "2026-06-03T07:56:10.370Z",
     "tools": {
       "agent:general-purpose": 44,
       "agent:Explore": 4,
@@ -519,7 +519,7 @@
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 7,
       "claude_ai_Atlassian:createJiraIssue": 13,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 11,
-      "claude_ai_Atlassian:getJiraIssue": 12,
+      "claude_ai_Atlassian:getJiraIssue": 13,
       "claude_ai_Atlassian:createIssueLink": 1,
       "mixpanel:List-Properties": 43,
       "mixpanel:List-Organizations": 1,
@@ -615,7 +615,7 @@
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 4,
           "claude_ai_Atlassian:createJiraIssue": 6,
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 5,
-          "claude_ai_Atlassian:getJiraIssue": 10,
+          "claude_ai_Atlassian:getJiraIssue": 11,
           "mixpanel:List-Properties": 25,
           "mixpanel:List-Organizations": 1,
           "appsflyer:get_apps": 2,
