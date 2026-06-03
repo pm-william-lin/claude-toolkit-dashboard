@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-03T07:56:10.370Z",
+  "lastUpdated": "2026-06-03T08:53:50.599Z",
   "tools": {
     "agent:general-purpose": 44,
     "agent:Explore": 4,
@@ -7,7 +7,7 @@
     "skill:superpowers:writing-plans": 2,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
-    "claude_ai_Google_Drive:read_file_content": 22,
+    "claude_ai_Google_Drive:read_file_content": 24,
     "skill:superpowers:writing-skills": 2,
     "claude_ai_Google_Drive:get_file_metadata": 2,
     "claude_ai_Google_Drive:download_file_content": 3,
@@ -199,7 +199,7 @@
         "superpowers:code-reviewer": 9
       },
       "mcpTools": {
-        "claude_ai_Google_Drive:read_file_content": 2,
+        "claude_ai_Google_Drive:read_file_content": 4,
         "claude_ai_Atlassian:authenticate": 1,
         "claude_ai_Atlassian:searchJiraIssuesUsingJql": 2,
         "claude_ai_Atlassian:createJiraIssue": 3,
