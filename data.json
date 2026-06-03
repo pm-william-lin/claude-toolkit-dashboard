@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-02T13:51:35.616Z",
+  "generatedAt": "2026-06-03T06:49:47.728Z",
   "plugins": [
     {
       "name": "collab",
@@ -468,7 +468,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-02T13:27:07.130Z",
+    "lastUpdated": "2026-06-02T15:39:46.179Z",
     "tools": {
       "agent:general-purpose": 44,
       "agent:Explore": 4,
@@ -529,7 +529,7 @@
       "skill:superpowers:using-superpowers": 1,
       "skill:seo-meta": 2,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
-      "claude_ai_Atlassian:addCommentToJiraIssue": 3,
+      "claude_ai_Atlassian:addCommentToJiraIssue": 4,
       "claude_ai_Atlassian:editJiraIssue": 3,
       "agent:collab:pm": 2,
       "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
@@ -543,7 +543,14 @@
       "skill:collab:full-flow": 1,
       "skill:collab:gen-sdd": 1,
       "agent:collab:backend": 1,
-      "agent:collab:frontend-web": 1
+      "agent:collab:frontend-web": 3,
+      "agent:collab:qa": 1,
+      "skill:collab:review-code": 1,
+      "skill:collab:verify-spec": 1,
+      "skill:collab:commit": 1,
+      "skill:collab:create-mr": 1,
+      "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
+      "claude_ai_Atlassian:transitionJiraIssue": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -691,12 +698,16 @@
       },
       "pocketstudio-api": {
         "skills": {
-          "collab:gen-sdd": 1
+          "collab:gen-sdd": 1,
+          "collab:review-code": 1,
+          "collab:verify-spec": 1,
+          "collab:create-mr": 1
         },
         "agents": {
           "collab:pm": 1,
           "collab:backend": 1,
-          "collab:frontend-web": 1
+          "collab:frontend-web": 2,
+          "collab:qa": 1
         },
         "mcpTools": {
           "claude_ai_Ahrefs:management-projects": 1,
@@ -725,6 +736,19 @@
           "appsflyer:fetch_aggregated_data": 2,
           "mixpanel:Get-Events": 7,
           "mixpanel:Run-Query": 5
+        }
+      },
+      "pocket-studio": {
+        "skills": {
+          "collab:commit": 1
+        },
+        "agents": {
+          "collab:frontend-web": 1
+        },
+        "mcpTools": {
+          "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
+          "claude_ai_Atlassian:addCommentToJiraIssue": 1,
+          "claude_ai_Atlassian:transitionJiraIssue": 1
         }
       }
     }
