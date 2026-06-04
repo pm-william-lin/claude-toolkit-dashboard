@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-04T09:01:38.427Z",
+  "generatedAt": "2026-06-04T14:31:13.021Z",
   "plugins": [
     {
       "name": "collab",
@@ -20,6 +20,13 @@
       "version": "61c0597779bd",
       "source": "claude-plugins-official",
       "description": "Comprehensive feature development workflow with specialized agents for codebase exploration, architecture design, and quality review",
+      "author": ""
+    },
+    {
+      "name": "frontend-design",
+      "version": "61c0597779bd",
+      "source": "claude-plugins-official",
+      "description": "Frontend design skill for UI/UX implementation",
       "author": ""
     },
     {
@@ -146,6 +153,13 @@
       "scope": "plugin",
       "description": "對照 Jira ticket / Figma 設計 / 規格文件，驗證實作是否符合需求並指出落差與超出範圍的變更。任何「對照需求、需求覆蓋、ticket 做完了沒、實作跟設計一致嗎、有沒有超出範圍、verify spec」場景皆觸發。**需要實作內容**（diff / MR / 檔案）才能用——只有 ticket 沒實作請用 `analyze-ticket`；不負責 code 內在品質審查請用 `review-code`。",
       "content": "## 前置條件\n\n- 至少需要以下兩種輸入：\n  - **需求規格**：Jira ticket / Figma 設計 / 規格文字 / 使用者口述\n  - **實作內容**：MR URL / 檔案路徑 / diff / 本地 git 變更\n\n## 對照流程\n\n### 1. 取得需求規格\n\n依輸入做 fallback。\n\n#### 1.1 Jira ticket\n\n走 `read-jira` skill 的標準取得流程：\n\n| 輸入形式 | 處理 |\n|---|---|\n| `PROJ-123` / Jira URL / branch 名 | 由 `read-jira` 解析並取得 |\n| 使用者貼上 ticket 描述文字 | 直接使用 |\n\n> 完整 fallback 邏輯（MCP → REST API → 詢問貼內容）依 `read-jira` skill 執行——包含 fallback 到「請使用者貼內容」時的 only-on-impact 提示（沒設 `JIRA_TOKEN` / `JIRA_EMAIL` 時的下次自動設定指引）也要照印出，不要省略。verify-spec 從 `read-jira` 取得結構化資料後，**只關心需求項目與 AC**（拆 atomic 後對照實作）。\n\n#### 1.2 Figma 設計（可選）\n\n| 輸入形式 | 處理方式 |\n|---|---|\n| 使用者**直接貼螢幕截圖**到對話 | Claude 直接 visual 比對 |\n| Figma 連結 | 改用 `read-figma` skill 取得設計規格（該 skill 預期 Figma MCP 已安裝）。若 Figma MCP 不可用 → 請使用者貼截圖或描述 |\n| 截圖檔案路徑 | 用 Read tool 載入圖檔 |\n| 使用者貼設計描述文字 | 直接使用 |\n\n> Figma 對照非必要，沒提供就跳過設計層級的對照。\n\n#### 1.3 規格文件 / PRD\n\n- 檔案路徑 → Read 載入\n- 使用者貼文字 → 直接使用\n\n#### 1.4 使用者口述\n\n直接使用，但要求使用者把需求**列點化**（每個需求一行）後再對照。\n\n### 2. 取得實作內容\n\n依優先序 fallback：\n\n> 以下為簡化版，完整 fallback 邏輯（GitLab/GitHub 平台偵測、多層級判斷）見 `review-code` skill §1。\n\n| 情境 | 來源 |\n|---|---|\n| 使用者貼 diff / 檔案內容 | 直接用 |\n| GitLab MR URL | MCP → curl + `GITLAB_TOKEN` → 詢問 |\n| GitHub PR URL | `gh pr diff <URL>`（需 `gh auth login`）→ 詢問 |\n| 檔案路徑 | Read |\n| 本地 git | 偵測 unstaged / staged / committed vs 預設分支（同 review-code 情境 D）|\n\n### 3. 整理需求項目（atomic 化）\n\n把規格拆成**獨立可驗證的需求項目**。\n\n**範例：** ticket 描述\n> 結帳頁加上折扣碼欄位，使用者輸入後可即時顯示折扣金額。同一筆訂單不可同時用兩個折扣碼。過期碼要顯示明確錯誤。\n\n**拆成：**\n\n| # | 需求項目 |\n|---|---|\n| R1 | 結帳頁有「折扣碼輸入欄位」UI |\n| R2 | 輸入折扣碼後，**即時**顯示折扣金額 |\n| R3 | 同一筆訂單**不可同時用兩個** 折扣碼 |\n| R4 | 過期折扣碼顯示**明確錯誤訊息** |\n\n**拆分原則：**\n- 一句需求 ≠ 一個項目（一句可能包多個獨立需求）\n- 拆到「**能單獨判斷是否實作**」的粒度\n- 邊界條件（過期 / 重複 / 空值）獨立列項\n\n如果規格模糊不清 → **詢問使用者澄清**，不要自己腦補。\n\n### 4. 對照實作\n\n對每個需求項目，掃實作內容判斷：\n\n| 標記 | 條件 |\n|---|---|\n| ✅ **已實作** | code 中有明確對應實作，附 file:line |\n| ❌ **未實作** | code 中找不到對應 |\n| ⚠️ **部分 / 不確定** | 有部分痕跡但不完整，或無法從 diff 判斷（例如需要看 runtime 行為） |\n\n**判斷方法：**\n- UI 需求 → 看是否有對應的 component / view\n- 邏輯需求 → 看是否有對應的 function、條件分支\n- 文案需求 → 看 string literal（i18n key 等）\n- API 需求 → 看是否有對應 endpoint / handler\n\n### 5. 偵測「超出範圍」變更\n\n掃描實作內容，**找出 spec 沒提到但實作有改的東西**：\n\n- 改了 spec 沒提到的檔案\n- 加了 spec 沒要求的功能\n- 改了既有行為（且 spec 沒提）\n\n**標記方式：**\n\n| 類型 | 例子 |\n|---|---|\n| 🔹 **合理附帶** | 例：refactor、import 整理、型別補強等技術改善 |\n| 🔸 **需確認** | 例：改了一個未要求的功能、加了一個額外 endpoint |\n\n> 「超出範圍」不一定是壞事（**順手修**很常見），但要讓 reviewer 知道、避免遺漏審查。\n\n### 6. 輸出格式\n\n**6.1 需求覆蓋表**\n\n```markdown\n## 需求覆蓋\n\n| # | 需求 | 狀態 | 實作位置 / 備註 |\n|---|---|---|---|\n| R1 | 結帳頁有折扣碼欄位 | ✅ | `src/checkout/Coupon.vue:15-30` |\n| R2 | 即時顯示折扣金額 | ✅ | `Coupon.vue:42-58`（watcher 處理） |\n| R3 | 不可同時用兩個折扣碼 | ❌ | 找不到對應實作 |\n| R4 | 過期碼錯誤訊息 | ⚠️ | 有錯誤訊息但訊息文案似乎不夠明確 |\n```\n\n**6.2 超出範圍變更**\n\n```markdown\n## 超出範圍變更\n\n| 類型 | 變更 | 位置 |\n|---|---|---|\n| 🔹 合理附帶 | 重構 `formatCurrency` 共用函式 | `src/utils/format.js` |\n| 🔸 需確認 | 新增 admin debug panel | `src/admin/DebugPanel.vue` |\n```\n\n**6.3 總結**\n\n| 狀態 | 評語 |\n|---|---|\n| 全 ✅、無 🔸 | ✅ 需求完整覆蓋，可進 review-code 看技術品質 |\n| 有 ⚠️ 或 🔸 | 🟡 部分項目需釐清，**先回頭跟使用者 / PM 確認** |\n| 有 ❌ | 🔴 **有需求未實作**，merge 前必須處理（或明確標記為下階段） |\n\n## 注意事項\n\n- 不對 code 內在品質給意見（命名、效能等 → `review-code` 的事）\n- 規格模糊 → **問使用者**，不要自己詮釋\n- 沒 spec 來源 → **無法執行此 skill**，提示使用者：「沒看到 ticket / 設計 / 規格，請提供之一」\n- 大範圍 PR（跨多 ticket）→ 依 ticket 分組 review，每組各自輸出覆蓋表\n- Figma 設計：優先用 `read-figma` skill 自動分析（需 Figma MCP）；無 MCP 時請使用者貼截圖"
+    },
+    {
+      "name": "frontend-design",
+      "source": "frontend-design",
+      "scope": "plugin",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.",
+      "content": "This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic \"AI slop\" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.\n\nThe user provides frontend requirements: a component, page, application, or interface to build. They may include context about the purpose, audience, or technical constraints.\n\n## Design Thinking\n\nBefore coding, understand the context and commit to a BOLD aesthetic direction:\n- **Purpose**: What problem does this interface solve? Who uses it?\n- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.\n- **Constraints**: Technical requirements (framework, performance, accessibility).\n- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?\n\n**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.\n\nThen implement working code (HTML/CSS/JS, React, Vue, etc.) that is:\n- Production-grade and functional\n- Visually striking and memorable\n- Cohesive with a clear aesthetic point-of-view\n- Meticulously refined in every detail\n\n## Frontend Aesthetics Guidelines\n\nFocus on:\n- **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.\n- **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.\n- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.\n- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.\n- **Backgrounds & Visual Details**: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures that match the overall aesthetic. Apply creative forms like gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, and grain overlays.\n\nNEVER use generic AI-generated aesthetics like overused font families (Inter, Roboto, Arial, system fonts), cliched color schemes (particularly purple gradients on white backgrounds), predictable layouts and component patterns, and cookie-cutter design that lacks context-specific character.\n\nInterpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices (Space Grotesk, for example) across generations.\n\n**IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.\n\nRemember: Claude is capable of extraordinary creative work. Don't hold back, show what can truly be created when thinking outside the box and committing fully to a distinctive vision."
     },
     {
       "name": "brainstorming",
@@ -468,11 +482,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-04T08:58:07.574Z",
+    "lastUpdated": "2026-06-04T09:57:57.252Z",
     "tools": {
       "agent:general-purpose": 44,
       "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 18,
+      "skill:superpowers:brainstorming": 19,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -564,7 +578,7 @@
       },
       "~": {
         "skills": {
-          "superpowers:brainstorming": 14,
+          "superpowers:brainstorming": 15,
           "weekly-report": 5,
           "superpowers:writing-skills": 1,
           "top-5": 2,
