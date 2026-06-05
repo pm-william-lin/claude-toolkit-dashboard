@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-06-04T09:57:57.252Z",
+  "lastUpdated": "2026-06-05T09:04:41.310Z",
   "tools": {
-    "agent:general-purpose": 44,
+    "agent:general-purpose": 72,
     "agent:Explore": 4,
     "skill:superpowers:brainstorming": 19,
     "skill:superpowers:writing-plans": 2,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
-    "claude_ai_Google_Drive:read_file_content": 24,
+    "claude_ai_Google_Drive:read_file_content": 26,
     "skill:superpowers:writing-skills": 2,
-    "claude_ai_Google_Drive:get_file_metadata": 2,
+    "claude_ai_Google_Drive:get_file_metadata": 3,
     "claude_ai_Google_Drive:download_file_content": 3,
     "n8n-mcp:n8n_get_workflow": 5,
     "n8n-mcp:n8n_update_partial_workflow": 22,
@@ -34,7 +34,7 @@
     "claude_ai_Gmail:get_thread": 2,
     "claude_ai_Gmail:create_draft": 6,
     "mixpanel:Get-Report": 25,
-    "claude_ai_Google_Drive:search_files": 5,
+    "claude_ai_Google_Drive:search_files": 7,
     "skill:top-5": 2,
     "agent:superpowers:code-reviewer": 9,
     "mixpanel:Get-Business-Context": 13,
@@ -44,11 +44,11 @@
     "skill:superpowers:subagent-driven-development": 1,
     "skill:fewer-permission-prompts": 1,
     "claude_ai_Atlassian:authenticate": 2,
-    "claude_ai_Atlassian:atlassianUserInfo": 1,
-    "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
+    "claude_ai_Atlassian:atlassianUserInfo": 2,
+    "claude_ai_Atlassian:getAccessibleAtlassianResources": 2,
     "claude_ai_Atlassian:getVisibleJiraProjects": 5,
     "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 7,
-    "claude_ai_Atlassian:createJiraIssue": 14,
+    "claude_ai_Atlassian:createJiraIssue": 15,
     "claude_ai_Atlassian:searchJiraIssuesUsingJql": 12,
     "claude_ai_Atlassian:getJiraIssue": 14,
     "claude_ai_Atlassian:createIssueLink": 1,
@@ -80,9 +80,10 @@
     "skill:collab:verify-spec": 1,
     "skill:collab:commit": 1,
     "skill:collab:create-mr": 1,
-    "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
-    "claude_ai_Atlassian:transitionJiraIssue": 1,
-    "computer-use:request_access": 3
+    "claude_ai_Atlassian:getTransitionsForJiraIssue": 2,
+    "claude_ai_Atlassian:transitionJiraIssue": 2,
+    "computer-use:request_access": 3,
+    "skill:frontend-design:frontend-design": 17
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -102,7 +103,8 @@
         "ui-dom-verify": 2,
         "superpowers:using-superpowers": 2,
         "seo-meta": 2,
-        "collab:full-flow": 1
+        "collab:full-flow": 1,
+        "frontend-design:frontend-design": 1
       },
       "agents": {
         "general-purpose": 5,
@@ -135,7 +137,7 @@
         "claude_ai_Gmail:get_thread": 2,
         "claude_ai_Gmail:create_draft": 6,
         "mixpanel:Get-Report": 25,
-        "claude_ai_Google_Drive:search_files": 5,
+        "claude_ai_Google_Drive:search_files": 6,
         "mixpanel:Get-Business-Context": 11,
         "claude_ai_Ahrefs:management-projects": 2,
         "claude_ai_Google_Drive:download_file_content": 2,
@@ -281,6 +283,35 @@
       "mcpTools": {
         "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
         "claude_ai_Atlassian:addCommentToJiraIssue": 1,
+        "claude_ai_Atlassian:transitionJiraIssue": 1
+      }
+    },
+    "skills": {
+      "skills": {
+        "frontend-design:frontend-design": 3
+      },
+      "agents": {
+        "general-purpose": 11
+      },
+      "mcpTools": {
+        "claude_ai_Google_Drive:search_files": 1,
+        "claude_ai_Google_Drive:read_file_content": 1
+      }
+    },
+    "future-1000-days-mockups": {
+      "skills": {
+        "frontend-design:frontend-design": 13
+      },
+      "agents": {
+        "general-purpose": 17
+      },
+      "mcpTools": {
+        "claude_ai_Google_Drive:get_file_metadata": 1,
+        "claude_ai_Google_Drive:read_file_content": 1,
+        "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
+        "claude_ai_Atlassian:atlassianUserInfo": 1,
+        "claude_ai_Atlassian:createJiraIssue": 1,
+        "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
         "claude_ai_Atlassian:transitionJiraIssue": 1
       }
     }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-04T14:31:13.021Z",
+  "generatedAt": "2026-06-05T09:43:42.716Z",
   "plugins": [
     {
       "name": "collab",
@@ -375,6 +375,13 @@
       "content": "# SEO Meta 檢查與設定\n\n處理網頁的 meta 標籤、OG 社交分享標籤、結構化資料等 SEO 相關設定。\n\n## 使用時機\n\n- 建立新網頁或 Landing Page\n- 修改頁面標題、描述\n- 上線前 SEO 檢查\n- 設定社交分享預覽（LINE / Facebook / Threads）\n- 新增 Schema / JSON-LD 結構化資料\n\n## 檢查清單\n\n每個頁面應確認以下項目：\n\n### 基本 Meta\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `<title>` | 必要 | 50-60 字元，格式：`頁面名稱 - 品牌名` |\n| `meta description` | 必要 | 120-160 字元，含關鍵字，吸引點擊 |\n| `meta robots` | 視需求 | 公開頁不設（預設可索引）；內部頁面設 `noindex, nofollow` |\n| `link canonical` | 建議 | 避免重複內容，指向正式 URL |\n| `html lang` | 必要 | 繁體中文用 `zh-Hant` |\n\n### Open Graph（社交分享）\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `og:title` | 必要 | 通常與 `<title>` 相同 |\n| `og:description` | 必要 | 通常與 `meta description` 相同 |\n| `og:image` | 必要 | **1200×630px**（1.91:1），檔案 < 5MB，用絕對 URL |\n| `og:url` | 必要 | 頁面的正式 URL（canonical URL） |\n| `og:type` | 必要 | 首頁用 `website`，文章用 `article`，產品用 `product` |\n| `og:locale` | 建議 | 繁體中文用 `zh_TW` |\n| `og:site_name` | 建議 | 品牌名稱 |\n\n### Twitter Card（選用）\n\n| 標籤 | 說明 |\n|------|------|\n| `twitter:card` | `summary_large_image`（大圖）或 `summary`（小圖） |\n| `twitter:title` | 同 og:title |\n| `twitter:description` | 同 og:description |\n| `twitter:image` | 同 og:image |\n\n### 結構化資料 JSON-LD（選用，持續擴充）\n\n根據頁面類型選擇適合的 Schema：\n\n| 頁面類型 | Schema Type | 適用場景 |\n|----------|-------------|----------|\n| 首頁 | `Organization` / `WebSite` | 品牌官網 |\n| 文章 | `Article` / `BlogPosting` | 部落格、新聞 |\n| 產品 | `Product` | 商品頁 |\n| FAQ | `FAQPage` | 常見問題 |\n| 活動 | `Event` | 活動頁 |\n| 麵包屑 | `BreadcrumbList` | 多層級網站 |\n\n## 實作方式\n\n### Nuxt 專案\n\n**全域設定**（`nuxt.config.js` → `app.head.meta`）：\n- 所有頁面共用的 title、description、OG 標籤\n- og:image 用絕對 URL（含 domain）\n\n**頁面覆蓋**（`useHead()` 或 `useSeoMeta()`）：\n- 個別頁面覆蓋 title、og:title、og:url\n- 設定 robots（如 noindex）\n- 清除不需要的繼承值（設為空字串）\n\n**注意事項**：\n- `og:image` 必須用**絕對 URL**（含 https://domain）\n- 測試機在內網時，Facebook Debugger 抓不到，改用 `curl` 檢查 HTML source\n- 新增圖片記得放到 `public/` 目錄\n\n### 一般 HTML 專案\n\n直接在 `<head>` 內加入 meta 標籤。\n\n## 參考規格\n\n### Open Graph\n當需要查詢完整的 OG 標籤清單、可用的 og:type 值、或進階屬性（如 og:video、og:audio、profile、music、book 等）時，用 WebFetch 查閱 Open Graph 官方規格：https://ogp.me/\n特別是在以下情境：\n- 使用者問「還有哪些 OG 可以加」\n- 頁面類型不是常見的 website/article（如影片、音樂、書籍、個人檔案）\n- 需要確認某個 OG 屬性的正確寫法\n\n### 結構化資料 (Schema / JSON-LD)\n需要新增或建議結構化資料時，依序查閱：\n1. **先看 Google 搜尋文件**：https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=zh-tw\n   - 確認 Google 實際支援哪些 Schema 類型（不是所有 Schema 都會產生搜尋結果特殊呈現）\n   - 查看各類型的必要/建議屬性、範例程式碼\n2. **再看 Schema.org**：https://schema.org/\n   - 查完整的屬性定義、繼承關係、進階用法\n   - Google 文件沒涵蓋的類型或屬性在這裡找\n\n特別是在以下情境：\n- 使用者想提升搜尋結果呈現（如星星評分、FAQ 展開、活動資訊）\n- 建立新類型頁面（產品、文章、活動、FAQ、課程等）\n- 使用者提到 Schema、JSON-LD、結構化資料、rich results\n\n## 驗證工具\n\n| 工具 | 用途 | URL |\n|------|------|-----|\n| Facebook Sharing Debugger | 驗證 OG 預覽 | https://developers.facebook.com/tools/debug/ |\n| Twitter Card Validator | 驗證 Twitter 預覽 | https://cards-dev.twitter.com/validator |\n| Google Rich Results Test | 驗證結構化資料 | https://search.google.com/test/rich-results |\n| Schema.org Validator | 驗證 JSON-LD | https://validator.schema.org/ |\n| LINE URL Preview Test | 確認 LINE 分享預覽 | 直接在 LINE 聊天貼連結 |\n\n## og:image 規格速查\n\n| 平台 | 建議尺寸 | 比例 | 檔案限制 |\n|------|---------|------|---------|\n| Facebook | 1200×630 | 1.91:1 | < 8MB |\n| LINE | 1200×630 | 1.91:1 | < 5MB |\n| Twitter | 1200×628 | ~1.91:1 | < 5MB |\n| Threads | 1200×630 | 1.91:1 | — |\n\n**通用建議**：準備一張 **1200×630 的 PNG/JPG**，全平台通用。"
     },
     {
+      "name": "tacit-knowledge-converter",
+      "source": "personal",
+      "scope": "personal",
+      "description": "把專業品味、隱性知識與判斷標準，轉化成 AI 可執行的評估 Rubric。 透過蘇格拉底式訪談，萃取使用者腦中對「什麼叫好」的隱性判準， 建立結構化、可量化、可供 Agent Evaluator 直接使用的評分標準。 適用於任何需要定義品質標準的知識工作場景——前端開發、影片製作、 UI 設計、面試評估、Essay 評分、PM 產品判斷、內容創作等。 當使用者提到「建立評分標準」「定義什麼叫好」「Rubric」「評估標準」 「品質判準」「怎樣算好的 XX」「幫我把標準寫清楚」時，使用這個 Skill。 也適用於使用者想把自己的專業經驗系統化、想讓 AI 按照自己的品味產出、 或想為 Agent workflow 建立 Evaluator 標準的場景。",
+      "content": "# 隱性知識顯性化：Rubric 萃取引擎\n\n## 這個 Skill 在做什麼\n\n幫知識工作者把腦中的隱性判準——經驗、直覺、品味、「我知道這個好但說不清楚」——轉化成具體的、AI 可執行的評估 Rubric。\n\n產出的 Rubric 不只是給人看的表格，而是可以直接放進 Agent Workflow 的 Evaluator 模組中，成為：\n- 評估標準\n- 優化方向\n- 回饋回路\n- 任務完成條件\n\n## Bundled Resources\n\n本 Skill 包含三份 reference 檔案，在特定步驟中必須讀取：\n\n| 檔案 | 路徑 | 何時讀取 |\n|------|------|----------|\n| Rubric 輸出格式規範 | `references/rubric-format.md` | **Step 4 開始前**——展開 1-5 分評分描述之前，先讀這份檔案確認輸出結構和 JSON schema |\n| 前端設計 Rubric 範例 | `references/example-frontend-rubric.md` | **Step 4 開始前（視覺/設計類領域）**——9 個維度 × 1-5 分完整 few-shot，作為視覺類任務的顆粒度標準 |\n| 寫作 Rubric 範例 | `references/example-writing-rubric.md` | **Step 4 開始前（寫作/內容/文字類領域）**——4 個維度 × 1-5 分完整 few-shot，作為非視覺類任務的顆粒度標準 |\n\n讀取方式：使用 `view` 工具讀取對應路徑的檔案。路徑相對於本 SKILL.md 所在目錄。\n\n**選擇邏輯**：根據使用者在 Step 1 確認的領域，選擇最接近的 example。視覺類（前端、UI、視覺設計、簡報、縮圖）讀 frontend 那份；文字類（寫作、內容、腳本、貼文、Newsletter）讀 writing 那份。如果領域同時牽涉兩者（例如「Landing page 含文案 + 設計」），兩份都讀。如果領域跟兩者都遠（例如「PM PRD 評估」、「面試表現」），仍要讀其中一份來對齊 1-5 分的具體性顆粒度，但結構可以自由。\n\n---\n\n## 你的角色：蘇格拉底式 Thinking Partner\n\n你不是 Rubric 產生器。你是一個會追問的 Thinking Partner。\n\n核心態度：\n- 不急著產出，而是把隱性知識挖出來\n- 使用者說「我覺得這個好」時，你要追問「好在哪裡？哪個面向好？如果沒有這個面向，還算好嗎？」\n- 使用者說「這個不行」時，你要追問「不行是哪裡不行？是完全不行還是某個維度不行？跟你見過最差的比起來差在哪？」\n- 你的目標是讓使用者自己說出他從來沒有明確講過的判準\n\n追問技巧：\n- 「你能舉一個你覺得做得最好的例子嗎？它好在哪？」\n- 「如果兩個產出都『還不錯』，你怎麼決定哪個更好？」\n- 「你說的 XX 具體是指什麼？能不能拆得更細？」\n- 「這個維度如果滿分是什麼樣子？最低分又是什麼樣子？」\n- 「在你的經驗裡，最常見的失敗模式是什麼？」\n- 「如果你要教一個新人判斷這件事，你會怎麼教？」\n\n什麼時候停止追問：\n- 使用者的描述已經具體到可以直接寫成評分標準\n- 使用者明確表示「這樣夠了」或「就是這個意思」\n- 同一個維度已經有清晰的高分/低分描述\n\n---\n\n## 流程：五個步驟\n\n### Step 1：確認領域與任務\n\n啟動時，先釐清三件事：\n\n1. **你是誰？** 使用者的專業角色（前端工程師、影片製作者、PM、面試官……）\n2. **你要評估什麼？** 具體的 Domain 和 Task（前端設計品質、知識型影片、面試表現……）\n3. **這個 Rubric 要用在哪裡？** 是自己判斷用、給團隊用、還是要接入 Agent Evaluator？\n\n用一輪簡短的對話確認這三件事。不需要長篇大論，幾句話就好。\n\n如果使用者已經在對話中說清楚了這些資訊，直接跳到 Step 2。\n\n---\n\n### Step 2：建立 Foundation\n\n在開始追問使用者的個人品味之前，先建立一份基礎素材。這讓後續對話有東西可以反應，而不是從空白開始。\n\n做兩輪研究：\n\n**研究 A：業界 Best Practice**\n用 web search 搜尋該領域中，業界普遍認為「做得好」的標準是什麼。\n搜尋方向：\n- \"[領域] evaluation criteria\"\n- \"[領域] quality rubric\"\n- \"[領域] best practices assessment\"\n\n**研究 B：領域頂尖者的知識**\n用 web search 搜尋該領域表現最好的人或組織，看他們怎麼定義品質。\n搜尋方向：\n- \"[領域] expert quality standards\"\n- \"how top [角色] evaluate [產出]\"\n\n將兩輪研究整合成一份 **Foundation 候選清單**：列出 5-10 個可能的評估維度，每個維度附上一句話定義。\n\n把這份清單呈現給使用者，說：\n「這是我根據業界標準和領域專家整理出來的初步維度。接下來我們要把你的個人判準疊上去。」\n\n---\n\n### Step 3：疊入 Personal Taste（核心步驟）\n\n這是整個 Skill 最關鍵的步驟。Foundation 只是起點，真正的價值在於使用者自己的品味和判斷。\n\n呈現 Foundation 候選清單後，依序詢問：\n\n**第一輪：篩選**\n- 「這些維度裡面，有沒有你覺得不重要、可以刪掉的？」\n- 「有沒有缺少你個人很重視、但清單裡沒有的維度？」\n- 「哪些維度你覺得應該權重特別高？為什麼？」\n\n**第二輪：深挖（針對每個保留的維度）**\n進入蘇格拉底追問模式。對每個維度：\n- 「你心目中，這個維度做到最好是什麼樣子？能舉個例子嗎？」\n- 「最常見的失敗是什麼？你看到什麼會直接判定不及格？」\n- 「3 分（合格）和 4 分（優良）之間的差距在哪？」\n\n追問的深度要依使用者的回應而定：\n- 如果使用者回答具體，一兩個追問就夠\n- 如果使用者回答模糊（「就是感覺不對」），就繼續挖，直到感覺變成文字\n\n**第三輪：確認**\n整理出調整後的維度清單（含新增、刪除、權重調整），給使用者確認：\n「目前的維度和權重是這樣，你看看有沒有要調整的？」\n\n確認後進入 Step 4。\n\n---\n\n### Step 4：展開 1-5 分評分描述\n\n對每個確認的維度，展開完整的評分描述。\n\n**開始這一步之前，必須先讀取 reference 檔案：**\n\n1. 用 `view` 工具讀取 `references/rubric-format.md`（必讀）——確認 Rubric 的 Markdown 和 JSON 輸出結構\n2. 用 `view` 工具讀取**對應領域的 example**（依 Step 1 確認的領域選擇）：\n   - 視覺/設計類 → `references/example-frontend-rubric.md`\n   - 寫作/內容類 → `references/example-writing-rubric.md`\n   - 跨領域或其他 → 兩份都讀，挑最接近的當主要參照\n\n對齊顆粒度標準：每個維度的 1-5 分描述應該達到參考範例的具體程度，包括：\n- 每一分都是**可掃描的可觀察行為**，不是抽象品質形容詞\n- 1 分要點名具體的 anti-pattern（如「用了 Inter、Roboto」、「em-dash 連短句」），而非「品質很差」\n- 5 分要描述能辨識的卓越特徵，而非「品質卓越」\n- 同維度的 1 分到 5 分要用一致詞彙軸遞增（如「無 → 少 → 部分 → 多數 → 全部」）\n- 必須有「典型 5 分樣態」與「典型 1-2 分樣態」兩段 exemplar\n\n每個維度需要：\n- 1 分到 5 分各自的具體描述\n- 每一分的描述要具體到「看到什麼特徵就給這個分數」\n- 5 分的 Exemplar（典型的卓越產出長什麼樣）\n- 1-2 分的 Exemplar（典型的失敗模式長什麼樣）\n\n寫完每個維度的評分描述後，逐一給使用者過目：\n「這個維度的 1-5 分描述，你覺得符合你的判斷嗎？有沒有哪一級需要調整？」\n\n重點注意：\n- 3 分是「達到基本期望」的基準線，不是中庸\n- 4 分和 5 分的區別要清楚——4 分是「超出預期」，5 分是「這就是標竿」\n- 1 分和 2 分也要區分——1 分是「根本不能用」，2 分是「有嘗試但明顯不足」\n- 評分描述要用使用者自己的語言和判準，不是通用的教科書語言\n\n---\n\n### Step 5：輸出 Rubric\n\n所有維度確認完畢後，產出最終 Rubric。\n\n**同時輸出兩種格式：**\n\n1. **Markdown 版本**——給人閱讀、檢查、討論\n2. **JSON 版本**——給機器讀、接入 Agent / Evaluator / Workflow\n\n格式必須嚴格遵循 `references/rubric-format.md` 中定義的結構。如果 Step 4 時已經讀過，直接套用即可；如果需要複查，再用 `view` 工具重新讀取。\n\n輸出時附上一段使用指南，提醒使用者：\n- 這份 Rubric 可以直接放進 Agent 的 Evaluator prompt 中\n- 建議用 few-shot examples 搭配評分分解來校準 Evaluator\n- Rubric 不是一次定稿——隨著使用，可以持續回來調整權重和描述\n\n將 Markdown 和 JSON 分別存為檔案，提供給使用者下載。\n\n---\n\n## 對話風格\n\n- 繁體中文為主，技術術語保留英文\n- 語氣像一個有經驗的同事在跟你對談，不是客服在問問卷\n- 不用「您」，用「你」\n- 不說「非常好的想法！」這種空洞的肯定——如果要肯定，要說清楚好在哪裡\n- 追問時不要一次丟三個問題，一次一個，讓對話自然推進\n- 如果使用者的描述已經很清楚，不需要再追問，直接推進到下一步\n\n---\n\n## 適用場景舉例\n\n這個 Skill 適用於但不限於以下場景：\n\n- **前端工程師**：定義什麼叫好的前端產出（設計品質、程式品質、互動體驗）\n- **影片製作者**：定義什麼叫好的知識型影片（敘事節奏、資訊密度、視覺表達）\n- **PM**：定義什麼叫好的產品設計或 PRD\n- **面試官**：定義什麼叫好的候選人表現\n- **內容創作者**：定義什麼叫好的文章、貼文、腳本\n- **教授 / 教育者**：定義什麼叫好的 Essay 或報告\n- **設計師**：定義什麼叫好的 UI/UX 設計\n- **AI 動畫 / 動效工作者**：定義什麼叫好的動態視覺產出\n\n---\n\n## 為什麼要做這件事\n\n在 AI 時代，知識工作者的價值越來越取決於：能不能定義「什麼叫做好」，並把這個定義寫成 AI 可以執行的語言。\n\n過去，「品味」可以停留在直覺。但當你要讓 Agent 長時間運作、持續迭代、穩定交付高品質成果時，系統需要的不只是執行能力——而是評估能力。\n\nRubric 在 Agent Workflow 中的角色：\n- **Planner** 根據 Rubric 知道目標長什麼樣\n- **Executor** 根據 Rubric 知道要達到什麼標準\n- **Evaluator** 根據 Rubric 判斷產出是否達標\n- **Feedback Loop** 根據 Evaluator 結果持續改進\n\n沒有好的 Rubric，Agent 就是在盲飛。\n有了好的 Rubric，Agent 才能真正按照你的品味持續優化。"
+    },
+    {
       "name": "top-5",
       "source": "personal",
       "scope": "personal",
@@ -482,17 +489,17 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-04T09:57:57.252Z",
+    "lastUpdated": "2026-06-05T09:04:41.310Z",
     "tools": {
-      "agent:general-purpose": 44,
+      "agent:general-purpose": 72,
       "agent:Explore": 4,
       "skill:superpowers:brainstorming": 19,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 24,
+      "claude_ai_Google_Drive:read_file_content": 26,
       "skill:superpowers:writing-skills": 2,
-      "claude_ai_Google_Drive:get_file_metadata": 2,
+      "claude_ai_Google_Drive:get_file_metadata": 3,
       "claude_ai_Google_Drive:download_file_content": 3,
       "n8n-mcp:n8n_get_workflow": 5,
       "n8n-mcp:n8n_update_partial_workflow": 22,
@@ -517,7 +524,7 @@
       "claude_ai_Gmail:get_thread": 2,
       "claude_ai_Gmail:create_draft": 6,
       "mixpanel:Get-Report": 25,
-      "claude_ai_Google_Drive:search_files": 5,
+      "claude_ai_Google_Drive:search_files": 7,
       "skill:top-5": 2,
       "agent:superpowers:code-reviewer": 9,
       "mixpanel:Get-Business-Context": 13,
@@ -527,11 +534,11 @@
       "skill:superpowers:subagent-driven-development": 1,
       "skill:fewer-permission-prompts": 1,
       "claude_ai_Atlassian:authenticate": 2,
-      "claude_ai_Atlassian:atlassianUserInfo": 1,
-      "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
+      "claude_ai_Atlassian:atlassianUserInfo": 2,
+      "claude_ai_Atlassian:getAccessibleAtlassianResources": 2,
       "claude_ai_Atlassian:getVisibleJiraProjects": 5,
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 7,
-      "claude_ai_Atlassian:createJiraIssue": 14,
+      "claude_ai_Atlassian:createJiraIssue": 15,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 12,
       "claude_ai_Atlassian:getJiraIssue": 14,
       "claude_ai_Atlassian:createIssueLink": 1,
@@ -563,9 +570,10 @@
       "skill:collab:verify-spec": 1,
       "skill:collab:commit": 1,
       "skill:collab:create-mr": 1,
-      "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
-      "claude_ai_Atlassian:transitionJiraIssue": 1,
-      "computer-use:request_access": 3
+      "claude_ai_Atlassian:getTransitionsForJiraIssue": 2,
+      "claude_ai_Atlassian:transitionJiraIssue": 2,
+      "computer-use:request_access": 3,
+      "skill:frontend-design:frontend-design": 17
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -585,7 +593,8 @@
           "ui-dom-verify": 2,
           "superpowers:using-superpowers": 2,
           "seo-meta": 2,
-          "collab:full-flow": 1
+          "collab:full-flow": 1,
+          "frontend-design:frontend-design": 1
         },
         "agents": {
           "general-purpose": 5,
@@ -618,7 +627,7 @@
           "claude_ai_Gmail:get_thread": 2,
           "claude_ai_Gmail:create_draft": 6,
           "mixpanel:Get-Report": 25,
-          "claude_ai_Google_Drive:search_files": 5,
+          "claude_ai_Google_Drive:search_files": 6,
           "mixpanel:Get-Business-Context": 11,
           "claude_ai_Ahrefs:management-projects": 2,
           "claude_ai_Google_Drive:download_file_content": 2,
@@ -764,6 +773,35 @@
         "mcpTools": {
           "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
           "claude_ai_Atlassian:addCommentToJiraIssue": 1,
+          "claude_ai_Atlassian:transitionJiraIssue": 1
+        }
+      },
+      "skills": {
+        "skills": {
+          "frontend-design:frontend-design": 3
+        },
+        "agents": {
+          "general-purpose": 11
+        },
+        "mcpTools": {
+          "claude_ai_Google_Drive:search_files": 1,
+          "claude_ai_Google_Drive:read_file_content": 1
+        }
+      },
+      "future-1000-days-mockups": {
+        "skills": {
+          "frontend-design:frontend-design": 13
+        },
+        "agents": {
+          "general-purpose": 17
+        },
+        "mcpTools": {
+          "claude_ai_Google_Drive:get_file_metadata": 1,
+          "claude_ai_Google_Drive:read_file_content": 1,
+          "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
+          "claude_ai_Atlassian:atlassianUserInfo": 1,
+          "claude_ai_Atlassian:createJiraIssue": 1,
+          "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
           "claude_ai_Atlassian:transitionJiraIssue": 1
         }
       }
