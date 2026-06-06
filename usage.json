@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-05T09:04:41.310Z",
+  "lastUpdated": "2026-06-05T19:57:50.942Z",
   "tools": {
-    "agent:general-purpose": 72,
+    "agent:general-purpose": 76,
     "agent:Explore": 4,
     "skill:superpowers:brainstorming": 19,
     "skill:superpowers:writing-plans": 2,
@@ -83,7 +83,10 @@
     "claude_ai_Atlassian:getTransitionsForJiraIssue": 2,
     "claude_ai_Atlassian:transitionJiraIssue": 2,
     "computer-use:request_access": 3,
-    "skill:frontend-design:frontend-design": 17
+    "skill:frontend-design:frontend-design": 18,
+    "skill:ui-ux-pro-max": 1,
+    "skill:design": 1,
+    "skill:ui-styling": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -104,10 +107,12 @@
         "superpowers:using-superpowers": 2,
         "seo-meta": 2,
         "collab:full-flow": 1,
-        "frontend-design:frontend-design": 1
+        "frontend-design:frontend-design": 1,
+        "design": 1,
+        "ui-styling": 1
       },
       "agents": {
-        "general-purpose": 5,
+        "general-purpose": 7,
         "Explore": 2,
         "Plan": 1,
         "collab:pm": 1
@@ -300,10 +305,11 @@
     },
     "future-1000-days-mockups": {
       "skills": {
-        "frontend-design:frontend-design": 13
+        "frontend-design:frontend-design": 14,
+        "ui-ux-pro-max": 1
       },
       "agents": {
-        "general-purpose": 17
+        "general-purpose": 19
       },
       "mcpTools": {
         "claude_ai_Google_Drive:get_file_metadata": 1,
