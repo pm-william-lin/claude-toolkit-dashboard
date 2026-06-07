@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-05T19:57:50.942Z",
+  "lastUpdated": "2026-06-06T13:28:26.844Z",
   "tools": {
     "agent:general-purpose": 76,
     "agent:Explore": 4,
@@ -7,7 +7,7 @@
     "skill:superpowers:writing-plans": 2,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
-    "claude_ai_Google_Drive:read_file_content": 26,
+    "claude_ai_Google_Drive:read_file_content": 29,
     "skill:superpowers:writing-skills": 2,
     "claude_ai_Google_Drive:get_file_metadata": 3,
     "claude_ai_Google_Drive:download_file_content": 3,
@@ -119,7 +119,7 @@
       },
       "mcpTools": {
         "claude_ai_Google_Drive:authenticate": 1,
-        "claude_ai_Google_Drive:read_file_content": 15,
+        "claude_ai_Google_Drive:read_file_content": 16,
         "n8n-mcp:n8n_get_workflow": 5,
         "n8n-mcp:n8n_update_partial_workflow": 22,
         "n8n-mcp:n8n_create_workflow": 3,
@@ -319,6 +319,13 @@
         "claude_ai_Atlassian:createJiraIssue": 1,
         "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
         "claude_ai_Atlassian:transitionJiraIssue": 1
+      }
+    },
+    "transcript-l-counseling": {
+      "skills": {},
+      "agents": {},
+      "mcpTools": {
+        "claude_ai_Google_Drive:read_file_content": 2
       }
     }
   }
