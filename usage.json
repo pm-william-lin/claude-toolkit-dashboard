@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-06-10T14:05:28.964Z",
+  "lastUpdated": "2026-06-11T05:18:12.334Z",
   "tools": {
-    "agent:general-purpose": 81,
+    "agent:general-purpose": 87,
     "agent:Explore": 4,
-    "skill:superpowers:brainstorming": 19,
+    "skill:superpowers:brainstorming": 20,
     "skill:superpowers:writing-plans": 2,
     "agent:Plan": 1,
     "claude_ai_Google_Drive:authenticate": 1,
@@ -50,7 +50,7 @@
     "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 7,
     "claude_ai_Atlassian:createJiraIssue": 15,
     "claude_ai_Atlassian:searchJiraIssuesUsingJql": 12,
-    "claude_ai_Atlassian:getJiraIssue": 14,
+    "claude_ai_Atlassian:getJiraIssue": 15,
     "claude_ai_Atlassian:createIssueLink": 1,
     "mixpanel:List-Properties": 43,
     "mixpanel:List-Organizations": 1,
@@ -60,7 +60,7 @@
     "skill:superpowers:using-superpowers": 2,
     "skill:seo-meta": 2,
     "claude_ai_Ahrefs:site-explorer-metrics": 2,
-    "claude_ai_Atlassian:addCommentToJiraIssue": 6,
+    "claude_ai_Atlassian:addCommentToJiraIssue": 7,
     "claude_ai_Atlassian:editJiraIssue": 3,
     "agent:collab:pm": 2,
     "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
@@ -83,10 +83,11 @@
     "claude_ai_Atlassian:getTransitionsForJiraIssue": 2,
     "claude_ai_Atlassian:transitionJiraIssue": 2,
     "computer-use:request_access": 3,
-    "skill:frontend-design:frontend-design": 20,
+    "skill:frontend-design:frontend-design": 24,
     "skill:ui-ux-pro-max": 2,
     "skill:design": 1,
-    "skill:ui-styling": 1
+    "skill:ui-styling": 1,
+    "skill:minimalist-skill": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -109,7 +110,8 @@
         "collab:full-flow": 1,
         "frontend-design:frontend-design": 1,
         "design": 1,
-        "ui-styling": 1
+        "ui-styling": 1,
+        "minimalist-skill": 1
       },
       "agents": {
         "general-purpose": 7,
@@ -326,6 +328,19 @@
       "agents": {},
       "mcpTools": {
         "claude_ai_Google_Drive:read_file_content": 8
+      }
+    },
+    "web-4010-mockup": {
+      "skills": {
+        "superpowers:brainstorming": 1,
+        "frontend-design:frontend-design": 4
+      },
+      "agents": {
+        "general-purpose": 6
+      },
+      "mcpTools": {
+        "claude_ai_Atlassian:getJiraIssue": 1,
+        "claude_ai_Atlassian:addCommentToJiraIssue": 1
       }
     }
   }
