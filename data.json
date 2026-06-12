@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T06:08:06.236Z",
+  "generatedAt": "2026-06-12T07:49:26.159Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,9 +629,9 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-11T16:17:55.850Z",
+    "lastUpdated": "2026-06-12T06:56:12.233Z",
     "tools": {
-      "agent:general-purpose": 87,
+      "agent:general-purpose": 88,
       "agent:Explore": 4,
       "skill:superpowers:brainstorming": 20,
       "skill:superpowers:writing-plans": 2,
@@ -680,7 +680,7 @@
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 8,
       "claude_ai_Atlassian:createJiraIssue": 16,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 13,
-      "claude_ai_Atlassian:getJiraIssue": 16,
+      "claude_ai_Atlassian:getJiraIssue": 17,
       "claude_ai_Atlassian:createIssueLink": 1,
       "mixpanel:List-Properties": 43,
       "mixpanel:List-Organizations": 1,
@@ -690,7 +690,7 @@
       "skill:superpowers:using-superpowers": 2,
       "skill:seo-meta": 2,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
-      "claude_ai_Atlassian:addCommentToJiraIssue": 8,
+      "claude_ai_Atlassian:addCommentToJiraIssue": 9,
       "claude_ai_Atlassian:editJiraIssue": 3,
       "agent:collab:pm": 2,
       "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
@@ -744,7 +744,7 @@
           "minimalist-skill": 1
         },
         "agents": {
-          "general-purpose": 7,
+          "general-purpose": 8,
           "Explore": 2,
           "Plan": 1,
           "collab:pm": 1
@@ -786,7 +786,7 @@
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 4,
           "claude_ai_Atlassian:createJiraIssue": 6,
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 6,
-          "claude_ai_Atlassian:getJiraIssue": 12,
+          "claude_ai_Atlassian:getJiraIssue": 13,
           "mixpanel:List-Properties": 25,
           "mixpanel:List-Organizations": 1,
           "appsflyer:get_apps": 2,
@@ -801,7 +801,7 @@
           "claude_ai_Ahrefs:keywords-explorer-overview": 1,
           "claude_ai_Atlassian:editJiraIssue": 1,
           "claude_ai_Atlassian:lookupJiraAccountId": 2,
-          "claude_ai_Atlassian:addCommentToJiraIssue": 2,
+          "claude_ai_Atlassian:addCommentToJiraIssue": 3,
           "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1
         }
       },
