@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-11T12:49:19.099Z",
+  "generatedAt": "2026-06-12T03:50:30.742Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,7 +629,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-11T05:18:12.334Z",
+    "lastUpdated": "2026-06-11T16:17:55.850Z",
     "tools": {
       "agent:general-purpose": 87,
       "agent:Explore": 4,
@@ -677,10 +677,10 @@
       "claude_ai_Atlassian:atlassianUserInfo": 2,
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 2,
       "claude_ai_Atlassian:getVisibleJiraProjects": 5,
-      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 7,
-      "claude_ai_Atlassian:createJiraIssue": 15,
-      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 12,
-      "claude_ai_Atlassian:getJiraIssue": 15,
+      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 8,
+      "claude_ai_Atlassian:createJiraIssue": 16,
+      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 13,
+      "claude_ai_Atlassian:getJiraIssue": 16,
       "claude_ai_Atlassian:createIssueLink": 1,
       "mixpanel:List-Properties": 43,
       "mixpanel:List-Organizations": 1,
@@ -690,7 +690,7 @@
       "skill:superpowers:using-superpowers": 2,
       "skill:seo-meta": 2,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
-      "claude_ai_Atlassian:addCommentToJiraIssue": 7,
+      "claude_ai_Atlassian:addCommentToJiraIssue": 8,
       "claude_ai_Atlassian:editJiraIssue": 3,
       "agent:collab:pm": 2,
       "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
@@ -710,8 +710,8 @@
       "skill:collab:verify-spec": 1,
       "skill:collab:commit": 1,
       "skill:collab:create-mr": 1,
-      "claude_ai_Atlassian:getTransitionsForJiraIssue": 2,
-      "claude_ai_Atlassian:transitionJiraIssue": 2,
+      "claude_ai_Atlassian:getTransitionsForJiraIssue": 3,
+      "claude_ai_Atlassian:transitionJiraIssue": 4,
       "computer-use:request_access": 3,
       "skill:frontend-design:frontend-design": 24,
       "skill:ui-ux-pro-max": 2,
@@ -841,17 +841,19 @@
         "mcpTools": {
           "claude_ai_Google_Drive:read_file_content": 4,
           "claude_ai_Atlassian:authenticate": 1,
-          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 2,
-          "claude_ai_Atlassian:createJiraIssue": 4,
+          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
+          "claude_ai_Atlassian:createJiraIssue": 5,
           "claude_ai_Atlassian:createIssueLink": 1,
           "mixpanel:Run-Query": 3,
           "mixpanel:Get-Property-Values": 1,
           "mixpanel:List-Properties": 1,
-          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 2,
-          "claude_ai_Atlassian:addCommentToJiraIssue": 3,
+          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
+          "claude_ai_Atlassian:addCommentToJiraIssue": 4,
           "claude_ai_Atlassian:editJiraIssue": 2,
-          "claude_ai_Atlassian:getJiraIssue": 1,
-          "computer-use:request_access": 3
+          "claude_ai_Atlassian:getJiraIssue": 2,
+          "computer-use:request_access": 3,
+          "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
+          "claude_ai_Atlassian:transitionJiraIssue": 2
         }
       },
       "fanbook-api": {
