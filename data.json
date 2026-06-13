@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T06:46:49.101Z",
+  "generatedAt": "2026-06-13T10:31:27.888Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,7 +629,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-12T08:21:03.568Z",
+    "lastUpdated": "2026-06-13T07:11:28.416Z",
     "tools": {
       "agent:general-purpose": 88,
       "agent:Explore": 4,
@@ -637,7 +637,7 @@
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 36,
+      "claude_ai_Google_Drive:read_file_content": 38,
       "skill:superpowers:writing-skills": 2,
       "claude_ai_Google_Drive:get_file_metadata": 3,
       "claude_ai_Google_Drive:download_file_content": 3,
@@ -751,7 +751,7 @@
         },
         "mcpTools": {
           "claude_ai_Google_Drive:authenticate": 1,
-          "claude_ai_Google_Drive:read_file_content": 16,
+          "claude_ai_Google_Drive:read_file_content": 18,
           "n8n-mcp:n8n_get_workflow": 5,
           "n8n-mcp:n8n_update_partial_workflow": 22,
           "n8n-mcp:n8n_create_workflow": 3,
