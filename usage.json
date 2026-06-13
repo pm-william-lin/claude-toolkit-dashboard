@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-13T07:11:28.416Z",
+  "lastUpdated": "2026-06-13T17:58:49.057Z",
   "tools": {
     "agent:general-purpose": 88,
     "agent:Explore": 4,
@@ -34,7 +34,7 @@
     "claude_ai_Gmail:get_thread": 2,
     "claude_ai_Gmail:create_draft": 6,
     "mixpanel:Get-Report": 25,
-    "claude_ai_Google_Drive:search_files": 7,
+    "claude_ai_Google_Drive:search_files": 8,
     "skill:top-5": 2,
     "agent:superpowers:code-reviewer": 9,
     "mixpanel:Get-Business-Context": 13,
@@ -60,7 +60,7 @@
     "skill:superpowers:using-superpowers": 2,
     "skill:seo-meta": 2,
     "claude_ai_Ahrefs:site-explorer-metrics": 2,
-    "claude_ai_Atlassian:addCommentToJiraIssue": 9,
+    "claude_ai_Atlassian:addCommentToJiraIssue": 10,
     "claude_ai_Atlassian:editJiraIssue": 3,
     "agent:collab:pm": 2,
     "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
@@ -87,7 +87,8 @@
     "skill:ui-ux-pro-max": 2,
     "skill:design": 1,
     "skill:ui-styling": 1,
-    "skill:minimalist-skill": 1
+    "skill:minimalist-skill": 1,
+    "claude_ai_Google_Drive:create_file": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -172,7 +173,8 @@
         "claude_ai_Atlassian:editJiraIssue": 1,
         "claude_ai_Atlassian:lookupJiraAccountId": 3,
         "claude_ai_Atlassian:addCommentToJiraIssue": 3,
-        "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1
+        "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
+        "claude_ai_Google_Drive:create_file": 1
       }
     },
     "docs": {
@@ -342,6 +344,20 @@
       },
       "mcpTools": {
         "claude_ai_Atlassian:getJiraIssue": 1,
+        "claude_ai_Atlassian:addCommentToJiraIssue": 1
+      }
+    },
+    "Obsidian": {
+      "skills": {},
+      "agents": {},
+      "mcpTools": {
+        "claude_ai_Google_Drive:search_files": 1
+      }
+    },
+    "memory": {
+      "skills": {},
+      "agents": {},
+      "mcpTools": {
         "claude_ai_Atlassian:addCommentToJiraIssue": 1
       }
     }
