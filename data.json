@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T18:41:51.880Z",
+  "generatedAt": "2026-06-14T12:43:23.755Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,7 +629,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-13T17:58:49.057Z",
+    "lastUpdated": "2026-06-14T08:45:37.743Z",
     "tools": {
       "agent:general-purpose": 88,
       "agent:Explore": 4,
@@ -690,7 +690,7 @@
       "skill:superpowers:using-superpowers": 2,
       "skill:seo-meta": 2,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
-      "claude_ai_Atlassian:addCommentToJiraIssue": 10,
+      "claude_ai_Atlassian:addCommentToJiraIssue": 13,
       "claude_ai_Atlassian:editJiraIssue": 3,
       "agent:collab:pm": 2,
       "claude_ai_Ahrefs:site-explorer-domain-rating": 1,
@@ -718,7 +718,8 @@
       "skill:design": 1,
       "skill:ui-styling": 1,
       "skill:minimalist-skill": 1,
-      "claude_ai_Google_Drive:create_file": 1
+      "claude_ai_Google_Drive:create_file": 1,
+      "skill:schedule": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -742,7 +743,8 @@
           "frontend-design:frontend-design": 1,
           "design": 1,
           "ui-styling": 1,
-          "minimalist-skill": 1
+          "minimalist-skill": 1,
+          "schedule": 1
         },
         "agents": {
           "general-purpose": 8,
@@ -802,7 +804,7 @@
           "claude_ai_Ahrefs:keywords-explorer-overview": 1,
           "claude_ai_Atlassian:editJiraIssue": 1,
           "claude_ai_Atlassian:lookupJiraAccountId": 3,
-          "claude_ai_Atlassian:addCommentToJiraIssue": 3,
+          "claude_ai_Atlassian:addCommentToJiraIssue": 6,
           "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
           "claude_ai_Google_Drive:create_file": 1
         }
