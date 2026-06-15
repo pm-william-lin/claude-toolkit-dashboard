@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T06:49:57.174Z",
+  "generatedAt": "2026-06-15T07:34:00.771Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,7 +629,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-15T06:08:00.015Z",
+    "lastUpdated": "2026-06-15T07:23:55.521Z",
     "tools": {
       "agent:general-purpose": 89,
       "agent:Explore": 4,
@@ -654,7 +654,7 @@
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 69,
       "mixpanel:Get-Query-Schema": 32,
-      "mixpanel:Run-Query": 445,
+      "mixpanel:Run-Query": 450,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
       "mixpanel:Get-Property-Values": 49,
@@ -848,7 +848,7 @@
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
           "claude_ai_Atlassian:createJiraIssue": 5,
           "claude_ai_Atlassian:createIssueLink": 1,
-          "mixpanel:Run-Query": 83,
+          "mixpanel:Run-Query": 88,
           "mixpanel:Get-Property-Values": 8,
           "mixpanel:List-Properties": 7,
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
