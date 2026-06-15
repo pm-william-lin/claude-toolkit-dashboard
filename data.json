@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T12:43:23.755Z",
+  "generatedAt": "2026-06-15T01:19:11.161Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,15 +629,15 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-14T08:45:37.743Z",
+    "lastUpdated": "2026-06-14T16:50:13.584Z",
     "tools": {
-      "agent:general-purpose": 88,
+      "agent:general-purpose": 89,
       "agent:Explore": 4,
       "skill:superpowers:brainstorming": 20,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 38,
+      "claude_ai_Google_Drive:read_file_content": 39,
       "skill:superpowers:writing-skills": 2,
       "claude_ai_Google_Drive:get_file_metadata": 3,
       "claude_ai_Google_Drive:download_file_content": 3,
@@ -653,11 +653,11 @@
       "mixpanel:Get-Dashboard": 15,
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 55,
-      "mixpanel:Get-Query-Schema": 27,
-      "mixpanel:Run-Query": 320,
+      "mixpanel:Get-Query-Schema": 29,
+      "mixpanel:Run-Query": 389,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
-      "mixpanel:Get-Property-Values": 40,
+      "mixpanel:Get-Property-Values": 44,
       "skill:weekly-report": 5,
       "claude_ai_Gmail:authenticate": 1,
       "claude_ai_Gmail:search_threads": 5,
@@ -682,11 +682,11 @@
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 13,
       "claude_ai_Atlassian:getJiraIssue": 18,
       "claude_ai_Atlassian:createIssueLink": 1,
-      "mixpanel:List-Properties": 43,
+      "mixpanel:List-Properties": 47,
       "mixpanel:List-Organizations": 1,
-      "appsflyer:get_apps": 3,
+      "appsflyer:get_apps": 4,
       "appsflyer:get_public_knowledge": 1,
-      "appsflyer:fetch_aggregated_data": 4,
+      "appsflyer:fetch_aggregated_data": 6,
       "skill:superpowers:using-superpowers": 2,
       "skill:seo-meta": 2,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
@@ -747,14 +747,14 @@
           "schedule": 1
         },
         "agents": {
-          "general-purpose": 8,
+          "general-purpose": 9,
           "Explore": 2,
           "Plan": 1,
           "collab:pm": 1
         },
         "mcpTools": {
           "claude_ai_Google_Drive:authenticate": 1,
-          "claude_ai_Google_Drive:read_file_content": 18,
+          "claude_ai_Google_Drive:read_file_content": 19,
           "n8n-mcp:n8n_get_workflow": 5,
           "n8n-mcp:n8n_update_partial_workflow": 22,
           "n8n-mcp:n8n_create_workflow": 3,
@@ -767,11 +767,11 @@
           "mixpanel:Get-Dashboard": 15,
           "mixpanel:Get-Properties": 34,
           "mixpanel:Get-Events": 38,
-          "mixpanel:Get-Query-Schema": 26,
-          "mixpanel:Run-Query": 286,
+          "mixpanel:Get-Query-Schema": 28,
+          "mixpanel:Run-Query": 311,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 38,
-          "mixpanel:Get-Property-Values": 34,
+          "mixpanel:Get-Property-Values": 35,
           "claude_ai_Gmail:authenticate": 1,
           "claude_ai_Gmail:search_threads": 5,
           "claude_ai_Gmail:get_thread": 2,
@@ -848,16 +848,18 @@
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
           "claude_ai_Atlassian:createJiraIssue": 5,
           "claude_ai_Atlassian:createIssueLink": 1,
-          "mixpanel:Run-Query": 3,
-          "mixpanel:Get-Property-Values": 1,
-          "mixpanel:List-Properties": 1,
+          "mixpanel:Run-Query": 27,
+          "mixpanel:Get-Property-Values": 3,
+          "mixpanel:List-Properties": 5,
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
           "claude_ai_Atlassian:addCommentToJiraIssue": 4,
           "claude_ai_Atlassian:editJiraIssue": 2,
           "claude_ai_Atlassian:getJiraIssue": 2,
           "computer-use:request_access": 3,
           "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
-          "claude_ai_Atlassian:transitionJiraIssue": 2
+          "claude_ai_Atlassian:transitionJiraIssue": 2,
+          "appsflyer:get_apps": 1,
+          "appsflyer:fetch_aggregated_data": 2
         }
       },
       "fanbook-api": {
@@ -909,11 +911,11 @@
         "mcpTools": {
           "mixpanel:Get-Business-Context": 1,
           "mixpanel:List-Properties": 13,
-          "mixpanel:Get-Property-Values": 5,
+          "mixpanel:Get-Property-Values": 6,
           "appsflyer:get_apps": 1,
           "appsflyer:fetch_aggregated_data": 2,
           "mixpanel:Get-Events": 7,
-          "mixpanel:Run-Query": 5
+          "mixpanel:Run-Query": 25
         }
       },
       "pocket-studio": {
