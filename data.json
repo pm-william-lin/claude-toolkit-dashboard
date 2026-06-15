@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T07:34:00.771Z",
+  "generatedAt": "2026-06-15T12:59:02.974Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,7 +629,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-15T07:23:55.521Z",
+    "lastUpdated": "2026-06-15T09:04:35.530Z",
     "tools": {
       "agent:general-purpose": 89,
       "agent:Explore": 4,
@@ -654,7 +654,7 @@
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 69,
       "mixpanel:Get-Query-Schema": 32,
-      "mixpanel:Run-Query": 450,
+      "mixpanel:Run-Query": 460,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
       "mixpanel:Get-Property-Values": 49,
@@ -682,7 +682,7 @@
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 13,
       "claude_ai_Atlassian:getJiraIssue": 18,
       "claude_ai_Atlassian:createIssueLink": 1,
-      "mixpanel:List-Properties": 49,
+      "mixpanel:List-Properties": 51,
       "mixpanel:List-Organizations": 1,
       "appsflyer:get_apps": 4,
       "appsflyer:get_public_knowledge": 1,
@@ -848,9 +848,9 @@
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
           "claude_ai_Atlassian:createJiraIssue": 5,
           "claude_ai_Atlassian:createIssueLink": 1,
-          "mixpanel:Run-Query": 88,
+          "mixpanel:Run-Query": 98,
           "mixpanel:Get-Property-Values": 8,
-          "mixpanel:List-Properties": 7,
+          "mixpanel:List-Properties": 9,
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
           "claude_ai_Atlassian:addCommentToJiraIssue": 4,
           "claude_ai_Atlassian:editJiraIssue": 2,
