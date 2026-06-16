@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T09:07:25.519Z",
+  "generatedAt": "2026-06-16T09:52:48.279Z",
   "plugins": [
     {
       "name": "collab",
@@ -629,7 +629,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-15T09:04:35.530Z",
+    "lastUpdated": "2026-06-16T09:39:15.824Z",
     "tools": {
       "agent:general-purpose": 89,
       "agent:Explore": 4,
@@ -654,7 +654,7 @@
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 69,
       "mixpanel:Get-Query-Schema": 32,
-      "mixpanel:Run-Query": 460,
+      "mixpanel:Run-Query": 461,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
       "mixpanel:Get-Property-Values": 49,
@@ -677,8 +677,8 @@
       "claude_ai_Atlassian:atlassianUserInfo": 2,
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 2,
       "claude_ai_Atlassian:getVisibleJiraProjects": 5,
-      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 9,
-      "claude_ai_Atlassian:createJiraIssue": 17,
+      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 10,
+      "claude_ai_Atlassian:createJiraIssue": 18,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 13,
       "claude_ai_Atlassian:getJiraIssue": 18,
       "claude_ai_Atlassian:createIssueLink": 1,
@@ -699,7 +699,7 @@
       "claude_ai_Ahrefs:site-explorer-top-pages": 1,
       "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
       "claude_ai_Ahrefs:keywords-explorer-overview": 1,
-      "claude_ai_Atlassian:lookupJiraAccountId": 3,
+      "claude_ai_Atlassian:lookupJiraAccountId": 4,
       "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
       "skill:collab:full-flow": 1,
       "skill:collab:gen-sdd": 1,
@@ -786,8 +786,8 @@
           "claude_ai_Atlassian:atlassianUserInfo": 1,
           "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
           "claude_ai_Atlassian:getVisibleJiraProjects": 5,
-          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 5,
-          "claude_ai_Atlassian:createJiraIssue": 7,
+          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 6,
+          "claude_ai_Atlassian:createJiraIssue": 8,
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 6,
           "claude_ai_Atlassian:getJiraIssue": 14,
           "mixpanel:List-Properties": 25,
@@ -803,7 +803,7 @@
           "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
           "claude_ai_Ahrefs:keywords-explorer-overview": 1,
           "claude_ai_Atlassian:editJiraIssue": 1,
-          "claude_ai_Atlassian:lookupJiraAccountId": 3,
+          "claude_ai_Atlassian:lookupJiraAccountId": 4,
           "claude_ai_Atlassian:addCommentToJiraIssue": 6,
           "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
           "claude_ai_Google_Drive:create_file": 1
@@ -848,7 +848,7 @@
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
           "claude_ai_Atlassian:createJiraIssue": 5,
           "claude_ai_Atlassian:createIssueLink": 1,
-          "mixpanel:Run-Query": 98,
+          "mixpanel:Run-Query": 99,
           "mixpanel:Get-Property-Values": 8,
           "mixpanel:List-Properties": 9,
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
