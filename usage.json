@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T09:39:15.824Z",
+  "lastUpdated": "2026-06-16T09:54:50.401Z",
   "tools": {
     "agent:general-purpose": 89,
     "agent:Explore": 4,
@@ -89,7 +89,8 @@
     "skill:ui-styling": 1,
     "skill:minimalist-skill": 1,
     "claude_ai_Google_Drive:create_file": 1,
-    "skill:schedule": 1
+    "skill:schedule": 1,
+    "skill:superpowers:systematic-debugging": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -114,7 +115,8 @@
         "design": 1,
         "ui-styling": 1,
         "minimalist-skill": 1,
-        "schedule": 1
+        "schedule": 1,
+        "superpowers:systematic-debugging": 1
       },
       "agents": {
         "general-purpose": 9,
