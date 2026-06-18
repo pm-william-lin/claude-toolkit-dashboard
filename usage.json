@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T09:54:50.401Z",
+  "lastUpdated": "2026-06-17T09:31:19.583Z",
   "tools": {
     "agent:general-purpose": 89,
     "agent:Explore": 4,
@@ -34,7 +34,7 @@
     "claude_ai_Gmail:get_thread": 2,
     "claude_ai_Gmail:create_draft": 6,
     "mixpanel:Get-Report": 25,
-    "claude_ai_Google_Drive:search_files": 8,
+    "claude_ai_Google_Drive:search_files": 9,
     "skill:top-5": 2,
     "agent:superpowers:code-reviewer": 9,
     "mixpanel:Get-Business-Context": 13,
@@ -90,7 +90,8 @@
     "skill:minimalist-skill": 1,
     "claude_ai_Google_Drive:create_file": 1,
     "skill:schedule": 1,
-    "skill:superpowers:systematic-debugging": 1
+    "skill:superpowers:systematic-debugging": 1,
+    "skill:web-performance-optimization": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -116,7 +117,8 @@
         "ui-styling": 1,
         "minimalist-skill": 1,
         "schedule": 1,
-        "superpowers:systematic-debugging": 1
+        "superpowers:systematic-debugging": 1,
+        "web-performance-optimization": 1
       },
       "agents": {
         "general-purpose": 9,
@@ -149,7 +151,7 @@
         "claude_ai_Gmail:get_thread": 2,
         "claude_ai_Gmail:create_draft": 6,
         "mixpanel:Get-Report": 25,
-        "claude_ai_Google_Drive:search_files": 6,
+        "claude_ai_Google_Drive:search_files": 7,
         "mixpanel:Get-Business-Context": 11,
         "claude_ai_Ahrefs:management-projects": 2,
         "claude_ai_Google_Drive:download_file_content": 2,
