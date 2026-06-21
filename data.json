@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T06:07:31.700Z",
+  "generatedAt": "2026-06-21T11:30:24.547Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-18T06:06:44.866Z",
+    "lastUpdated": "2026-06-18T07:05:56.536Z",
     "tools": {
       "agent:general-purpose": 89,
       "agent:Explore": 4,
@@ -719,7 +719,7 @@
       "skill:collab:create-mr": 1,
       "claude_ai_Atlassian:getTransitionsForJiraIssue": 3,
       "claude_ai_Atlassian:transitionJiraIssue": 4,
-      "computer-use:request_access": 3,
+      "computer-use:request_access": 4,
       "skill:frontend-design:frontend-design": 24,
       "skill:ui-ux-pro-max": 2,
       "skill:design": 1,
@@ -728,7 +728,9 @@
       "claude_ai_Google_Drive:create_file": 1,
       "skill:schedule": 1,
       "skill:superpowers:systematic-debugging": 1,
-      "skill:web-performance-optimization": 1
+      "skill:web-performance-optimization": 1,
+      "computer-use:screenshot": 3,
+      "computer-use:switch_display": 4
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -867,13 +869,15 @@
           "claude_ai_Atlassian:addCommentToJiraIssue": 4,
           "claude_ai_Atlassian:editJiraIssue": 2,
           "claude_ai_Atlassian:getJiraIssue": 2,
-          "computer-use:request_access": 3,
+          "computer-use:request_access": 4,
           "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
           "claude_ai_Atlassian:transitionJiraIssue": 2,
           "appsflyer:get_apps": 1,
           "appsflyer:fetch_aggregated_data": 10,
           "mixpanel:Get-Events": 14,
-          "mixpanel:Get-Query-Schema": 3
+          "mixpanel:Get-Query-Schema": 3,
+          "computer-use:screenshot": 3,
+          "computer-use:switch_display": 4
         }
       },
       "fanbook-api": {
