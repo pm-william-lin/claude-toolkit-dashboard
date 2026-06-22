@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T05:51:26.385Z",
+  "lastUpdated": "2026-06-22T09:31:12.190Z",
   "tools": {
     "agent:general-purpose": 92,
     "agent:Explore": 4,
@@ -22,9 +22,9 @@
     "mixpanel:List-Dashboards": 2,
     "mixpanel:Get-Dashboard": 15,
     "mixpanel:Get-Properties": 34,
-    "mixpanel:Get-Events": 76,
+    "mixpanel:Get-Events": 77,
     "mixpanel:Get-Query-Schema": 35,
-    "mixpanel:Run-Query": 526,
+    "mixpanel:Run-Query": 543,
     "mixpanel:Create-Dashboard": 1,
     "mixpanel:Update-Dashboard": 38,
     "mixpanel:Get-Property-Values": 53,
@@ -49,16 +49,16 @@
     "claude_ai_Atlassian:getVisibleJiraProjects": 5,
     "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 10,
     "claude_ai_Atlassian:createJiraIssue": 19,
-    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 14,
-    "claude_ai_Atlassian:getJiraIssue": 21,
+    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 15,
+    "claude_ai_Atlassian:getJiraIssue": 22,
     "claude_ai_Atlassian:createIssueLink": 2,
-    "mixpanel:List-Properties": 55,
+    "mixpanel:List-Properties": 56,
     "mixpanel:List-Organizations": 1,
     "appsflyer:get_apps": 4,
     "appsflyer:get_public_knowledge": 1,
     "appsflyer:fetch_aggregated_data": 18,
     "skill:superpowers:using-superpowers": 2,
-    "skill:seo-meta": 2,
+    "skill:seo-meta": 4,
     "claude_ai_Ahrefs:site-explorer-metrics": 2,
     "claude_ai_Atlassian:addCommentToJiraIssue": 13,
     "claude_ai_Atlassian:editJiraIssue": 3,
@@ -93,7 +93,8 @@
     "skill:superpowers:systematic-debugging": 1,
     "skill:web-performance-optimization": 1,
     "computer-use:screenshot": 3,
-    "computer-use:switch_display": 4
+    "computer-use:switch_display": 4,
+    "agent:claude-code-guide": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -112,7 +113,7 @@
         "top-5": 2,
         "ui-dom-verify": 2,
         "superpowers:using-superpowers": 2,
-        "seo-meta": 2,
+        "seo-meta": 3,
         "collab:full-flow": 1,
         "frontend-design:frontend-design": 1,
         "design": 1,
@@ -164,8 +165,8 @@
         "claude_ai_Atlassian:getVisibleJiraProjects": 5,
         "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 6,
         "claude_ai_Atlassian:createJiraIssue": 9,
-        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 7,
-        "claude_ai_Atlassian:getJiraIssue": 17,
+        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 8,
+        "claude_ai_Atlassian:getJiraIssue": 18,
         "mixpanel:List-Properties": 25,
         "mixpanel:List-Organizations": 1,
         "appsflyer:get_apps": 2,
@@ -293,12 +294,12 @@
       },
       "mcpTools": {
         "mixpanel:Get-Business-Context": 1,
-        "mixpanel:List-Properties": 17,
+        "mixpanel:List-Properties": 18,
         "mixpanel:Get-Property-Values": 10,
         "appsflyer:get_apps": 1,
         "appsflyer:fetch_aggregated_data": 6,
-        "mixpanel:Get-Events": 14,
-        "mixpanel:Run-Query": 90,
+        "mixpanel:Get-Events": 15,
+        "mixpanel:Run-Query": 107,
         "mixpanel:Get-Query-Schema": 3
       }
     },
@@ -330,10 +331,12 @@
     "future-1000-days-mockups": {
       "skills": {
         "frontend-design:frontend-design": 16,
-        "ui-ux-pro-max": 2
+        "ui-ux-pro-max": 2,
+        "seo-meta": 1
       },
       "agents": {
-        "general-purpose": 24
+        "general-purpose": 24,
+        "claude-code-guide": 1
       },
       "mcpTools": {
         "claude_ai_Google_Drive:get_file_metadata": 1,

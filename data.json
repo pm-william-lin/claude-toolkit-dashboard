@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-22T06:09:15.987Z",
+  "generatedAt": "2026-06-22T16:03:44.708Z",
   "plugins": [
     {
       "name": "collab",
@@ -463,7 +463,7 @@
       "source": "personal",
       "scope": "personal",
       "description": "網頁 SEO meta 標籤檢查與設定工具。處理 OG (Open Graph)、description、title、robots、structured data (JSON-LD) 等。在建立新頁面、上線前檢查、或使用者提到 SEO/OG/meta/分享預覽/Schema 時觸發。",
-      "content": "# SEO Meta 檢查與設定\n\n處理網頁的 meta 標籤、OG 社交分享標籤、結構化資料等 SEO 相關設定。\n\n## 使用時機\n\n- 建立新網頁或 Landing Page\n- 修改頁面標題、描述\n- 上線前 SEO 檢查\n- 設定社交分享預覽（LINE / Facebook / Threads）\n- 新增 Schema / JSON-LD 結構化資料\n\n## 檢查清單\n\n每個頁面應確認以下項目：\n\n### 基本 Meta\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `<title>` | 必要 | 50-60 字元，格式：`頁面名稱 - 品牌名` |\n| `meta description` | 必要 | 120-160 字元，含關鍵字，吸引點擊 |\n| `meta robots` | 視需求 | 公開頁不設（預設可索引）；內部頁面設 `noindex, nofollow` |\n| `link canonical` | 建議 | 避免重複內容，指向正式 URL |\n| `html lang` | 必要 | 繁體中文用 `zh-Hant` |\n\n### Open Graph（社交分享）\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `og:title` | 必要 | 通常與 `<title>` 相同 |\n| `og:description` | 必要 | 通常與 `meta description` 相同 |\n| `og:image` | 必要 | **1200×630px**（1.91:1），檔案 < 5MB，用絕對 URL |\n| `og:url` | 必要 | 頁面的正式 URL（canonical URL） |\n| `og:type` | 必要 | 首頁用 `website`，文章用 `article`，產品用 `product` |\n| `og:locale` | 建議 | 繁體中文用 `zh_TW` |\n| `og:site_name` | 建議 | 品牌名稱 |\n\n### Twitter Card（選用）\n\n| 標籤 | 說明 |\n|------|------|\n| `twitter:card` | `summary_large_image`（大圖）或 `summary`（小圖） |\n| `twitter:title` | 同 og:title |\n| `twitter:description` | 同 og:description |\n| `twitter:image` | 同 og:image |\n\n### 結構化資料 JSON-LD（選用，持續擴充）\n\n根據頁面類型選擇適合的 Schema：\n\n| 頁面類型 | Schema Type | 適用場景 |\n|----------|-------------|----------|\n| 首頁 | `Organization` / `WebSite` | 品牌官網 |\n| 文章 | `Article` / `BlogPosting` | 部落格、新聞 |\n| 產品 | `Product` | 商品頁 |\n| FAQ | `FAQPage` | 常見問題 |\n| 活動 | `Event` | 活動頁 |\n| 麵包屑 | `BreadcrumbList` | 多層級網站 |\n\n## 實作方式\n\n### Nuxt 專案\n\n**全域設定**（`nuxt.config.js` → `app.head.meta`）：\n- 所有頁面共用的 title、description、OG 標籤\n- og:image 用絕對 URL（含 domain）\n\n**頁面覆蓋**（`useHead()` 或 `useSeoMeta()`）：\n- 個別頁面覆蓋 title、og:title、og:url\n- 設定 robots（如 noindex）\n- 清除不需要的繼承值（設為空字串）\n\n**注意事項**：\n- `og:image` 必須用**絕對 URL**（含 https://domain）\n- 測試機在內網時，Facebook Debugger 抓不到，改用 `curl` 檢查 HTML source\n- 新增圖片記得放到 `public/` 目錄\n\n### 一般 HTML 專案\n\n直接在 `<head>` 內加入 meta 標籤。\n\n## 參考規格\n\n### Open Graph\n當需要查詢完整的 OG 標籤清單、可用的 og:type 值、或進階屬性（如 og:video、og:audio、profile、music、book 等）時，用 WebFetch 查閱 Open Graph 官方規格：https://ogp.me/\n特別是在以下情境：\n- 使用者問「還有哪些 OG 可以加」\n- 頁面類型不是常見的 website/article（如影片、音樂、書籍、個人檔案）\n- 需要確認某個 OG 屬性的正確寫法\n\n### 結構化資料 (Schema / JSON-LD)\n需要新增或建議結構化資料時，依序查閱：\n1. **先看 Google 搜尋文件**：https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=zh-tw\n   - 確認 Google 實際支援哪些 Schema 類型（不是所有 Schema 都會產生搜尋結果特殊呈現）\n   - 查看各類型的必要/建議屬性、範例程式碼\n2. **再看 Schema.org**：https://schema.org/\n   - 查完整的屬性定義、繼承關係、進階用法\n   - Google 文件沒涵蓋的類型或屬性在這裡找\n\n特別是在以下情境：\n- 使用者想提升搜尋結果呈現（如星星評分、FAQ 展開、活動資訊）\n- 建立新類型頁面（產品、文章、活動、FAQ、課程等）\n- 使用者提到 Schema、JSON-LD、結構化資料、rich results\n\n## 驗證工具\n\n| 工具 | 用途 | URL |\n|------|------|-----|\n| Facebook Sharing Debugger | 驗證 OG 預覽 | https://developers.facebook.com/tools/debug/ |\n| Twitter Card Validator | 驗證 Twitter 預覽 | https://cards-dev.twitter.com/validator |\n| Google Rich Results Test | 驗證結構化資料 | https://search.google.com/test/rich-results |\n| Schema.org Validator | 驗證 JSON-LD | https://validator.schema.org/ |\n| LINE URL Preview Test | 確認 LINE 分享預覽 | 直接在 LINE 聊天貼連結 |\n\n## og:image 規格速查\n\n| 平台 | 建議尺寸 | 比例 | 檔案限制 |\n|------|---------|------|---------|\n| Facebook | 1200×630 | 1.91:1 | < 8MB |\n| LINE | 1200×630 | 1.91:1 | < 5MB |\n| Twitter | 1200×628 | ~1.91:1 | < 5MB |\n| Threads | 1200×630 | 1.91:1 | — |\n\n**通用建議**：準備一張 **1200×630 的 PNG/JPG**，全平台通用。"
+      "content": "# SEO Meta 檢查與設定\n\n處理網頁的 meta 標籤、OG 社交分享標籤、結構化資料等 SEO 相關設定。\n\n## 使用時機\n\n- 建立新網頁或 Landing Page\n- 修改頁面標題、描述\n- 上線前 SEO 檢查\n- 設定社交分享預覽（LINE / Facebook / Threads）\n- 新增 Schema / JSON-LD 結構化資料\n\n## 檢查清單\n\n每個頁面應確認以下項目：\n\n### 基本 Meta\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `<title>` | 必要 | 50-60 字元，格式：`頁面名稱 - 品牌名` |\n| `meta description` | 必要 | 120-160 字元，含關鍵字，吸引點擊 |\n| `meta robots` | 視需求 | 公開頁不設（預設可索引）；內部頁面設 `noindex, nofollow` |\n| `link canonical` | 建議 | 避免重複內容，指向正式 URL |\n| `html lang` | 必要 | 繁體中文用 `zh-Hant` |\n\n### Open Graph（社交分享）\n\n| 標籤 | 必要性 | 說明 |\n|------|--------|------|\n| `og:title` | 必要 | 通常與 `<title>` 相同 |\n| `og:description` | 必要 | 通常與 `meta description` 相同 |\n| `og:image` | 必要 | **1200×630px**（1.91:1），檔案 < 5MB，用絕對 URL |\n| `og:url` | 必要 | 頁面的正式 URL（canonical URL） |\n| `og:type` | 必要 | 首頁用 `website`，文章用 `article`，產品用 `product` |\n| `og:locale` | 建議 | 繁體中文用 `zh_TW` |\n| `og:site_name` | 建議 | 品牌名稱 |\n\n### Twitter Card（選用）\n\n| 標籤 | 說明 |\n|------|------|\n| `twitter:card` | `summary_large_image`（大圖）或 `summary`（小圖） |\n| `twitter:title` | 同 og:title |\n| `twitter:description` | 同 og:description |\n| `twitter:image` | 同 og:image |\n\n### 結構化資料 JSON-LD（選用，持續擴充）\n\n根據頁面類型選擇適合的 Schema：\n\n| 頁面類型 | Schema Type | 適用場景 |\n|----------|-------------|----------|\n| 首頁 | `Organization` / `WebSite` | 品牌官網 |\n| 文章 | `Article` / `BlogPosting` | 部落格、新聞 |\n| 產品 | `Product` | 商品頁 |\n| FAQ | `FAQPage` | 常見問題 |\n| 活動 | `Event` | 活動頁 |\n| 麵包屑 | `BreadcrumbList` | 多層級網站 |\n\n## 實作方式\n\n### Nuxt 專案\n\n**全域設定**（`nuxt.config.js` → `app.head.meta`）：\n- 所有頁面共用的 title、description、OG 標籤\n- og:image 用絕對 URL（含 domain）\n\n**頁面覆蓋**（`useHead()` 或 `useSeoMeta()`）：\n- 個別頁面覆蓋 title、og:title、og:url\n- 設定 robots（如 noindex）\n- 清除不需要的繼承值（設為空字串）\n\n**注意事項**：\n- `og:image` 必須用**絕對 URL**（含 https://domain）\n- 測試機在內網時，Facebook Debugger 抓不到，改用 `curl` 檢查 HTML source\n- 新增圖片記得放到 `public/` 目錄\n\n### 一般 HTML 專案\n\n直接在 `<head>` 內加入 meta 標籤。\n\n## 參考規格\n\n### Open Graph\n當需要查詢完整的 OG 標籤清單、可用的 og:type 值、或進階屬性（如 og:video、og:audio、profile、music、book 等）時，用 WebFetch 查閱 Open Graph 官方規格：https://ogp.me/\n特別是在以下情境：\n- 使用者問「還有哪些 OG 可以加」\n- 頁面類型不是常見的 website/article（如影片、音樂、書籍、個人檔案）\n- 需要確認某個 OG 屬性的正確寫法\n\n### 結構化資料 (Schema / JSON-LD)\n需要新增或建議結構化資料時，依序查閱：\n1. **先看 Google 搜尋文件**：https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=zh-tw\n   - 確認 Google 實際支援哪些 Schema 類型（不是所有 Schema 都會產生搜尋結果特殊呈現）\n   - 查看各類型的必要/建議屬性、範例程式碼\n2. **再看 Schema.org**：https://schema.org/\n   - 查完整的屬性定義、繼承關係、進階用法\n   - Google 文件沒涵蓋的類型或屬性在這裡找\n\n特別是在以下情境：\n- 使用者想提升搜尋結果呈現（如星星評分、FAQ 展開、活動資訊）\n- 建立新類型頁面（產品、文章、活動、FAQ、課程等）\n- 使用者提到 Schema、JSON-LD、結構化資料、rich results\n\n## 驗證工具\n\n| 工具 | 用途 | URL |\n|------|------|-----|\n| Facebook Sharing Debugger | 驗證 OG 預覽 | https://developers.facebook.com/tools/debug/ |\n| Twitter Card Validator | 驗證 Twitter 預覽 | https://cards-dev.twitter.com/validator |\n| Google Rich Results Test | 驗證結構化資料 | https://search.google.com/test/rich-results |\n| Schema.org Validator | 驗證 JSON-LD | https://validator.schema.org/ |\n| LINE URL Preview Test | 確認 LINE 分享預覽 | 直接在 LINE 聊天貼連結 |\n\n## og:image 規格速查\n\n| 平台 | 建議尺寸 | 比例 | 檔案限制 |\n|------|---------|------|---------|\n| Facebook | 1200×630 | 1.91:1 | < 8MB |\n| LINE | 1200×630 | 1.91:1 | < 5MB |\n| Twitter | 1200×628 | ~1.91:1 | < 5MB |\n| Threads | 1200×630 | 1.91:1 | — |\n\n**通用建議**：準備一張 **1200×630 的 PNG/JPG**，全平台通用。\n\n---\n\n# 上新頁 SEO 全流程 Playbook（含部署後自動化）\n\n當「建立／上線一個新的行銷落地頁、產品頁、活動頁」時，照這套做完整 SEO，並把它接進部署後自動通知流程。**這段是 Claude 要執行的判斷與產出（每頁內容不同）；真正「跑通知」的動作是確定性腳本（見下方），不要把腳本本身做成新 skill。**\n\n## 流程\n\n1. **寫 `<head>` SEO 區塊**（依上方檢查清單）：title、description、canonical、robots、完整 OG、Twitter Card、JSON-LD。\n2. **產 og:image**：1200×630（見下方 PIL 範例）。`og:image` 用**絕對 URL**。\n3. **驗證**：JSON-LD 用 `python3 -c \"import json…\"` 驗格式；HTML source `curl | grep` 確認標籤都在、`noindex` 命中數為 0（公開頁）。\n4. **部署**：先測試機 → 自驗 → 正式機（遵守使用者的部署鐵律）。\n5. **部署後通知**：正式機部署完，跑 `seo-ping`（FB OG 重抓 + Google Indexing）。\n6. **把新網址納入 ping 清單**：部署指令後面把新頁網址加上去（見下方）。\n\n## 用 PIL 產 1200×630 OG 圖（本機可跑）\n\nCJK 字型：`/System/Library/Fonts/Supplemental/Songti.ttc`（襯線）、`/System/Library/Fonts/STHeiti Medium.ttc`（黑體）。`ImageFont.truetype(path, size, index=N)` 的 `index` 切字重。深底漸層 + 大標題 + 右側產品/書封圖 + byline 的構圖效果好、檔案小（PNG optimize 後 ~200–250KB，全平台適用）。**完整可跑範例**：參考實作 `~/Desktop/future-1000-days-mockups/`（產出 `book-og.png`）。\n\n## 部署後自動化 ping（確定性腳本，非 skill）\n\n> 官方定位：這種「不需 LLM 判斷、總是要跑」的自動化屬於**腳本 / CI**，不該做成 Skill / Subagent / Hook。Skill 是給 Claude 載入的知識、不是排程器。要完全無人值守就上 CI（GitHub Actions / GitLab CI）；但若部署機制本身連不到 CI runner（如測試機在內網、用 playwright 上傳 wp-admin），維持「腳本由部署流程呼叫」即可。\n\n**參考實作（已上線可用）**：`~/Desktop/future-1000-days-mockups/`\n- `seo-ping.mjs <url> [url2…]`：①**FB OG 重抓**（Graph API）②**Google Indexing API** 催收錄\n- `deploy-plugin.mjs prod <zip> <url1> [url2…]`：正式機部署完**自動呼叫 seo-ping** 那些 URL（test 不跑；不 gate 在 RESULT 偵測上）\n\n**憑證（本機，chmod 600，腳本從檔案/env 讀、不寫死）**：\n- `~/.fb-app-token`：FB app access token，格式 `APPID|APPSECRET`（app token 不需審查/特殊權限）\n- `~/.gsc-sa.json`：Google service account 金鑰（需先 `gcloud services enable indexing.googleapis.com`、建 SA、**把 SA email 加進 GSC 當「擁有者」**）\n\n**FB OG 重抓正確寫法**（Graph API）：\n- 先 `POST https://graph.facebook.com/v21.0/`，參數 `id` / `scrape=true` / `access_token` 放 **form body**（放 query string 會 `Invalid parameter`；**不可同時帶 `fields`**）→ 觸發重抓\n- 再 `GET …?id=<url>&fields=og_object{title,image}` 讀回確認抓到的內容對不對\n\n**Google Indexing API**：SA 金鑰自簽 JWT（`crypto.createSign('RSA-SHA256')`，scope `https://www.googleapis.com/auth/indexing`，aud `https://oauth2.googleapis.com/token`，exp=iat+3600）→ 換 access token → `POST https://indexing.googleapis.com/v3/urlNotifications:publish` body `{url, type:\"URL_UPDATED\"}`。\n\n## ⚠️ 踩過的雷（重要教訓）\n\n1. **FB 分享卡用 `og:type=website`，不要用 `og:type=book`**：book 型別會要求 `book:author` 必須是 **FB profile 連結**，放純文字（如「羅振宇」）FB 直接報 `error_subcode 1611016` 並**拒絕產生分享卡**。要語意化書籍資訊放 **JSON-LD `Book` schema**（給 Google），別放 og:type=book。`product` 同理可能要求 product:price 等子屬性——拿不準就用 `website` 最穩。\n2. **首次抓可能被當 website 快取、手動 Debugger 看似正常**，但真分享時才爆——所以改完 OG 一定要**強制 re-scrape** 驗證（seo-ping 會做）。\n3. **plugin 攔截的獨立網址（非 WP post/page）不在 WP sitemap 裡** → **sitemap 重送對這些頁無效**，要催收錄只能走 **Indexing API 直 ping**（官方只保證 JobPosting/BroadcastEvent，一般頁為 best-effort，但常能觸發重爬）。\n4. **Indexing API 回 `403 Failed to verify the URL ownership`** = SA 還沒加進 GSC 當擁有者（不是 owner 不行，「完整」權限不夠）。\n5. **測試機在內網又慢**：playwright 登入 WP 要用 `networkidle`（讓 test-cookie JS 跑完）+ 點 submit 後 `waitForURL('**/wp-admin/**')` 確認真的進後台，否則會靜默登入失敗卻誤判成功。timeout 拉到 90–120s。\n\n## Iteration Log\n- 2026-06-22：新增「上新頁 SEO 全流程 Playbook + 部署後自動化（FB OG 重抓 + Google Indexing API）+ 5 條踩雷教訓」。參考實作 future-1000-days（books/events 兩頁）。確認官方：確定性 ping 屬腳本/CI，不做成 skill/agent/hook；本 skill 只承載「怎麼正確做一頁 SEO 並接上自動化」的 playbook。"
     },
     {
       "name": "ckm:slides",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-22T05:51:26.385Z",
+    "lastUpdated": "2026-06-22T09:31:12.190Z",
     "tools": {
       "agent:general-purpose": 92,
       "agent:Explore": 4,
@@ -659,9 +659,9 @@
       "mixpanel:List-Dashboards": 2,
       "mixpanel:Get-Dashboard": 15,
       "mixpanel:Get-Properties": 34,
-      "mixpanel:Get-Events": 76,
+      "mixpanel:Get-Events": 77,
       "mixpanel:Get-Query-Schema": 35,
-      "mixpanel:Run-Query": 526,
+      "mixpanel:Run-Query": 543,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
       "mixpanel:Get-Property-Values": 53,
@@ -686,16 +686,16 @@
       "claude_ai_Atlassian:getVisibleJiraProjects": 5,
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 10,
       "claude_ai_Atlassian:createJiraIssue": 19,
-      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 14,
-      "claude_ai_Atlassian:getJiraIssue": 21,
+      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 15,
+      "claude_ai_Atlassian:getJiraIssue": 22,
       "claude_ai_Atlassian:createIssueLink": 2,
-      "mixpanel:List-Properties": 55,
+      "mixpanel:List-Properties": 56,
       "mixpanel:List-Organizations": 1,
       "appsflyer:get_apps": 4,
       "appsflyer:get_public_knowledge": 1,
       "appsflyer:fetch_aggregated_data": 18,
       "skill:superpowers:using-superpowers": 2,
-      "skill:seo-meta": 2,
+      "skill:seo-meta": 4,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
       "claude_ai_Atlassian:addCommentToJiraIssue": 13,
       "claude_ai_Atlassian:editJiraIssue": 3,
@@ -730,7 +730,8 @@
       "skill:superpowers:systematic-debugging": 1,
       "skill:web-performance-optimization": 1,
       "computer-use:screenshot": 3,
-      "computer-use:switch_display": 4
+      "computer-use:switch_display": 4,
+      "agent:claude-code-guide": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -749,7 +750,7 @@
           "top-5": 2,
           "ui-dom-verify": 2,
           "superpowers:using-superpowers": 2,
-          "seo-meta": 2,
+          "seo-meta": 3,
           "collab:full-flow": 1,
           "frontend-design:frontend-design": 1,
           "design": 1,
@@ -801,8 +802,8 @@
           "claude_ai_Atlassian:getVisibleJiraProjects": 5,
           "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 6,
           "claude_ai_Atlassian:createJiraIssue": 9,
-          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 7,
-          "claude_ai_Atlassian:getJiraIssue": 17,
+          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 8,
+          "claude_ai_Atlassian:getJiraIssue": 18,
           "mixpanel:List-Properties": 25,
           "mixpanel:List-Organizations": 1,
           "appsflyer:get_apps": 2,
@@ -930,12 +931,12 @@
         },
         "mcpTools": {
           "mixpanel:Get-Business-Context": 1,
-          "mixpanel:List-Properties": 17,
+          "mixpanel:List-Properties": 18,
           "mixpanel:Get-Property-Values": 10,
           "appsflyer:get_apps": 1,
           "appsflyer:fetch_aggregated_data": 6,
-          "mixpanel:Get-Events": 14,
-          "mixpanel:Run-Query": 90,
+          "mixpanel:Get-Events": 15,
+          "mixpanel:Run-Query": 107,
           "mixpanel:Get-Query-Schema": 3
         }
       },
@@ -967,10 +968,12 @@
       "future-1000-days-mockups": {
         "skills": {
           "frontend-design:frontend-design": 16,
-          "ui-ux-pro-max": 2
+          "ui-ux-pro-max": 2,
+          "seo-meta": 1
         },
         "agents": {
-          "general-purpose": 24
+          "general-purpose": 24,
+          "claude-code-guide": 1
         },
         "mcpTools": {
           "claude_ai_Google_Drive:get_file_metadata": 1,
