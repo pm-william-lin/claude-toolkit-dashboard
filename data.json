@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-22T01:28:20.811Z",
+  "generatedAt": "2026-06-22T03:31:57.054Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,9 +636,9 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-21T12:07:08.289Z",
+    "lastUpdated": "2026-06-22T03:31:39.750Z",
     "tools": {
-      "agent:general-purpose": 89,
+      "agent:general-purpose": 90,
       "agent:Explore": 4,
       "skill:superpowers:brainstorming": 21,
       "skill:superpowers:writing-plans": 2,
@@ -659,12 +659,12 @@
       "mixpanel:List-Dashboards": 2,
       "mixpanel:Get-Dashboard": 15,
       "mixpanel:Get-Properties": 34,
-      "mixpanel:Get-Events": 69,
+      "mixpanel:Get-Events": 71,
       "mixpanel:Get-Query-Schema": 32,
-      "mixpanel:Run-Query": 461,
+      "mixpanel:Run-Query": 475,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
-      "mixpanel:Get-Property-Values": 49,
+      "mixpanel:Get-Property-Values": 50,
       "skill:weekly-report": 5,
       "claude_ai_Gmail:authenticate": 1,
       "claude_ai_Gmail:search_threads": 5,
@@ -689,7 +689,7 @@
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 14,
       "claude_ai_Atlassian:getJiraIssue": 21,
       "claude_ai_Atlassian:createIssueLink": 2,
-      "mixpanel:List-Properties": 51,
+      "mixpanel:List-Properties": 52,
       "mixpanel:List-Organizations": 1,
       "appsflyer:get_apps": 4,
       "appsflyer:get_public_knowledge": 1,
@@ -925,15 +925,17 @@
       },
       "fandeng-d1-retention": {
         "skills": {},
-        "agents": {},
+        "agents": {
+          "general-purpose": 1
+        },
         "mcpTools": {
           "mixpanel:Get-Business-Context": 1,
-          "mixpanel:List-Properties": 13,
-          "mixpanel:Get-Property-Values": 6,
+          "mixpanel:List-Properties": 14,
+          "mixpanel:Get-Property-Values": 7,
           "appsflyer:get_apps": 1,
           "appsflyer:fetch_aggregated_data": 2,
-          "mixpanel:Get-Events": 7,
-          "mixpanel:Run-Query": 25
+          "mixpanel:Get-Events": 9,
+          "mixpanel:Run-Query": 39
         }
       },
       "pocket-studio": {
