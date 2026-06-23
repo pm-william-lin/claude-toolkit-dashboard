@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T01:48:15.162Z",
+  "lastUpdated": "2026-06-23T01:48:49.825Z",
   "tools": {
     "agent:general-purpose": 92,
     "agent:Explore": 4,
@@ -48,7 +48,7 @@
     "claude_ai_Atlassian:getAccessibleAtlassianResources": 2,
     "claude_ai_Atlassian:getVisibleJiraProjects": 5,
     "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 11,
-    "claude_ai_Atlassian:createJiraIssue": 19,
+    "claude_ai_Atlassian:createJiraIssue": 20,
     "claude_ai_Atlassian:searchJiraIssuesUsingJql": 16,
     "claude_ai_Atlassian:getJiraIssue": 22,
     "claude_ai_Atlassian:createIssueLink": 2,
@@ -166,7 +166,7 @@
         "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
         "claude_ai_Atlassian:getVisibleJiraProjects": 5,
         "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 7,
-        "claude_ai_Atlassian:createJiraIssue": 9,
+        "claude_ai_Atlassian:createJiraIssue": 10,
         "claude_ai_Atlassian:searchJiraIssuesUsingJql": 9,
         "claude_ai_Atlassian:getJiraIssue": 18,
         "mixpanel:List-Properties": 25,
