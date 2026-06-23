@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T02:44:03.942Z",
+  "generatedAt": "2026-06-23T13:43:56.095Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,15 +636,15 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-23T01:48:49.825Z",
+    "lastUpdated": "2026-06-23T09:20:08.278Z",
     "tools": {
       "agent:general-purpose": 92,
       "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 21,
+      "skill:superpowers:brainstorming": 22,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
-      "claude_ai_Google_Drive:read_file_content": 39,
+      "claude_ai_Google_Drive:read_file_content": 40,
       "skill:superpowers:writing-skills": 2,
       "claude_ai_Google_Drive:get_file_metadata": 3,
       "claude_ai_Google_Drive:download_file_content": 3,
@@ -659,9 +659,9 @@
       "mixpanel:List-Dashboards": 2,
       "mixpanel:Get-Dashboard": 15,
       "mixpanel:Get-Properties": 34,
-      "mixpanel:Get-Events": 77,
-      "mixpanel:Get-Query-Schema": 36,
-      "mixpanel:Run-Query": 551,
+      "mixpanel:Get-Events": 83,
+      "mixpanel:Get-Query-Schema": 38,
+      "mixpanel:Run-Query": 591,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
       "mixpanel:Get-Property-Values": 53,
@@ -746,7 +746,7 @@
       },
       "~": {
         "skills": {
-          "superpowers:brainstorming": 16,
+          "superpowers:brainstorming": 17,
           "weekly-report": 5,
           "superpowers:writing-skills": 1,
           "top-5": 2,
@@ -770,7 +770,7 @@
         },
         "mcpTools": {
           "claude_ai_Google_Drive:authenticate": 1,
-          "claude_ai_Google_Drive:read_file_content": 19,
+          "claude_ai_Google_Drive:read_file_content": 20,
           "n8n-mcp:n8n_get_workflow": 5,
           "n8n-mcp:n8n_update_partial_workflow": 22,
           "n8n-mcp:n8n_create_workflow": 3,
@@ -782,9 +782,9 @@
           "mixpanel:List-Dashboards": 2,
           "mixpanel:Get-Dashboard": 15,
           "mixpanel:Get-Properties": 34,
-          "mixpanel:Get-Events": 38,
-          "mixpanel:Get-Query-Schema": 29,
-          "mixpanel:Run-Query": 319,
+          "mixpanel:Get-Events": 44,
+          "mixpanel:Get-Query-Schema": 31,
+          "mixpanel:Run-Query": 359,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 38,
           "mixpanel:Get-Property-Values": 35,
