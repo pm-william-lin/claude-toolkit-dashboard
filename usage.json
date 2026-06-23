@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T09:31:12.190Z",
+  "lastUpdated": "2026-06-22T16:06:29.715Z",
   "tools": {
     "agent:general-purpose": 92,
     "agent:Explore": 4,
@@ -58,7 +58,7 @@
     "appsflyer:get_public_knowledge": 1,
     "appsflyer:fetch_aggregated_data": 18,
     "skill:superpowers:using-superpowers": 2,
-    "skill:seo-meta": 4,
+    "skill:seo-meta": 5,
     "claude_ai_Ahrefs:site-explorer-metrics": 2,
     "claude_ai_Atlassian:addCommentToJiraIssue": 13,
     "claude_ai_Atlassian:editJiraIssue": 3,
@@ -68,7 +68,7 @@
     "claude_ai_Ahrefs:site-explorer-organic-keywords": 1,
     "claude_ai_Ahrefs:site-explorer-top-pages": 1,
     "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
-    "claude_ai_Ahrefs:keywords-explorer-overview": 1,
+    "claude_ai_Ahrefs:keywords-explorer-overview": 2,
     "claude_ai_Atlassian:lookupJiraAccountId": 4,
     "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
     "skill:collab:full-flow": 1,
@@ -94,7 +94,9 @@
     "skill:web-performance-optimization": 1,
     "computer-use:screenshot": 3,
     "computer-use:switch_display": 4,
-    "agent:claude-code-guide": 1
+    "agent:claude-code-guide": 1,
+    "claude_ai_Ahrefs:doc": 1,
+    "claude_ai_Ahrefs:keywords-explorer-matching-terms": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -113,7 +115,7 @@
         "top-5": 2,
         "ui-dom-verify": 2,
         "superpowers:using-superpowers": 2,
-        "seo-meta": 3,
+        "seo-meta": 4,
         "collab:full-flow": 1,
         "frontend-design:frontend-design": 1,
         "design": 1,
@@ -178,13 +180,15 @@
         "claude_ai_Ahrefs:site-explorer-organic-keywords": 1,
         "claude_ai_Ahrefs:site-explorer-top-pages": 1,
         "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
-        "claude_ai_Ahrefs:keywords-explorer-overview": 1,
+        "claude_ai_Ahrefs:keywords-explorer-overview": 2,
         "claude_ai_Atlassian:editJiraIssue": 1,
         "claude_ai_Atlassian:lookupJiraAccountId": 4,
         "claude_ai_Atlassian:addCommentToJiraIssue": 6,
         "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
         "claude_ai_Google_Drive:create_file": 1,
-        "claude_ai_Atlassian:createIssueLink": 1
+        "claude_ai_Atlassian:createIssueLink": 1,
+        "claude_ai_Ahrefs:doc": 1,
+        "claude_ai_Ahrefs:keywords-explorer-matching-terms": 1
       }
     },
     "docs": {
