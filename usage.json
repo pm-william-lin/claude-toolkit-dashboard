@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T09:20:08.278Z",
+  "lastUpdated": "2026-06-23T15:15:27.933Z",
   "tools": {
     "agent:general-purpose": 92,
     "agent:Explore": 4,
@@ -10,7 +10,7 @@
     "claude_ai_Google_Drive:read_file_content": 40,
     "skill:superpowers:writing-skills": 2,
     "claude_ai_Google_Drive:get_file_metadata": 3,
-    "claude_ai_Google_Drive:download_file_content": 3,
+    "claude_ai_Google_Drive:download_file_content": 5,
     "n8n-mcp:n8n_get_workflow": 5,
     "n8n-mcp:n8n_update_partial_workflow": 22,
     "n8n-mcp:n8n_create_workflow": 3,
@@ -34,7 +34,7 @@
     "claude_ai_Gmail:get_thread": 2,
     "claude_ai_Gmail:create_draft": 6,
     "mixpanel:Get-Report": 25,
-    "claude_ai_Google_Drive:search_files": 9,
+    "claude_ai_Google_Drive:search_files": 10,
     "skill:top-5": 2,
     "agent:superpowers:code-reviewer": 9,
     "mixpanel:Get-Business-Context": 13,
@@ -156,10 +156,10 @@
         "claude_ai_Gmail:get_thread": 2,
         "claude_ai_Gmail:create_draft": 6,
         "mixpanel:Get-Report": 25,
-        "claude_ai_Google_Drive:search_files": 7,
+        "claude_ai_Google_Drive:search_files": 8,
         "mixpanel:Get-Business-Context": 11,
         "claude_ai_Ahrefs:management-projects": 2,
-        "claude_ai_Google_Drive:download_file_content": 2,
+        "claude_ai_Google_Drive:download_file_content": 3,
         "mixpanel:authenticate": 6,
         "claude_ai_Atlassian:authenticate": 1,
         "claude_ai_Atlassian:atlassianUserInfo": 1,
@@ -349,7 +349,8 @@
         "claude_ai_Atlassian:atlassianUserInfo": 1,
         "claude_ai_Atlassian:createJiraIssue": 1,
         "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
-        "claude_ai_Atlassian:transitionJiraIssue": 1
+        "claude_ai_Atlassian:transitionJiraIssue": 1,
+        "claude_ai_Google_Drive:download_file_content": 1
       }
     },
     "transcript-l-counseling": {
