@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T01:12:40.742Z",
+  "generatedAt": "2026-06-24T02:32:04.133Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-23T15:15:27.933Z",
+    "lastUpdated": "2026-06-24T01:19:46.763Z",
     "tools": {
       "agent:general-purpose": 92,
       "agent:Explore": 4,
@@ -684,10 +684,10 @@
       "claude_ai_Atlassian:atlassianUserInfo": 2,
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 2,
       "claude_ai_Atlassian:getVisibleJiraProjects": 5,
-      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 11,
-      "claude_ai_Atlassian:createJiraIssue": 20,
+      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 12,
+      "claude_ai_Atlassian:createJiraIssue": 21,
       "claude_ai_Atlassian:searchJiraIssuesUsingJql": 16,
-      "claude_ai_Atlassian:getJiraIssue": 22,
+      "claude_ai_Atlassian:getJiraIssue": 24,
       "claude_ai_Atlassian:createIssueLink": 2,
       "mixpanel:List-Properties": 56,
       "mixpanel:List-Organizations": 1,
@@ -695,7 +695,7 @@
       "appsflyer:get_public_knowledge": 1,
       "appsflyer:fetch_aggregated_data": 18,
       "skill:superpowers:using-superpowers": 2,
-      "skill:seo-meta": 5,
+      "skill:seo-meta": 6,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
       "claude_ai_Atlassian:addCommentToJiraIssue": 13,
       "claude_ai_Atlassian:editJiraIssue": 3,
@@ -752,7 +752,7 @@
           "top-5": 2,
           "ui-dom-verify": 2,
           "superpowers:using-superpowers": 2,
-          "seo-meta": 4,
+          "seo-meta": 5,
           "collab:full-flow": 1,
           "frontend-design:frontend-design": 1,
           "design": 1,
@@ -802,10 +802,10 @@
           "claude_ai_Atlassian:atlassianUserInfo": 1,
           "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
           "claude_ai_Atlassian:getVisibleJiraProjects": 5,
-          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 7,
-          "claude_ai_Atlassian:createJiraIssue": 10,
+          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 8,
+          "claude_ai_Atlassian:createJiraIssue": 11,
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 9,
-          "claude_ai_Atlassian:getJiraIssue": 18,
+          "claude_ai_Atlassian:getJiraIssue": 20,
           "mixpanel:List-Properties": 25,
           "mixpanel:List-Organizations": 1,
           "appsflyer:get_apps": 2,
