@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T02:33:57.157Z",
+  "lastUpdated": "2026-06-24T09:43:33.162Z",
   "tools": {
     "agent:general-purpose": 92,
     "agent:Explore": 4,
@@ -96,7 +96,8 @@
     "computer-use:switch_display": 4,
     "agent:claude-code-guide": 1,
     "claude_ai_Ahrefs:doc": 1,
-    "claude_ai_Ahrefs:keywords-explorer-matching-terms": 1
+    "claude_ai_Ahrefs:keywords-explorer-matching-terms": 1,
+    "skill:banner-design": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -386,6 +387,13 @@
       "mcpTools": {
         "claude_ai_Atlassian:addCommentToJiraIssue": 1
       }
+    },
+    "feature-0624-1736": {
+      "skills": {
+        "banner-design": 1
+      },
+      "agents": {},
+      "mcpTools": {}
     }
   }
 }
