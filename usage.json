@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-24T16:06:22.519Z",
+  "lastUpdated": "2026-06-25T03:11:46.041Z",
   "tools": {
-    "agent:general-purpose": 96,
+    "agent:general-purpose": 97,
     "agent:Explore": 4,
     "skill:superpowers:brainstorming": 22,
     "skill:superpowers:writing-plans": 2,
@@ -100,7 +100,8 @@
     "skill:banner-design": 1,
     "skill:slides": 1,
     "skill:frontend-design": 1,
-    "cmoney-wp-prd:wp_list_categories": 1
+    "cmoney-wp-prd:wp_list_categories": 1,
+    "skill:soft-skill": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -394,10 +395,11 @@
     "feature-0624-1736": {
       "skills": {
         "banner-design": 1,
-        "frontend-design": 1
+        "frontend-design": 1,
+        "soft-skill": 1
       },
       "agents": {
-        "general-purpose": 4
+        "general-purpose": 5
       },
       "mcpTools": {}
     },
