@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T06:26:36.576Z",
+  "generatedAt": "2026-06-25T08:10:18.925Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,11 +636,11 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-25T05:46:13.653Z",
+    "lastUpdated": "2026-06-25T07:06:25.058Z",
     "tools": {
       "agent:general-purpose": 98,
-      "agent:Explore": 4,
-      "skill:superpowers:brainstorming": 22,
+      "agent:Explore": 6,
+      "skill:superpowers:brainstorming": 23,
       "skill:superpowers:writing-plans": 2,
       "agent:Plan": 1,
       "claude_ai_Google_Drive:authenticate": 1,
@@ -1057,6 +1057,15 @@
         "mcpTools": {
           "cmoney-wp-prd:wp_list_categories": 1
         }
+      },
+      "峰值體驗思考": {
+        "skills": {
+          "superpowers:brainstorming": 1
+        },
+        "agents": {
+          "Explore": 2
+        },
+        "mcpTools": {}
       }
     }
   }
