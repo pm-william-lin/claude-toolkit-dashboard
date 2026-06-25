@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-24T09:43:33.162Z",
+  "lastUpdated": "2026-06-24T16:06:22.519Z",
   "tools": {
-    "agent:general-purpose": 92,
+    "agent:general-purpose": 96,
     "agent:Explore": 4,
     "skill:superpowers:brainstorming": 22,
     "skill:superpowers:writing-plans": 2,
@@ -97,7 +97,10 @@
     "agent:claude-code-guide": 1,
     "claude_ai_Ahrefs:doc": 1,
     "claude_ai_Ahrefs:keywords-explorer-matching-terms": 1,
-    "skill:banner-design": 1
+    "skill:banner-design": 1,
+    "skill:slides": 1,
+    "skill:frontend-design": 1,
+    "cmoney-wp-prd:wp_list_categories": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -390,10 +393,27 @@
     },
     "feature-0624-1736": {
       "skills": {
-        "banner-design": 1
+        "banner-design": 1,
+        "frontend-design": 1
+      },
+      "agents": {
+        "general-purpose": 4
+      },
+      "mcpTools": {}
+    },
+    "真需求": {
+      "skills": {
+        "slides": 1
       },
       "agents": {},
       "mcpTools": {}
+    },
+    "feature-0624-1802": {
+      "skills": {},
+      "agents": {},
+      "mcpTools": {
+        "cmoney-wp-prd:wp_list_categories": 1
+      }
     }
   }
 }
