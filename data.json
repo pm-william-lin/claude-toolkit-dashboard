@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T08:10:18.925Z",
+  "generatedAt": "2026-06-26T01:25:23.350Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-25T07:06:25.058Z",
+    "lastUpdated": "2026-06-25T10:03:28.343Z",
     "tools": {
       "agent:general-purpose": 98,
       "agent:Explore": 6,
@@ -660,11 +660,11 @@
       "mixpanel:Get-Dashboard": 15,
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 83,
-      "mixpanel:Get-Query-Schema": 38,
-      "mixpanel:Run-Query": 591,
+      "mixpanel:Get-Query-Schema": 39,
+      "mixpanel:Run-Query": 600,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
-      "mixpanel:Get-Property-Values": 53,
+      "mixpanel:Get-Property-Values": 54,
       "skill:weekly-report": 5,
       "claude_ai_Gmail:authenticate": 1,
       "claude_ai_Gmail:search_threads": 5,
@@ -682,11 +682,11 @@
       "skill:fewer-permission-prompts": 1,
       "claude_ai_Atlassian:authenticate": 2,
       "claude_ai_Atlassian:atlassianUserInfo": 2,
-      "claude_ai_Atlassian:getAccessibleAtlassianResources": 2,
+      "claude_ai_Atlassian:getAccessibleAtlassianResources": 3,
       "claude_ai_Atlassian:getVisibleJiraProjects": 5,
       "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 12,
-      "claude_ai_Atlassian:createJiraIssue": 21,
-      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 16,
+      "claude_ai_Atlassian:createJiraIssue": 22,
+      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 17,
       "claude_ai_Atlassian:getJiraIssue": 26,
       "claude_ai_Atlassian:createIssueLink": 2,
       "mixpanel:List-Properties": 56,
@@ -706,7 +706,7 @@
       "claude_ai_Ahrefs:site-explorer-top-pages": 1,
       "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
       "claude_ai_Ahrefs:keywords-explorer-overview": 2,
-      "claude_ai_Atlassian:lookupJiraAccountId": 4,
+      "claude_ai_Atlassian:lookupJiraAccountId": 5,
       "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
       "skill:collab:full-flow": 1,
       "skill:collab:gen-sdd": 1,
@@ -790,11 +790,11 @@
           "mixpanel:Get-Dashboard": 15,
           "mixpanel:Get-Properties": 34,
           "mixpanel:Get-Events": 44,
-          "mixpanel:Get-Query-Schema": 31,
-          "mixpanel:Run-Query": 359,
+          "mixpanel:Get-Query-Schema": 32,
+          "mixpanel:Run-Query": 368,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 38,
-          "mixpanel:Get-Property-Values": 35,
+          "mixpanel:Get-Property-Values": 36,
           "claude_ai_Gmail:authenticate": 1,
           "claude_ai_Gmail:search_threads": 5,
           "claude_ai_Gmail:get_thread": 2,
@@ -1055,7 +1055,11 @@
         },
         "agents": {},
         "mcpTools": {
-          "cmoney-wp-prd:wp_list_categories": 1
+          "cmoney-wp-prd:wp_list_categories": 1,
+          "claude_ai_Atlassian:getAccessibleAtlassianResources": 1,
+          "claude_ai_Atlassian:lookupJiraAccountId": 1,
+          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 1,
+          "claude_ai_Atlassian:createJiraIssue": 1
         }
       },
       "峰值體驗思考": {
