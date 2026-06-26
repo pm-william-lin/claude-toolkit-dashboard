@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-26T03:09:58.919Z",
+  "generatedAt": "2026-06-26T03:35:25.621Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-25T10:03:28.343Z",
+    "lastUpdated": "2026-06-26T03:10:50.462Z",
     "tools": {
       "agent:general-purpose": 98,
       "agent:Explore": 6,
@@ -695,7 +695,7 @@
       "appsflyer:get_public_knowledge": 1,
       "appsflyer:fetch_aggregated_data": 18,
       "skill:superpowers:using-superpowers": 2,
-      "skill:seo-meta": 6,
+      "skill:seo-meta": 7,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
       "claude_ai_Atlassian:addCommentToJiraIssue": 13,
       "claude_ai_Atlassian:editJiraIssue": 3,
@@ -1069,6 +1069,13 @@
         "agents": {
           "Explore": 2
         },
+        "mcpTools": {}
+      },
+      "研究爬取效率": {
+        "skills": {
+          "seo-meta": 1
+        },
+        "agents": {},
         "mcpTools": {}
       }
     }
