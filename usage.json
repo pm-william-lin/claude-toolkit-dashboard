@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T04:12:00.652Z",
+  "lastUpdated": "2026-06-26T06:41:34.338Z",
   "tools": {
     "agent:general-purpose": 98,
     "agent:Explore": 6,
@@ -105,7 +105,8 @@
     "skill:organize-files": 1,
     "computer-use:open_application": 1,
     "computer-use:computer_batch": 1,
-    "computer-use:zoom": 1
+    "computer-use:zoom": 1,
+    "cmoney-wp-prd:wp_list_articles": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -449,6 +450,13 @@
         "claude_ai_Atlassian:getVisibleJiraProjects": 1,
         "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 1,
         "claude_ai_Atlassian:createJiraIssue": 1
+      }
+    },
+    "馬斯克策展頁": {
+      "skills": {},
+      "agents": {},
+      "mcpTools": {
+        "cmoney-wp-prd:wp_list_articles": 1
       }
     }
   }
