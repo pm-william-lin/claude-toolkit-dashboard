@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-26T06:45:55.453Z",
+  "generatedAt": "2026-06-26T09:06:35.497Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-26T06:41:34.338Z",
+    "lastUpdated": "2026-06-26T08:32:19.211Z",
     "tools": {
       "agent:general-purpose": 98,
       "agent:Explore": 6,
@@ -695,7 +695,7 @@
       "appsflyer:get_public_knowledge": 1,
       "appsflyer:fetch_aggregated_data": 18,
       "skill:superpowers:using-superpowers": 2,
-      "skill:seo-meta": 7,
+      "skill:seo-meta": 9,
       "claude_ai_Ahrefs:site-explorer-metrics": 2,
       "claude_ai_Atlassian:addCommentToJiraIssue": 13,
       "claude_ai_Atlassian:editJiraIssue": 3,
@@ -716,7 +716,7 @@
       "skill:collab:review-code": 1,
       "skill:collab:verify-spec": 1,
       "skill:collab:commit": 1,
-      "skill:collab:create-mr": 1,
+      "skill:collab:create-mr": 2,
       "claude_ai_Atlassian:getTransitionsForJiraIssue": 3,
       "claude_ai_Atlassian:transitionJiraIssue": 4,
       "computer-use:request_access": 6,
@@ -1095,6 +1095,21 @@
         "mcpTools": {
           "cmoney-wp-prd:wp_list_articles": 1
         }
+      },
+      "馬斯克策展頁--seo": {
+        "skills": {
+          "seo-meta": 1
+        },
+        "agents": {},
+        "mcpTools": {}
+      },
+      "馬斯克版權頁": {
+        "skills": {
+          "seo-meta": 1,
+          "collab:create-mr": 1
+        },
+        "agents": {},
+        "mcpTools": {}
       }
     }
   }
