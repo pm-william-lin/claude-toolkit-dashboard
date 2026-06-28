@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T14:32:56.210Z",
+  "generatedAt": "2026-06-28T14:06:50.043Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-26T08:32:19.211Z",
+    "lastUpdated": "2026-06-27T17:18:38.794Z",
     "tools": {
       "agent:general-purpose": 98,
       "agent:Explore": 6,
@@ -671,7 +671,7 @@
       "claude_ai_Gmail:get_thread": 2,
       "claude_ai_Gmail:create_draft": 6,
       "mixpanel:Get-Report": 25,
-      "claude_ai_Google_Drive:search_files": 10,
+      "claude_ai_Google_Drive:search_files": 17,
       "skill:top-5": 2,
       "agent:superpowers:code-reviewer": 9,
       "mixpanel:Get-Business-Context": 13,
@@ -719,7 +719,7 @@
       "skill:collab:create-mr": 2,
       "claude_ai_Atlassian:getTransitionsForJiraIssue": 3,
       "claude_ai_Atlassian:transitionJiraIssue": 4,
-      "computer-use:request_access": 6,
+      "computer-use:request_access": 8,
       "skill:frontend-design:frontend-design": 24,
       "skill:ui-ux-pro-max": 2,
       "skill:design": 1,
@@ -729,13 +729,13 @@
       "skill:schedule": 1,
       "skill:superpowers:systematic-debugging": 1,
       "skill:web-performance-optimization": 1,
-      "computer-use:screenshot": 5,
-      "computer-use:switch_display": 4,
+      "computer-use:screenshot": 8,
+      "computer-use:switch_display": 5,
       "agent:claude-code-guide": 1,
       "claude_ai_Ahrefs:doc": 1,
       "claude_ai_Ahrefs:keywords-explorer-matching-terms": 1,
       "skill:banner-design": 2,
-      "skill:slides": 1,
+      "skill:slides": 2,
       "skill:frontend-design": 1,
       "cmoney-wp-prd:wp_list_categories": 1,
       "skill:soft-skill": 1,
@@ -743,7 +743,8 @@
       "computer-use:open_application": 1,
       "computer-use:computer_batch": 1,
       "computer-use:zoom": 1,
-      "cmoney-wp-prd:wp_list_articles": 1
+      "cmoney-wp-prd:wp_list_articles": 1,
+      "skill:update-config": 1
     },
     "byProject": {
       "claude-toolkit-dashboard": {
@@ -771,7 +772,9 @@
           "schedule": 1,
           "superpowers:systematic-debugging": 1,
           "web-performance-optimization": 1,
-          "organize-files": 1
+          "organize-files": 1,
+          "slides": 1,
+          "update-config": 1
         },
         "agents": {
           "general-purpose": 9,
@@ -804,7 +807,7 @@
           "claude_ai_Gmail:get_thread": 2,
           "claude_ai_Gmail:create_draft": 6,
           "mixpanel:Get-Report": 25,
-          "claude_ai_Google_Drive:search_files": 8,
+          "claude_ai_Google_Drive:search_files": 15,
           "mixpanel:Get-Business-Context": 11,
           "claude_ai_Ahrefs:management-projects": 2,
           "claude_ai_Google_Drive:download_file_content": 3,
@@ -1110,6 +1113,15 @@
         },
         "agents": {},
         "mcpTools": {}
+      },
+      "projects": {
+        "skills": {},
+        "agents": {},
+        "mcpTools": {
+          "computer-use:request_access": 2,
+          "computer-use:screenshot": 3,
+          "computer-use:switch_display": 1
+        }
       }
     }
   }
