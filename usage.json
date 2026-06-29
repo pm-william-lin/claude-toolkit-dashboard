@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-29T02:36:17.859Z",
+  "lastUpdated": "2026-06-29T03:40:16.115Z",
   "tools": {
-    "agent:general-purpose": 98,
+    "agent:general-purpose": 99,
     "agent:Explore": 6,
     "skill:superpowers:brainstorming": 23,
     "skill:superpowers:writing-plans": 2,
@@ -18,16 +18,16 @@
     "n8n-mcp:n8n_executions": 24,
     "n8n-mcp:n8n_delete_workflow": 2,
     "n8n-mcp:n8n_validate_workflow": 3,
-    "mixpanel:Get-Projects": 6,
+    "mixpanel:Get-Projects": 7,
     "mixpanel:List-Dashboards": 2,
     "mixpanel:Get-Dashboard": 15,
     "mixpanel:Get-Properties": 34,
     "mixpanel:Get-Events": 83,
-    "mixpanel:Get-Query-Schema": 40,
-    "mixpanel:Run-Query": 607,
+    "mixpanel:Get-Query-Schema": 44,
+    "mixpanel:Run-Query": 653,
     "mixpanel:Create-Dashboard": 1,
     "mixpanel:Update-Dashboard": 38,
-    "mixpanel:Get-Property-Values": 54,
+    "mixpanel:Get-Property-Values": 59,
     "skill:weekly-report": 5,
     "claude_ai_Gmail:authenticate": 1,
     "claude_ai_Gmail:search_threads": 5,
@@ -52,7 +52,7 @@
     "claude_ai_Atlassian:searchJiraIssuesUsingJql": 17,
     "claude_ai_Atlassian:getJiraIssue": 26,
     "claude_ai_Atlassian:createIssueLink": 2,
-    "mixpanel:List-Properties": 56,
+    "mixpanel:List-Properties": 63,
     "mixpanel:List-Organizations": 1,
     "appsflyer:get_apps": 4,
     "appsflyer:get_public_knowledge": 1,
@@ -155,16 +155,16 @@
         "n8n-mcp:n8n_executions": 24,
         "n8n-mcp:n8n_delete_workflow": 2,
         "n8n-mcp:n8n_validate_workflow": 3,
-        "mixpanel:Get-Projects": 5,
+        "mixpanel:Get-Projects": 6,
         "mixpanel:List-Dashboards": 2,
         "mixpanel:Get-Dashboard": 15,
         "mixpanel:Get-Properties": 34,
         "mixpanel:Get-Events": 44,
-        "mixpanel:Get-Query-Schema": 33,
-        "mixpanel:Run-Query": 369,
+        "mixpanel:Get-Query-Schema": 35,
+        "mixpanel:Run-Query": 385,
         "mixpanel:Create-Dashboard": 1,
         "mixpanel:Update-Dashboard": 38,
-        "mixpanel:Get-Property-Values": 36,
+        "mixpanel:Get-Property-Values": 40,
         "claude_ai_Gmail:authenticate": 1,
         "claude_ai_Gmail:search_threads": 5,
         "claude_ai_Gmail:get_thread": 2,
@@ -315,13 +315,13 @@
       },
       "mcpTools": {
         "mixpanel:Get-Business-Context": 1,
-        "mixpanel:List-Properties": 18,
-        "mixpanel:Get-Property-Values": 10,
+        "mixpanel:List-Properties": 25,
+        "mixpanel:Get-Property-Values": 11,
         "appsflyer:get_apps": 1,
         "appsflyer:fetch_aggregated_data": 6,
         "mixpanel:Get-Events": 15,
-        "mixpanel:Run-Query": 107,
-        "mixpanel:Get-Query-Schema": 3
+        "mixpanel:Run-Query": 121,
+        "mixpanel:Get-Query-Schema": 4
       }
     },
     "pocket-studio": {
@@ -488,9 +488,12 @@
     },
     "raw": {
       "skills": {},
-      "agents": {},
+      "agents": {
+        "general-purpose": 1
+      },
       "mcpTools": {
-        "mixpanel:Run-Query": 6
+        "mixpanel:Run-Query": 22,
+        "mixpanel:Get-Query-Schema": 1
       }
     }
   }
