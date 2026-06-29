@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T01:46:58.946Z",
+  "generatedAt": "2026-06-29T02:39:05.342Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-27T17:18:38.794Z",
+    "lastUpdated": "2026-06-29T02:36:17.859Z",
     "tools": {
       "agent:general-purpose": 98,
       "agent:Explore": 6,
@@ -660,8 +660,8 @@
       "mixpanel:Get-Dashboard": 15,
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 83,
-      "mixpanel:Get-Query-Schema": 39,
-      "mixpanel:Run-Query": 600,
+      "mixpanel:Get-Query-Schema": 40,
+      "mixpanel:Run-Query": 607,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
       "mixpanel:Get-Property-Values": 54,
@@ -797,8 +797,8 @@
           "mixpanel:Get-Dashboard": 15,
           "mixpanel:Get-Properties": 34,
           "mixpanel:Get-Events": 44,
-          "mixpanel:Get-Query-Schema": 32,
-          "mixpanel:Run-Query": 368,
+          "mixpanel:Get-Query-Schema": 33,
+          "mixpanel:Run-Query": 369,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 38,
           "mixpanel:Get-Property-Values": 36,
@@ -1121,6 +1121,13 @@
           "computer-use:request_access": 2,
           "computer-use:screenshot": 3,
           "computer-use:switch_display": 1
+        }
+      },
+      "raw": {
+        "skills": {},
+        "agents": {},
+        "mcpTools": {
+          "mixpanel:Run-Query": 6
         }
       }
     }
