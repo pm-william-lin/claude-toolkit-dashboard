@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T03:40:16.115Z",
+  "lastUpdated": "2026-06-29T09:59:08.019Z",
   "tools": {
     "agent:general-purpose": 99,
     "agent:Explore": 6,
@@ -23,11 +23,11 @@
     "mixpanel:Get-Dashboard": 15,
     "mixpanel:Get-Properties": 34,
     "mixpanel:Get-Events": 83,
-    "mixpanel:Get-Query-Schema": 44,
-    "mixpanel:Run-Query": 653,
+    "mixpanel:Get-Query-Schema": 45,
+    "mixpanel:Run-Query": 668,
     "mixpanel:Create-Dashboard": 1,
     "mixpanel:Update-Dashboard": 38,
-    "mixpanel:Get-Property-Values": 59,
+    "mixpanel:Get-Property-Values": 63,
     "skill:weekly-report": 5,
     "claude_ai_Gmail:authenticate": 1,
     "claude_ai_Gmail:search_threads": 5,
@@ -52,7 +52,7 @@
     "claude_ai_Atlassian:searchJiraIssuesUsingJql": 17,
     "claude_ai_Atlassian:getJiraIssue": 26,
     "claude_ai_Atlassian:createIssueLink": 2,
-    "mixpanel:List-Properties": 63,
+    "mixpanel:List-Properties": 64,
     "mixpanel:List-Organizations": 1,
     "appsflyer:get_apps": 4,
     "appsflyer:get_public_knowledge": 1,
@@ -161,10 +161,10 @@
         "mixpanel:Get-Properties": 34,
         "mixpanel:Get-Events": 44,
         "mixpanel:Get-Query-Schema": 35,
-        "mixpanel:Run-Query": 385,
+        "mixpanel:Run-Query": 389,
         "mixpanel:Create-Dashboard": 1,
         "mixpanel:Update-Dashboard": 38,
-        "mixpanel:Get-Property-Values": 40,
+        "mixpanel:Get-Property-Values": 41,
         "claude_ai_Gmail:authenticate": 1,
         "claude_ai_Gmail:search_threads": 5,
         "claude_ai_Gmail:get_thread": 2,
@@ -401,7 +401,11 @@
       "skills": {},
       "agents": {},
       "mcpTools": {
-        "claude_ai_Atlassian:addCommentToJiraIssue": 1
+        "claude_ai_Atlassian:addCommentToJiraIssue": 1,
+        "mixpanel:Get-Query-Schema": 1,
+        "mixpanel:Run-Query": 11,
+        "mixpanel:List-Properties": 1,
+        "mixpanel:Get-Property-Values": 3
       }
     },
     "feature-0624-1736": {
