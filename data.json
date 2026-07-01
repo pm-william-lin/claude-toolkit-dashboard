@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T03:51:53.244Z",
+  "generatedAt": "2026-07-01T09:26:26.138Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-06-29T09:59:08.019Z",
+    "lastUpdated": "2026-06-30T09:26:06.531Z",
     "tools": {
       "agent:general-purpose": 99,
       "agent:Explore": 6,
@@ -660,11 +660,11 @@
       "mixpanel:Get-Dashboard": 15,
       "mixpanel:Get-Properties": 34,
       "mixpanel:Get-Events": 83,
-      "mixpanel:Get-Query-Schema": 45,
-      "mixpanel:Run-Query": 668,
+      "mixpanel:Get-Query-Schema": 46,
+      "mixpanel:Run-Query": 721,
       "mixpanel:Create-Dashboard": 1,
       "mixpanel:Update-Dashboard": 38,
-      "mixpanel:Get-Property-Values": 63,
+      "mixpanel:Get-Property-Values": 64,
       "skill:weekly-report": 5,
       "claude_ai_Gmail:authenticate": 1,
       "claude_ai_Gmail:search_threads": 5,
@@ -684,12 +684,12 @@
       "claude_ai_Atlassian:atlassianUserInfo": 2,
       "claude_ai_Atlassian:getAccessibleAtlassianResources": 3,
       "claude_ai_Atlassian:getVisibleJiraProjects": 6,
-      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 13,
-      "claude_ai_Atlassian:createJiraIssue": 23,
-      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 17,
-      "claude_ai_Atlassian:getJiraIssue": 26,
+      "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 14,
+      "claude_ai_Atlassian:createJiraIssue": 24,
+      "claude_ai_Atlassian:searchJiraIssuesUsingJql": 18,
+      "claude_ai_Atlassian:getJiraIssue": 27,
       "claude_ai_Atlassian:createIssueLink": 2,
-      "mixpanel:List-Properties": 64,
+      "mixpanel:List-Properties": 65,
       "mixpanel:List-Organizations": 1,
       "appsflyer:get_apps": 4,
       "appsflyer:get_public_knowledge": 1,
@@ -706,7 +706,7 @@
       "claude_ai_Ahrefs:site-explorer-top-pages": 1,
       "claude_ai_Ahrefs:site-explorer-referring-domains": 1,
       "claude_ai_Ahrefs:keywords-explorer-overview": 2,
-      "claude_ai_Atlassian:lookupJiraAccountId": 5,
+      "claude_ai_Atlassian:lookupJiraAccountId": 6,
       "claude_ai_Atlassian:getJiraIssueTypeMetaWithFields": 1,
       "skill:collab:full-flow": 1,
       "skill:collab:gen-sdd": 1,
@@ -717,8 +717,8 @@
       "skill:collab:verify-spec": 1,
       "skill:collab:commit": 1,
       "skill:collab:create-mr": 2,
-      "claude_ai_Atlassian:getTransitionsForJiraIssue": 3,
-      "claude_ai_Atlassian:transitionJiraIssue": 4,
+      "claude_ai_Atlassian:getTransitionsForJiraIssue": 4,
+      "claude_ai_Atlassian:transitionJiraIssue": 5,
       "computer-use:request_access": 8,
       "skill:frontend-design:frontend-design": 24,
       "skill:ui-ux-pro-max": 2,
@@ -797,11 +797,11 @@
           "mixpanel:Get-Dashboard": 15,
           "mixpanel:Get-Properties": 34,
           "mixpanel:Get-Events": 44,
-          "mixpanel:Get-Query-Schema": 35,
-          "mixpanel:Run-Query": 389,
+          "mixpanel:Get-Query-Schema": 36,
+          "mixpanel:Run-Query": 442,
           "mixpanel:Create-Dashboard": 1,
           "mixpanel:Update-Dashboard": 38,
-          "mixpanel:Get-Property-Values": 41,
+          "mixpanel:Get-Property-Values": 42,
           "claude_ai_Gmail:authenticate": 1,
           "claude_ai_Gmail:search_threads": 5,
           "claude_ai_Gmail:get_thread": 2,
@@ -820,7 +820,7 @@
           "claude_ai_Atlassian:createJiraIssue": 11,
           "claude_ai_Atlassian:searchJiraIssuesUsingJql": 9,
           "claude_ai_Atlassian:getJiraIssue": 22,
-          "mixpanel:List-Properties": 25,
+          "mixpanel:List-Properties": 26,
           "mixpanel:List-Organizations": 1,
           "appsflyer:get_apps": 2,
           "appsflyer:get_public_knowledge": 1,
@@ -1135,6 +1135,19 @@
         "mcpTools": {
           "mixpanel:Run-Query": 22,
           "mixpanel:Get-Query-Schema": 1
+        }
+      },
+      "cmoney-learning-blog": {
+        "skills": {},
+        "agents": {},
+        "mcpTools": {
+          "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 1,
+          "claude_ai_Atlassian:lookupJiraAccountId": 1,
+          "claude_ai_Atlassian:createJiraIssue": 1,
+          "claude_ai_Atlassian:getTransitionsForJiraIssue": 1,
+          "claude_ai_Atlassian:transitionJiraIssue": 1,
+          "claude_ai_Atlassian:getJiraIssue": 1,
+          "claude_ai_Atlassian:searchJiraIssuesUsingJql": 1
         }
       }
     }
