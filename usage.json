@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T10:41:38.964Z",
+  "lastUpdated": "2026-07-02T07:09:42.176Z",
   "tools": {
     "agent:general-purpose": 100,
     "agent:Explore": 6,
@@ -23,8 +23,8 @@
     "mixpanel:Get-Dashboard": 15,
     "mixpanel:Get-Properties": 34,
     "mixpanel:Get-Events": 83,
-    "mixpanel:Get-Query-Schema": 46,
-    "mixpanel:Run-Query": 721,
+    "mixpanel:Get-Query-Schema": 49,
+    "mixpanel:Run-Query": 754,
     "mixpanel:Create-Dashboard": 1,
     "mixpanel:Update-Dashboard": 38,
     "mixpanel:Get-Property-Values": 64,
@@ -48,8 +48,8 @@
     "claude_ai_Atlassian:getAccessibleAtlassianResources": 3,
     "claude_ai_Atlassian:getVisibleJiraProjects": 6,
     "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 14,
-    "claude_ai_Atlassian:createJiraIssue": 24,
-    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 18,
+    "claude_ai_Atlassian:createJiraIssue": 25,
+    "claude_ai_Atlassian:searchJiraIssuesUsingJql": 19,
     "claude_ai_Atlassian:getJiraIssue": 27,
     "claude_ai_Atlassian:createIssueLink": 2,
     "mixpanel:List-Properties": 65,
@@ -107,7 +107,8 @@
     "computer-use:computer_batch": 1,
     "computer-use:zoom": 1,
     "cmoney-wp-prd:wp_list_articles": 1,
-    "skill:update-config": 1
+    "skill:update-config": 1,
+    "skill:deep-research": 1
   },
   "byProject": {
     "claude-toolkit-dashboard": {
@@ -160,8 +161,8 @@
         "mixpanel:Get-Dashboard": 15,
         "mixpanel:Get-Properties": 34,
         "mixpanel:Get-Events": 44,
-        "mixpanel:Get-Query-Schema": 36,
-        "mixpanel:Run-Query": 442,
+        "mixpanel:Get-Query-Schema": 38,
+        "mixpanel:Run-Query": 462,
         "mixpanel:Create-Dashboard": 1,
         "mixpanel:Update-Dashboard": 38,
         "mixpanel:Get-Property-Values": 42,
@@ -231,7 +232,8 @@
         "superpowers:writing-plans": 1,
         "superpowers:subagent-driven-development": 1,
         "fewer-permission-prompts": 1,
-        "ui-dom-verify": 1
+        "ui-dom-verify": 1,
+        "deep-research": 1
       },
       "agents": {
         "general-purpose": 35,
@@ -241,10 +243,10 @@
       "mcpTools": {
         "claude_ai_Google_Drive:read_file_content": 4,
         "claude_ai_Atlassian:authenticate": 1,
-        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 3,
-        "claude_ai_Atlassian:createJiraIssue": 5,
+        "claude_ai_Atlassian:searchJiraIssuesUsingJql": 4,
+        "claude_ai_Atlassian:createJiraIssue": 6,
         "claude_ai_Atlassian:createIssueLink": 1,
-        "mixpanel:Run-Query": 99,
+        "mixpanel:Run-Query": 112,
         "mixpanel:Get-Property-Values": 8,
         "mixpanel:List-Properties": 9,
         "claude_ai_Atlassian:getJiraProjectIssueTypesMetadata": 3,
@@ -257,7 +259,7 @@
         "appsflyer:get_apps": 1,
         "appsflyer:fetch_aggregated_data": 10,
         "mixpanel:Get-Events": 14,
-        "mixpanel:Get-Query-Schema": 3,
+        "mixpanel:Get-Query-Schema": 4,
         "computer-use:screenshot": 5,
         "computer-use:switch_display": 4,
         "computer-use:open_application": 1,
