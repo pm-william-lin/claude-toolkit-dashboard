@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T10:38:47.851Z",
+  "generatedAt": "2026-07-02T02:50:51.039Z",
   "plugins": [
     {
       "name": "collab",
@@ -636,7 +636,7 @@
     }
   ],
   "usage": {
-    "lastUpdated": "2026-07-01T10:26:00.755Z",
+    "lastUpdated": "2026-07-01T10:41:38.964Z",
     "tools": {
       "agent:general-purpose": 100,
       "agent:Explore": 6,
@@ -735,7 +735,7 @@
       "claude_ai_Ahrefs:doc": 1,
       "claude_ai_Ahrefs:keywords-explorer-matching-terms": 1,
       "skill:banner-design": 2,
-      "skill:slides": 2,
+      "skill:slides": 3,
       "skill:frontend-design": 1,
       "cmoney-wp-prd:wp_list_categories": 1,
       "skill:soft-skill": 1,
@@ -773,7 +773,7 @@
           "superpowers:systematic-debugging": 1,
           "web-performance-optimization": 1,
           "organize-files": 1,
-          "slides": 1,
+          "slides": 2,
           "update-config": 1
         },
         "agents": {
